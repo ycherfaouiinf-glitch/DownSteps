@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/Card"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="16dp"
+    android:layoutDirection="ltr">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        style="@style/Card.Padding" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <FrameLayout
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:layout_marginEnd="12dp"
+                android:background="@drawable/bg_image_rounded"
+                android:padding="3dp">
+
+                <ImageView
+                    android:id="@+id/imgCenter"
+                    android:layout_width="90dp"
+                    android:layout_height="90dp"
+                    android:clipToOutline="true"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/mfatih_eldjana_ass" />
+            </FrameLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:layoutDirection="ltr">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layoutDirection="ltr">
+
+                    <TextView
+                        android:id="@+id/tvName"
+                        style="@style/Text.Section"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Center Name"
+                        android:maxLines="3" />
+                    <TextView
+                        android:id="@+id/tvCategory"
+                        style="@style/Text.Badge"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Association"
+                        android:background="@drawable/bg_category"
+                        android:paddingStart="10dp"
+                        android:paddingEnd="10dp"
+                        android:paddingTop="4dp"
+                        android:paddingBottom="4dp"
+                        android:layout_marginStart="5dp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layoutDirection="ltr">
+
+                    <ImageView
+                        style="@style/Icon.Small"
+                        android:layout_marginEnd="6dp"
+                        android:src="@drawable/ic_location"
+                        app:tint="@color/btn_primary"/>
+
+                    <TextView
+                        android:id="@+id/tvLocation"
+                        style="@style/Text.Small"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Algeria - Blida" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layoutDirection="ltr">
+
+                    <ImageView
+                        style="@style/Icon.Small"
+                        android:layout_marginEnd="6dp"
+                        android:src="@drawable/ic_call"
+                        app:tint="@color/btn_primary"/>
+
+                    <TextView
+                        android:id="@+id/tvPhone"
+                        style="@style/Text.Small"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0661809255" />
+                </LinearLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnLocation"
+                style="@style/Btn.Secondary"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_marginEnd="8dp"
+                android:text="Location"
+                app:icon="@drawable/ic_location"
+                app:iconTint="@color/btn_primary"
+                app:iconPadding="6dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnCall"
+                style="@style/Btn.Secondary"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_marginEnd="8dp"
+                android:text="Location"
+                app:icon="@drawable/ic_location"
+                app:iconTint="@color/btn_primary"
+                app:iconPadding="6dp" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>

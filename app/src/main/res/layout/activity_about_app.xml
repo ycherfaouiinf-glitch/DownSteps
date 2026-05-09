@@ -1,0 +1,116 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/aboutAppPage" android:layout_width="match_parent" android:layout_height="match_parent" app:tint="@color/input_icon" android:background="@color/bg_main">
+
+    <!-- Top background -->
+    <View android:id="@+id/topShape" style="@style/TopShape" android:layout_width="0dp" android:layout_height="140dp" android:alpha="0.18" app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"/>
+
+    <!-- Header -->
+    <!-- Content -->
+    <androidx.core.widget.NestedScrollView android:id="@+id/scrollContent" android:layout_width="0dp" android:layout_height="0dp" android:clipToPadding="false" android:fillViewport="true" android:overScrollMode="never" android:paddingStart="16dp" android:paddingTop="8dp" android:paddingEnd="16dp" android:paddingBottom="110dp" android:scrollbars="none" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
+
+            <LinearLayout android:id="@+id/headerLayout" style="@style/Header" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
+
+        <LinearLayout android:id="@+id/backContainer" style="@style/BackBtn.Box" android:layout_marginBottom="14dp" android:orientation="horizontal">
+
+            <ImageView android:id="@+id/btnBack" style="@style/BackBtn.Icon" android:contentDescription="Back"/>
+        </LinearLayout>
+
+        <TextView android:id="@+id/tvAboutTitle" style="@style/Text.Title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="About the Application"/>
+
+        <TextView android:id="@+id/tvAboutSubtitle" style="@style/Text.Subtitle" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:text="Learn more about DownSteps"/>
+    </LinearLayout>
+
+    <!-- Logo Card -->
+            <com.google.android.material.card.MaterialCardView android:id="@+id/logoCard" style="@style/Card" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="14dp">
+
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:gravity="center_horizontal" android:orientation="vertical" style="@style/Card.Padding">
+
+                    <ImageView android:id="@+id/imgAppLogo" android:layout_width="100dp" android:layout_height="100dp" android:contentDescription="App logo" android:scaleType="fitCenter" android:src="@drawable/downstepslogo"/>
+
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="12dp" android:text="DownSteps" style="@style/Text.AppName" android:textSize="20sp" android:textStyle="bold"/>
+
+                    <TextView style="@style/Text.Subtitle" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:text="Support, guidance, and daily care tools"/>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- About Card -->
+            <com.google.android.material.card.MaterialCardView android:id="@+id/aboutCard" style="@style/Card" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="14dp">
+
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" style="@style/Card.Padding">
+
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="12dp" android:gravity="center_vertical" android:orientation="horizontal">
+
+                        <ImageView android:layout_width="28dp" android:layout_height="28dp" android:layout_marginEnd="10dp" android:contentDescription="@null" android:src="@drawable/downstepslogo"/>
+
+                        <TextView style="@style/Text.Section" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="What is DownSteps?"/>
+                    </LinearLayout>
+
+                    <TextView style="@style/Text.Body" android:layout_width="match_parent" android:layout_height="wrap_content" android:lineSpacingExtra="4dp" android:text="DownSteps is a supportive application designed to help parents of children with Down syndrome by providing trusted information, daily activities, guidance, and useful resources."/>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Mission Card -->
+            <com.google.android.material.card.MaterialCardView android:id="@+id/missionCard" style="@style/Card" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="14dp">
+
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="18dp">
+
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="12dp" android:gravity="center_vertical" android:orientation="horizontal">
+
+                        <ImageView android:layout_width="28dp" android:layout_height="28dp" android:layout_marginEnd="10dp" android:contentDescription="@null" android:src="@drawable/mission" app:tint="@color/input_icon"/>
+
+                        <TextView style="@style/Text.Section" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Our Mission"/>
+                    </LinearLayout>
+
+                    <TextView style="@style/Text.Body" android:layout_width="match_parent" android:layout_height="wrap_content" android:lineSpacingExtra="4dp" android:text="The goal of this application is to support families through simple tools, educational content, practical exercises, and emergency features that make follow-up easier and more organized."/>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Info Card -->
+            <com.google.android.material.card.MaterialCardView android:id="@+id/infoCard" style="@style/Card" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="16dp">
+
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="18dp">
+
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="14dp" android:gravity="center_vertical" android:orientation="horizontal">
+
+                        <ImageView android:layout_width="28dp" android:layout_height="28dp" android:layout_marginEnd="10dp" android:contentDescription="@null" android:src="@drawable/application" app:tint="@color/input_icon"/>
+
+                        <TextView style="@style/Text.Section" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Application Info"/>
+                    </LinearLayout>
+
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:minHeight="46dp" android:gravity="center_vertical" android:orientation="horizontal">
+
+                        <TextView android:layout_width="95dp" android:layout_height="wrap_content" android:text="Name:" style="@style/Text.Label" android:textSize="15sp" android:textStyle="bold"/>
+
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="DownSteps" style="@style/Text.Body" android:textColor="@color/text_subtitle" android:textSize="15sp"/>
+                    </LinearLayout>
+
+                    <View android:layout_width="match_parent" android:layout_height="1dp" android:layout_marginVertical="8dp" android:background="@color/card_border"/>
+
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:minHeight="46dp" android:gravity="center_vertical" android:orientation="horizontal">
+
+                        <TextView android:layout_width="95dp" android:layout_height="wrap_content" android:text="Version:" style="@style/Text.Label" android:textSize="15sp" android:textStyle="bold"/>
+
+                        <TextView android:id="@+id/tvAppVersion" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="1.0.0" style="@style/Text.Body" android:textColor="@color/text_subtitle" android:textSize="15sp"/>
+                    </LinearLayout>
+
+                    <View android:layout_width="match_parent" android:layout_height="1dp" android:layout_marginVertical="8dp" android:background="@color/input_border"/>
+
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:minHeight="46dp" android:gravity="center_vertical" android:orientation="horizontal">
+
+                        <TextView android:layout_width="95dp" android:layout_height="wrap_content" android:text="Developer:" style="@style/Text.Label" android:textSize="15sp" android:textStyle="bold"/>
+
+                        <TextView android:id="@+id/tvDeveloperName" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="DownSteps Team" style="@style/Text.Body" android:textColor="@color/text_subtitle" android:textSize="15sp"/>
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Button -->
+            <com.google.android.material.button.MaterialButton android:id="@+id/btnBackSettings" style="@style/Btn.Primary" android:layout_width="match_parent" android:layout_marginTop="2dp" android:layout_marginBottom="4dp" android:text="Back to Settings"/>
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

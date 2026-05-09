@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="@color/bg_main"
+    android:padding="20dp"
+    android:layoutDirection="ltr">
+
+    <!-- Image -->
+    <ImageView
+        android:id="@+id/imgIntro"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:src="@drawable/img_intro_games"
+        android:contentDescription="Intro"
+        android:layout_marginBottom="20dp" />
+
+    <!-- Title -->
+    <TextView
+        android:id="@+id/tvGreeting"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Let’s start playing!"
+        style="@style/Text.Title"
+        android:layout_marginBottom="10dp"/>
+
+    <!-- Subtitle -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="We prepared games to help your child learn and focus"
+        style="@style/Text.Subtitle"
+        android:gravity="center"
+        android:layout_marginBottom="30dp"/>
+
+    <!-- Loading dots -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="20dp">
+
+        <View
+            android:id="@+id/dot1"
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:layout_margin="5dp"
+            android:background="@drawable/bg_dot_purple"/>
+
+        <View
+            android:id="@+id/dot2"
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:layout_margin="5dp"
+            android:background="@drawable/bg_dot_yellow"/>
+
+        <View
+            android:id="@+id/dot3"
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:layout_margin="5dp"
+            android:background="@drawable/bg_dot_blue"/>
+
+    </LinearLayout>
+
+    <!-- Bottom text -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Preparing games..."
+        android:textSize="14sp"
+        android:textColor="#8D95A5"/>
+
+</LinearLayout>

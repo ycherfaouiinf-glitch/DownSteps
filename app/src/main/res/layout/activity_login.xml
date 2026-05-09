@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools" android:id="@+id/loginPage" android:layout_width="match_parent" android:layout_height="match_parent" android:background="@color/bg_main" tools:context=".ui.LoginActivity">
+
+    <!-- Top background -->
+    <View android:id="@+id/topShape" style="@style/TopShape" android:layout_width="0dp" android:layout_height="140dp" android:alpha="0.45" app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"/>
+
+    <!-- Header -->
+    <!-- Content -->
+    <androidx.core.widget.NestedScrollView android:id="@+id/scrollContent" android:layout_width="0dp" android:layout_height="0dp" android:clipToPadding="false" android:fillViewport="true" android:paddingStart="24dp" android:paddingTop="8dp" android:paddingEnd="24dp" android:paddingBottom="24dp" android:scrollbars="none" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintVertical_bias="0.5" app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent" android:gravity="center_vertical" android:orientation="vertical">
+
+            <LinearLayout android:id="@+id/headerLayout" style="@style/Header" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
+
+        <TextView android:id="@+id/tvTitle" style="@style/Text.Title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Log in"/>
+
+        <TextView android:id="@+id/tvSubTitle" style="@style/Text.Subtitle" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:text="Step by step with you."/>
+    </LinearLayout>
+
+    <!-- Email -->
+            <TextView style="@style/Text.Label" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Email"/>
+
+            <com.google.android.material.textfield.TextInputLayout android:id="@+id/emailLayout" style="@style/Input.Rounded" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:hint="example@gmail.com" app:startIconDrawable="@drawable/ic_mail" app:startIconTint="@color/input_icon">
+
+                <com.google.android.material.textfield.TextInputEditText android:id="@+id/etEmail" style="@style/EditText" android:layout_width="match_parent" android:layout_height="wrap_content" android:inputType="textEmailAddress"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Password -->
+            <TextView style="@style/Text.Label" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="18dp" android:text="Password"/>
+
+            <com.google.android.material.textfield.TextInputLayout android:id="@+id/passwordLayout" style="@style/Input.Rounded" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:hint="••••••••" app:endIconMode="password_toggle" app:endIconTint="@color/input_icon" app:startIconDrawable="@drawable/ic_lock" app:startIconTint="@color/input_icon">
+
+                <com.google.android.material.textfield.TextInputEditText android:id="@+id/etPassword" style="@style/EditText" android:layout_width="match_parent" android:layout_height="wrap_content" android:inputType="textPassword"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Forgot password -->
+            <TextView android:id="@+id/tvForgot" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="end" android:layout_marginTop="10dp" android:text="Forgot password?" style="@style/Text.Link.Small"/>
+
+            <!-- Login button -->
+            <com.google.android.material.button.MaterialButton android:id="@+id/btnLogin" style="@style/Btn.PrimaryLarge" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="32dp" android:text="Log in"/>
+
+            <!-- OR -->
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center_horizontal" android:layout_marginTop="18dp" android:text="- OR -" android:textColor="@color/text_or" android:textSize="12sp"/>
+
+            <!-- Google -->
+            <com.google.android.material.button.MaterialButton android:id="@+id/btnGoogle" style="@style/Btn.Secondary" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="14dp" android:text="Log in with Google" app:cornerRadius="28dp" app:icon="@drawable/ic_google" app:iconGravity="textStart" app:iconPadding="10dp" app:iconTint="@null"/>
+
+            <!-- Sign up -->
+            <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center_horizontal" android:layout_marginTop="22dp" android:orientation="horizontal">
+
+                <TextView style="@style/Text.Small" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Don’t have an account? "/>
+
+                <TextView android:id="@+id/btnGoSignup" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Register here!" style="@style/Text.Link.Primary"/>
+            </LinearLayout>
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

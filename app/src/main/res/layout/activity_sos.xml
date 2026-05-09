@@ -1,0 +1,65 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/sosPage" android:layout_width="match_parent" android:layout_height="match_parent" android:background="@color/bg_main">
+
+    <!-- Top background -->
+    <View android:id="@+id/topShape" style="@style/TopShape" android:layout_width="0dp" android:layout_height="140dp" android:alpha="0.45" app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"/>
+
+    <!-- Header -->
+    <!-- Scroll Content -->
+    <androidx.core.widget.NestedScrollView android:id="@+id/scrollContent" android:layout_width="0dp" android:layout_height="0dp" android:clipToPadding="false" android:fillViewport="true" android:overScrollMode="never" android:paddingStart="20dp" android:paddingTop="8dp" android:paddingEnd="20dp" android:paddingBottom="110dp" android:scrollbars="none" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:paddingBottom="16dp">
+
+            <LinearLayout android:id="@+id/headerLayout" style="@style/Header" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
+
+        <TextView android:id="@+id/tvSosTitle" style="@style/Text.Title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="SOS"/>
+
+        <TextView android:id="@+id/tvSosSubtitle" style="@style/Text.Subtitle" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:text="Emergency contact settings"/>
+    </LinearLayout>
+
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" style="@style/Card.Padding">
+
+                <TextView android:id="@+id/tvEmergencyTitle" style="@style/Text.Section" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="14dp" android:text="Emergency Contacts"/>
+
+                <TextView style="@style/Text.Label" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Primary SOS Number"/>
+
+                <com.google.android.material.textfield.TextInputLayout android:id="@+id/primaryNumberLayout" style="@style/Input" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:layout_marginBottom="14dp" android:hint="Enter primary number" app:startIconDrawable="@drawable/phone" app:startIconTint="@color/input_icon">
+
+                    <com.google.android.material.textfield.TextInputEditText android:id="@+id/etPrimaryNumber" style="@style/EditText" android:layout_width="match_parent" android:layout_height="wrap_content" android:inputType="phone"/>
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView style="@style/Text.Label" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Additional Number 1"/>
+
+                <com.google.android.material.textfield.TextInputLayout android:id="@+id/secondaryNumber1Layout" style="@style/Input" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:layout_marginBottom="14dp" android:hint="Optional" app:startIconDrawable="@drawable/phone" app:startIconTint="@color/input_icon">
+
+                    <com.google.android.material.textfield.TextInputEditText android:id="@+id/etSecondaryNumber1" style="@style/EditText" android:layout_width="match_parent" android:layout_height="wrap_content" android:inputType="phone"/>
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView style="@style/Text.Label" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Additional Number 2"/>
+
+                <com.google.android.material.textfield.TextInputLayout android:id="@+id/secondaryNumber2Layout" style="@style/Input" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:layout_marginBottom="14dp" android:hint="Optional" app:startIconDrawable="@drawable/phone" app:startIconTint="@color/input_icon">
+
+                    <com.google.android.material.textfield.TextInputEditText android:id="@+id/etSecondaryNumber2" style="@style/EditText" android:layout_width="match_parent" android:layout_height="wrap_content" android:inputType="phone"/>
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView style="@style/Text.Label" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Contact Name"/>
+
+                <com.google.android.material.textfield.TextInputLayout android:id="@+id/contactNameLayout" style="@style/Input" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:layout_marginBottom="18dp" android:hint="Father / Mother / Relative / Ambulance" app:startIconDrawable="@drawable/ic_profil" app:startIconTint="@color/input_icon">
+
+                    <com.google.android.material.textfield.TextInputEditText android:id="@+id/etContactName" style="@style/EditText" android:layout_width="match_parent" android:layout_height="wrap_content" android:inputType="textPersonName"/>
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.button.MaterialButton android:id="@+id/btnSaveSos" style="@style/Btn.Primary" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="12dp" android:text="Save"/>
+
+            </LinearLayout>
+
+            <!-- Info Card -->
+            <com.google.android.material.card.MaterialCardView android:id="@+id/infoCard" style="@style/Card" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <!-- Bottom Navigation -->
+    <include android:id="@+id/bottomNavInclude" layout="@layout/view_bottom_nav" android:layout_width="0dp" android:layout_height="64dp" android:layout_marginStart="34dp" android:layout_marginEnd="34dp" android:layout_marginBottom="14dp" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

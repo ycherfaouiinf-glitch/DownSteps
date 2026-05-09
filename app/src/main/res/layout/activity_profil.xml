@@ -1,0 +1,107 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/profil" android:layout_width="match_parent" android:layout_height="match_parent" android:background="@color/bg_main">
+
+    <!-- Top background -->
+    <View android:id="@+id/topShape" style="@style/TopShape" android:layout_width="0dp" android:layout_height="140dp" android:alpha="0.45" app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"/>
+
+    <!-- Header -->
+    <!-- Scroll Content -->
+    <androidx.core.widget.NestedScrollView android:id="@+id/scrollContent" android:layout_width="0dp" android:layout_height="0dp" android:clipToPadding="false" android:fillViewport="true" android:overScrollMode="never" android:paddingStart="20dp" android:paddingTop="8dp" android:paddingEnd="20dp" android:paddingBottom="110dp" android:scrollbars="none" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:paddingBottom="16dp">
+
+            <LinearLayout android:id="@+id/headerLayout" style="@style/Header" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
+
+        <TextView android:id="@+id/tvProfileTitle" style="@style/Text.Title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Profile"/>
+
+        <TextView android:id="@+id/tvParentName" style="@style/Text.Subtitle" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:text="Name of parent"/>
+    </LinearLayout>
+
+    <!-- Child Card -->
+            <com.google.android.material.card.MaterialCardView android:id="@+id/childCard" style="@style/Card" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="12dp">
+
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" style="@style/Card.Padding">
+
+                    <TextView android:id="@+id/tvChildSectionTitle" style="@style/Text.Section" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="14dp" android:text="Child Information"/>
+
+                    <!-- Top child profile row -->
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="16dp" android:gravity="center_vertical" android:orientation="horizontal">
+
+                        <ImageView android:id="@+id/imgChild" style="@style/Icon.Big" android:layout_marginEnd="14dp" android:background="@drawable/circle_child_bg" android:contentDescription="Child image" android:padding="12dp" android:src="@android:drawable/ic_menu_gallery" app:tint="@color/btn_primary"/>
+
+                        <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="vertical">
+
+                            <TextView android:id="@+id/tvChildNameTop" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Adam" style="@style/Text.Featured"/>
+
+                            <TextView android:id="@+id/tvChildProfile" style="@style/Text.Subtitle" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="2dp" android:text="Child Profile"/>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <!-- Child info rows -->
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="18dp" android:orientation="vertical">
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="12dp" android:gravity="center_vertical" android:orientation="horizontal">
+
+                            <TextView style="@style/Text.Label" android:layout_width="70dp" android:layout_height="wrap_content" android:text="Name:"/>
+
+                            <TextView android:id="@+id/tvChildName" style="@style/Text.Body" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Adam"/>
+                        </LinearLayout>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="12dp" android:gravity="center_vertical" android:orientation="horizontal">
+
+                            <TextView style="@style/Text.Label" android:layout_width="70dp" android:layout_height="wrap_content" android:text="Gender:"/>
+
+                            <TextView android:id="@+id/tvChildGender" style="@style/Text.Body" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Male"/>
+                        </LinearLayout>
+
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:gravity="center_vertical" android:orientation="horizontal">
+
+                            <TextView style="@style/Text.Label" android:layout_width="70dp" android:layout_height="wrap_content" android:text="Birth:"/>
+
+                            <TextView android:id="@+id/tvChildBirthDate" style="@style/Text.Body" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="12/05/2020"/>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <com.google.android.material.button.MaterialButton android:id="@+id/btnEditChild" style="@style/Btn.Primary" android:layout_width="match_parent" android:layout_height="wrap_content" android:onClick="gotoprofilchild" android:text="Edit child information"/>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Levels Card -->
+            <com.google.android.material.card.MaterialCardView android:id="@+id/levelsCard" style="@style/Card" android:layout_width="match_parent" android:layout_height="wrap_content">
+
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" style="@style/Card.Padding">
+
+                    <TextView android:id="@+id/tvLevelsTitle" style="@style/Text.Section" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="14dp" android:text="Levels"/>
+
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="10dp" android:gravity="center_vertical" android:orientation="horizontal">
+
+                        <View android:layout_width="8dp" android:layout_height="8dp" android:layout_marginEnd="10dp" android:background="@drawable/circle_child_bg"/>
+
+                        <TextView android:id="@+id/tvMotorLevel" style="@style/Text.Body" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Motor: Beginner"/>
+                    </LinearLayout>
+
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="10dp" android:gravity="center_vertical" android:orientation="horizontal">
+
+                        <View android:layout_width="8dp" android:layout_height="8dp" android:layout_marginEnd="10dp" android:background="@drawable/circle_child_bg"/>
+
+                        <TextView android:id="@+id/tvLanguageLevel" style="@style/Text.Body" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Language: Intermediate"/>
+                    </LinearLayout>
+
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="18dp" android:gravity="center_vertical" android:orientation="horizontal">
+
+                        <View android:layout_width="8dp" android:layout_height="8dp" android:layout_marginEnd="10dp" android:background="@drawable/circle_child_bg"/>
+
+                        <TextView android:id="@+id/tvSpeechLevel" style="@style/Text.Body" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Speech: Advanced"/>
+                    </LinearLayout>
+
+                    <com.google.android.material.button.MaterialButton android:id="@+id/btnReEvaluate" style="@style/Btn.Primary" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Re-evaluate"/>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <!-- Bottom Navigation -->
+    <include android:id="@+id/bottomNavInclude" layout="@layout/view_bottom_nav" android:layout_width="0dp" android:layout_height="64dp" android:layout_marginStart="34dp" android:layout_marginEnd="34dp" android:layout_marginBottom="14dp" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

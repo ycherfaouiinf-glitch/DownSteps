@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    style="@style/BottomSheet.Root"
+    android:layoutDirection="ltr">
+
+    <View
+        android:layout_width="48dp"
+        android:layout_height="5dp"
+        android:layout_gravity="center"
+        android:background="@drawable/bg_bottom_sheet_handle" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp">
+
+        <ImageView
+            android:id="@+id/btnCloseCategorySheet"
+            style="@style/Icon.Medium"
+            android:layout_alignParentStart="true"
+            android:src="@drawable/ic_close"
+            app:tint="@color/input_icon"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="Choose Category"
+            style="@style/Text.Section"/>
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:text="Select the type you are looking for"
+        style="@style/Text.Small"/>
+
+    <LinearLayout
+        android:id="@+id/itemAllCategories"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="22dp"
+        android:background="@drawable/bg_filter_option"
+        android:minHeight="92dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        style="@style/Card.Padding">
+
+        <ImageView
+            android:id="@+id/ivAllCategories"
+            style="@style/Icon.Category"
+            android:src="@drawable/ic_category_all"
+            android:background="@drawable/bg_icon_box_purple"
+            android:padding="12dp" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="14dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvAllCategories"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="All Categories"
+                style="@style/Text.Section"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="Show all centers and associations"
+                style="@style/Text.Subtitle"/>
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/ivRadioAllCategories"
+            android:layout_width="26dp"
+            android:layout_height="26dp"
+            android:src="@drawable/ic_radio_unselected"
+            app:tint="@color/input_icon"  />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/itemAssociation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:background="@drawable/bg_filter_option"
+        android:minHeight="92dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        style="@style/Card.Padding">
+
+        <ImageView
+            android:id="@+id/ivAssociation"
+            style="@style/Icon.Category"
+            android:src="@drawable/ic_category_association"
+            android:background="@drawable/bg_icon_box_blue"
+            android:padding="12dp" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="14dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvAssociation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Association"
+                style="@style/Text.Section" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="Show charities and community organizations"
+                style="@style/Text.Subtitle" />
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/ivRadioAssociation"
+            android:layout_width="26dp"
+            android:layout_height="26dp"
+            android:src="@drawable/ic_radio_unselected"
+            app:tint="@color/input_icon" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/itemCenter"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:background="@drawable/bg_filter_option"
+        android:minHeight="92dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        style="@style/Card.Padding">
+
+        <ImageView
+            android:id="@+id/ivCenter"
+            style="@style/Icon.Category"
+            android:src="@drawable/ic_category_center"
+            android:background="@drawable/bg_icon_box_green"
+            android:padding="12dp" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="14dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvCenter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Center"
+                style="@style/Text.Section" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="Show specialized centers and facilities"
+                style="@style/Text.Subtitle"/>
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/ivRadioCenter"
+            android:layout_width="26dp"
+            android:layout_height="26dp"
+            android:src="@drawable/ic_radio_unselected"
+            app:tint="@color/input_icon"/>
+    </LinearLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnApplyCategory"
+        style="@style/Btn.Primary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="22dp"
+        android:text="Apply" />
+
+    </LinearLayout>
+

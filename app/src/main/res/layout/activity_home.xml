@@ -1,0 +1,173 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/homePage" android:layout_width="match_parent" android:layout_height="match_parent" android:background="@color/bg_main">
+
+    <!-- Top background -->
+    <View android:id="@+id/topShape"
+        style="@style/TopShape"
+        android:layout_width="0dp"
+        android:layout_height="160dp"
+        android:alpha="0.22"
+        app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"/>
+
+
+
+    <!-- Content -->
+    <androidx.core.widget.NestedScrollView android:id="@+id/scrollContent" android:layout_width="0dp" android:layout_height="0dp" android:clipToPadding="false" android:fillViewport="true" android:overScrollMode="never" android:paddingStart="16dp" android:paddingTop="8dp" android:paddingEnd="16dp" android:paddingBottom="110dp" android:scrollbars="none" app:layout_constraintTop_toTopOf="parent" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent">
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
+            <!-- Header -->
+            <LinearLayout android:id="@+id/headerLayout" style="@style/Header" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
+
+                <TextView android:id="@+id/tvGreeting" style="@style/Text.Subtitle" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Welcome back"/>
+
+                <TextView android:id="@+id/tvParentName" style="@style/Text.Title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:text="Parent Name"/>
+
+                <TextView android:id="@+id/tvSubtitle" style="@style/Text.Subtitle" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:text="Let’s support your child step by step"/>
+            </LinearLayout>
+            <!-- Hero Card -->
+            <com.google.android.material.card.MaterialCardView android:id="@+id/welcomeCard" style="@style/Card" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:layout_marginBottom="16dp" app:cardElevation="8dp"/>
+
+            <!-- Section title -->
+            <TextView android:id="@+id/tvExploreTitle" style="@style/Text.Section" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="14dp" android:text="Explore features"/>
+
+            <!-- Row 1 -->
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="12dp" android:orientation="horizontal">
+
+                <com.google.android.material.card.MaterialCardView android:id="@+id/cardFaq" style="@style/Card" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginEnd="6dp" app:cardCornerRadius="24dp">
+
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:minHeight="175dp" android:orientation="vertical" android:gravity="top|center_horizontal" android:paddingStart="16dp" android:paddingTop="20dp" android:paddingEnd="16dp" android:paddingBottom="18dp">
+
+                        <FrameLayout android:layout_width="64dp" android:layout_height="64dp">
+
+                            <View android:layout_width="64dp" android:layout_height="64dp" android:alpha="0.20" android:background="@drawable/circle_child_bg"/>
+
+                            <ImageView android:layout_width="34dp" android:layout_height="34dp" android:layout_gravity="center" android:contentDescription="@null" android:src="@drawable/faq" app:tint="@color/btn_primary"/>
+                        </FrameLayout>
+
+                        <TextView style="@style/Text.Label" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="16dp" android:gravity="center" android:maxLines="2" android:text="FAQ and Info" android:textAlignment="center"/>
+
+                        <TextView style="@style/Text.Small" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:gravity="center" android:maxLines="2" android:text="Helpful answers and useful information" android:textAlignment="center"/>
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView android:id="@+id/cardChallenges" style="@style/Card" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginStart="6dp" app:cardCornerRadius="24dp">
+
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:minHeight="175dp" android:orientation="vertical" android:gravity="top|center_horizontal" android:paddingStart="16dp" android:paddingTop="20dp" android:paddingEnd="16dp" android:paddingBottom="18dp">
+
+                        <FrameLayout android:layout_width="64dp" android:layout_height="64dp">
+
+                            <View android:layout_width="64dp" android:layout_height="64dp" android:alpha="0.20" android:background="@drawable/circle_child_bg"/>
+
+                            <ImageView android:layout_width="34dp" android:layout_height="34dp" android:layout_gravity="center" android:contentDescription="@null" android:src="@drawable/challanges" app:tint="@color/btn_primary"/>
+                        </FrameLayout>
+
+                        <TextView style="@style/Text.Label" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="16dp" android:gravity="center" android:maxLines="2" android:text="Challenges"/>
+
+                        <TextView style="@style/Text.Small" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:gravity="center" android:maxLines="2" android:text="Daily exercises for progress"/>
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+            </LinearLayout>
+
+            <!-- Row 2 -->
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="12dp" android:orientation="horizontal">
+
+                <com.google.android.material.card.MaterialCardView android:id="@+id/cardSkills" style="@style/Card" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginEnd="6dp" app:cardCornerRadius="24dp">
+
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:minHeight="175dp" android:orientation="vertical" android:gravity="top|center_horizontal" android:paddingStart="16dp" android:paddingTop="20dp" android:paddingEnd="16dp" android:paddingBottom="18dp">
+
+                        <FrameLayout android:layout_width="64dp" android:layout_height="64dp">
+
+                            <View android:layout_width="64dp" android:layout_height="64dp" android:alpha="0.20" android:background="@drawable/circle_child_bg"/>
+
+                            <ImageView android:layout_width="34dp" android:layout_height="34dp" android:layout_gravity="center" android:contentDescription="@null" android:src="@drawable/dailychallanges" app:tint="@color/btn_primary"/>
+                        </FrameLayout>
+
+                        <TextView style="@style/Text.Label" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="16dp" android:gravity="center" android:maxLines="2" android:text="Daily Skills"/>
+
+                        <TextView style="@style/Text.Small" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:gravity="center" android:maxLines="2" android:text="Simple tasks for each day"/>
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView android:id="@+id/cardCenters" style="@style/Card" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginStart="6dp" app:cardCornerRadius="24dp">
+
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:minHeight="175dp" android:orientation="vertical" android:gravity="top|center_horizontal" android:paddingStart="16dp" android:paddingTop="20dp" android:paddingEnd="16dp" android:paddingBottom="18dp">
+
+                        <FrameLayout android:layout_width="64dp" android:layout_height="64dp">
+
+                            <View android:layout_width="64dp" android:layout_height="64dp" android:alpha="0.20" android:background="@drawable/circle_child_bg"/>
+
+                            <ImageView android:layout_width="34dp" android:layout_height="34dp" android:layout_gravity="center" android:contentDescription="@null" android:src="@android:drawable/ic_menu_mylocation" app:tint="@color/btn_primary"/>
+                        </FrameLayout>
+
+                        <TextView style="@style/Text.Label" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="16dp" android:gravity="center" android:maxLines="2" android:text="Centers"/>
+
+                        <TextView style="@style/Text.Small" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:gravity="center" android:maxLines="2" android:text="Nearby support centers"/>
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+            </LinearLayout>
+
+            <!-- Row 3 -->
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="12dp" android:orientation="horizontal">
+
+                <com.google.android.material.card.MaterialCardView android:id="@+id/cardGames" style="@style/Card" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginEnd="6dp" app:cardCornerRadius="24dp">
+
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:minHeight="175dp" android:orientation="vertical" android:gravity="top|center_horizontal" android:paddingStart="16dp" android:paddingTop="20dp" android:paddingEnd="16dp" android:paddingBottom="18dp">
+
+                        <FrameLayout android:layout_width="64dp" android:layout_height="64dp">
+
+                            <View android:layout_width="64dp" android:layout_height="64dp" android:alpha="0.20" android:background="@drawable/circle_child_bg"/>
+
+                            <ImageView android:layout_width="34dp" android:layout_height="34dp" android:layout_gravity="center" android:contentDescription="@null" android:src="@drawable/game" app:tint="@color/btn_primary"/>
+                        </FrameLayout>
+
+                        <TextView style="@style/Text.Label" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="16dp" android:gravity="center" android:maxLines="2" android:text="Games"/>
+
+                        <TextView style="@style/Text.Small" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:gravity="center" android:maxLines="2" android:text="Fun educational activities"/>
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView android:id="@+id/cardSuccessStories" style="@style/Card" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginStart="6dp" app:cardCornerRadius="24dp">
+
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:minHeight="175dp" android:orientation="vertical" android:gravity="top|center_horizontal" android:paddingStart="16dp" android:paddingTop="20dp" android:paddingEnd="16dp" android:paddingBottom="18dp">
+
+                        <FrameLayout android:layout_width="64dp" android:layout_height="64dp">
+
+                            <View android:layout_width="64dp" android:layout_height="64dp" android:alpha="0.20" android:background="@drawable/circle_child_bg"/>
+
+                            <ImageView android:layout_width="34dp" android:layout_height="34dp" android:layout_gravity="center" android:contentDescription="@null" android:src="@drawable/succes" app:tint="@color/btn_primary"/>
+                        </FrameLayout>
+
+                        <TextView style="@style/Text.Label" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="16dp" android:gravity="center" android:maxLines="2" android:text="Success Stories"/>
+
+                        <TextView style="@style/Text.Small" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:gravity="center" android:maxLines="2" android:text="Inspiring real experiences"/>
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+            </LinearLayout>
+
+            <!-- Audio Library -->
+            <com.google.android.material.card.MaterialCardView android:id="@+id/cardAudioLibrary" style="@style/Card" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="8dp" app:cardCornerRadius="24dp">
+
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:minHeight="160dp" android:orientation="vertical" android:gravity="top|center_horizontal" android:paddingStart="18dp" android:paddingTop="22dp" android:paddingEnd="18dp" android:paddingBottom="20dp">
+
+                    <FrameLayout android:layout_width="64dp" android:layout_height="64dp">
+
+                        <View android:layout_width="64dp" android:layout_height="64dp" android:alpha="0.20" android:background="@drawable/circle_child_bg"/>
+
+                        <ImageView android:layout_width="34dp" android:layout_height="34dp" android:layout_gravity="center" android:contentDescription="@null" android:src="@drawable/voix" app:tint="@color/btn_primary"/>
+                    </FrameLayout>
+
+                    <TextView style="@style/Text.Label" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="16dp" android:gravity="center" android:maxLines="2" android:text="Audio Library"/>
+
+                    <TextView style="@style/Text.Small" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:gravity="center" android:maxLines="2" android:text="Useful audio resources and listening content"/>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+ 
+
+    <!-- Bottom Navigation -->
+    <include android:id="@+id/bottomNavInclude" layout="@layout/view_bottom_nav" android:layout_width="0dp" android:layout_height="64dp" android:layout_marginStart="34dp" android:layout_marginEnd="34dp" android:layout_marginBottom="14dp" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

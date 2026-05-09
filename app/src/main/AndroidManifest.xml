@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <!-- Permission for SOS call -->
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <uses-feature
+        android:name="android.hardware.telephony"
+        android:required="false" />
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@drawable/downstepslogo"
+        android:label="@string/app_name"
+        android:roundIcon="@drawable/downstepslogo"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.DownSteps1">
+
+        <receiver
+            android:name=".ui.SosWidgetProvider"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/sos_widget_info" />
+        </receiver>
+        <activity
+            android:name=".ui.SosWidgetActivationActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ui.GamesIntroActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ui.GamesActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ui.CentersAndAssociationsActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ui.AudioActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ui.DailySkillsActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ui.SkillVideosActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ui.VideoPlayerActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ui.LibraryAudioActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ui.NewPasswordActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ui.VerifyCodeActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ui.ChallengesTimelineActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ui.ChallengeTypeActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ui.Challange1Activity"
+            android:exported="true" />
+        <activity
+            android:name=".ui.LanguageTestActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ui.MotorTestActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ui.SpeechTestActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ui.SuccessStoriesActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ui.ChildInformationActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ui.FaqActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ui.EditChildActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ui.AboutAppActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ui.HelpSupportActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ui.LanguageActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ui.ChangePasswordActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ui.ChangeProfileActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ui.HomeActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ui.SosActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.SettingsActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ui.ProfilActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ui.ResetPasswordActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ui.SignupActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ui.LoginActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

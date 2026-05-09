@@ -1,0 +1,148 @@
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/Card"
+    android:layout_width="match_parent"
+    android:layout_height="215dp"
+    android:layout_margin="8dp"
+    android:layoutDirection="ltr">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!-- Level -->
+        <TextView
+            android:id="@+id/tvGameLevel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|start"
+            android:layout_margin="10dp"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp"
+            android:text="Level 1"
+            style="@style/Text.Small" />
+
+        <!-- Favorite -->
+        <ImageView
+            android:id="@+id/btnFavorite"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:layout_gravity="top|end"
+            android:layout_margin="10dp"
+            android:src="@drawable/ic_heart_outline"
+            app:tint="@color/card_game"
+            android:contentDescription="Favorite" />
+
+        <!-- Content -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:paddingTop="26dp"
+            android:paddingBottom="12dp">
+
+            <!-- Game Image -->
+            <ImageView
+                android:id="@+id/imgGame"
+                android:layout_width="100dp"
+                android:layout_height="80dp"
+                android:scaleType="centerInside"
+                android:src="@android:drawable/ic_menu_gallery"
+                android:contentDescription="Game image" />
+
+            <!-- Name + Popular -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginTop="8dp">
+
+                <TextView
+                    android:id="@+id/tvGameName"
+                    style="@style/Text.Section"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Connect" />
+                <Space
+                    android:layout_width="6dp"
+                    android:layout_height="wrap_content" />
+
+                <LinearLayout
+                    android:id="@+id/badgePopular"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="#FFF3CD"
+                    android:paddingStart="6dp"
+                    android:paddingEnd="6dp"
+                    android:paddingTop="2dp"
+                    android:paddingBottom="2dp"
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="🔥"
+                        android:textSize="10sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Popular"
+                        android:textColor="#FF9800"
+                        android:textSize="10sp"
+                        android:textStyle="bold"
+                        android:layout_marginStart="2dp"/>
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!-- Description -->
+            <TextView
+                android:id="@+id/tvGameDesc"
+                style="@style/Text.Small"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:maxLines="2"
+                android:text="Match similar items" />
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <!-- Start Button -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/btnStartCircle"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="4dp"
+                app:cardCornerRadius="18dp"
+                app:cardElevation="0dp"
+                app:cardBackgroundColor="@color/btn_primary">
+                <ImageView
+                    android:id="@+id/imgArrow"
+                    android:layout_width="10dp"
+                    android:layout_height="23dp"
+                    android:layout_gravity="center"
+                    android:contentDescription="Start"
+                    android:src="@drawable/ic_arrow_right"
+                    app:tint="#FFFFFF" />
+            </com.google.android.material.card.MaterialCardView>
+
+        </LinearLayout>
+
+    </FrameLayout>
+
+</com.google.android.material.card.MaterialCardView>

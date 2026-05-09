@@ -1,0 +1,359 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Btn" /><!-- ================= BASE STYLES ================= -->
+    <style name="Text" />
+    <style name="Icon" />
+    <style name="BackBtn" />
+    <style name="Space" />
+    <style name="CheckBox" />
+    <style name="BottomSheet" />
+
+
+    <!-- ================= TEXT ================= -->
+
+    <style name="Text.Title">
+        <item name="android:textColor">@color/text_title</item>
+        <item name="android:textSize">26sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="Text.Subtitle">
+        <item name="android:textColor">@color/text_subtitle</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="Text.Section">
+        <item name="android:textColor">@color/text_title</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="Text.Label">
+        <item name="android:textColor">@color/text_label</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="Text.Body">
+        <item name="android:textColor">@color/text_input</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="Text.Small">
+        <item name="android:textColor">@color/text_small</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="Text.BottomNav">
+        <item name="android:textColor">@color/text_label</item>
+        <item name="android:textSize">10sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="Text.Featured" parent="Text.Section">
+        <item name="android:textSize">20sp</item>
+    </style>
+    <style name="Text.Placeholder" parent="Text.Body">
+        <item name="android:textColor">@color/text_hint_layout</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+    <style name="Text.Hint.Small" parent="Text.Small">
+        <item name="android:textColor">@color/text_hint_layout</item>
+    </style>
+    <style name="Text.Badge" parent="Text.Small">
+        <item name="android:textColor">@color/btn_primary</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <!-- ================= CARD ================= -->
+    <style name="Card">
+        <item name="cardBackgroundColor">@color/card_bg</item>
+        <item name="cardCornerRadius">20dp</item>
+        <item name="strokeWidth">1dp</item>
+        <item name="strokeColor">@color/card_border</item>
+        <item name="cardUseCompatPadding">false</item>
+    </style>
+
+    <style name="Icon.CircleCard" parent="Card">
+        <item name="cardCornerRadius">24dp</item>
+        <item name="cardElevation">0dp</item>
+        <item name="strokeWidth">1dp</item>
+        <item name="strokeColor">@color/input_border</item>
+        <item name="cardBackgroundColor">@color/white</item>
+    </style>
+
+
+    <style name="Card.Gender">
+        <item name="cardCornerRadius">24dp</item>
+        <item name="cardElevation">0dp</item>
+        <item name="strokeWidth">2dp</item>
+    </style>
+
+
+    <style name="Card.Padding">
+        <item name="android:padding">20dp</item>
+    </style>
+
+    <style name="Card.Page" parent="Card">
+        <item name="android:layout_marginBottom">16dp</item>
+    </style>
+
+    <style name="Text.AppName" parent="Text.Section">
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <!-- ================= BUTTON ================= -->
+
+    <style name="Btn.Primary" parent="Widget.MaterialComponents.Button">
+        <item name="android:layout_height">54dp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="backgroundTint">@color/btn_primary</item>
+        <item name="cornerRadius">27dp</item>
+        <item name="elevation">0dp</item>
+    </style>
+
+    <style name="Btn.PrimaryLarge" parent="Btn.Primary">
+        <item name="android:layout_height">70dp</item>
+        <item name="android:textSize">18sp</item>
+        <item name="cornerRadius">35dp</item>
+    </style>
+
+    <style name="Btn.Secondary" parent="Widget.MaterialComponents.Button">
+        <item name="android:layout_height">52dp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textColor">@color/text_google</item>
+        <item name="android:textSize">14sp</item>
+        <item name="backgroundTint">@color/btn_secondary_bg</item>
+        <item name="strokeColor">@color/btn_secondary_border</item>
+        <item name="strokeWidth">1dp</item>
+        <item name="cornerRadius">26dp</item>
+        <item name="elevation">0dp</item>
+    </style>
+    <style name="Radio">
+        <item name="android:textColor">@color/text_label</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:paddingTop">12dp</item>
+        <item name="android:buttonTint">@color/btn_primary</item>
+        <item name="android:paddingBottom">12dp</item>
+    </style>
+    <style name="Btn.Filter">
+        <item name="android:background">@drawable/bg_filter_field</item>
+        <item name="android:gravity">center</item>
+        <item name="android:orientation">horizontal</item>
+    </style>
+
+
+    <!-- ================= INPUT ================= -->
+
+    <style name="Input" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="boxBackgroundColor">@color/input_bg</item>
+        <item name="boxStrokeColor">@color/input_border</item>
+        <item name="boxStrokeWidth">1dp</item>
+        <item name="boxStrokeWidthFocused">2dp</item>
+        <item name="boxCornerRadiusTopStart">16dp</item>
+        <item name="boxCornerRadiusTopEnd">16dp</item>
+        <item name="boxCornerRadiusBottomStart">16dp</item>
+        <item name="boxCornerRadiusBottomEnd">16dp</item>
+        <item name="hintTextColor">@color/text_hint_layout</item>
+    </style>
+
+    <style name="Input.Rounded" parent="Input">
+        <item name="boxCornerRadiusTopStart">24dp</item>
+        <item name="boxCornerRadiusTopEnd">24dp</item>
+        <item name="boxCornerRadiusBottomStart">24dp</item>
+        <item name="boxCornerRadiusBottomEnd">24dp</item>
+    </style>
+
+    <style name="EditText" parent="Widget.MaterialComponents.TextInputEditText.OutlinedBox">
+        <item name="android:textColor">@color/text_input</item>
+        <item name="android:textColorHint">@color/text_hint</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:paddingStart">45dp</item>
+        <item name="android:paddingTop">14dp</item>
+        <item name="android:paddingBottom">14dp</item>
+    </style>
+
+
+    <!-- ================= HEADER ================= -->
+
+    <style name="Header">
+        <item name="android:paddingStart">24dp</item>
+        <item name="android:paddingTop">58dp</item>
+        <item name="android:paddingEnd">24dp</item>
+        <item name="android:paddingBottom">24dp</item>
+    </style>
+
+    <style name="TopShape">
+        <item name="android:background">@drawable/bg_top</item>
+        <item name="android:alpha">0.45</item>
+    </style>
+
+
+    <!-- ================= ICON ================= -->
+
+    <style name="Icon.Small">
+        <item name="android:layout_width">20dp</item>
+        <item name="android:layout_height">20dp</item>
+    </style>
+
+    <style name="Icon.Medium">
+        <item name="android:layout_width">24dp</item>
+        <item name="android:layout_height">24dp</item>
+    </style>
+
+    <style name="Icon.Nav">
+        <item name="android:layout_width">22dp</item>
+        <item name="android:layout_height">22dp</item>
+    </style>
+
+    <style name="Icon.Big">
+        <item name="android:layout_width">30dp</item>
+        <item name="android:layout_height">30dp</item>
+    </style>
+    <style name="Icon.Feature">
+        <item name="android:layout_width">56dp</item>
+        <item name="android:layout_height">56dp</item>
+    </style>
+    <style name="Icon.Category">
+        <item name="android:layout_width">54dp</item>
+        <item name="android:layout_height">54dp</item>
+    </style>
+    <style name="Icon.AudioCover">
+        <item name="android:layout_width">48dp</item>
+        <item name="android:layout_height">48dp</item>
+    </style>
+
+    <!-- ================= BACK BUTTON ================= -->
+
+    <style name="BackBtn.Box">
+        <item name="android:layout_width">40dp</item>
+        <item name="android:layout_height">40dp</item>
+        <item name="android:background">@drawable/cerclefleche</item>
+        <item name="android:gravity">center</item>
+        <item name="android:tint">@color/black</item>
+    </style>
+
+    <style name="BackBtn.Icon">
+        <item name="android:layout_width">20dp</item>
+        <item name="android:layout_height">20dp</item>
+        <item name="android:src">@drawable/ic_fleche_gauche</item>
+        <item name="android:tint">@color/black</item>
+    </style>
+
+
+    <!-- ================= SPACING ================= -->
+
+    <style name="Space.Top8">
+        <item name="android:layout_marginTop">8dp</item>
+    </style>
+
+    <style name="Space.Top14">
+        <item name="android:layout_marginTop">14dp</item>
+    </style>
+
+    <style name="Space.Top18">
+        <item name="android:layout_marginTop">18dp</item>
+    </style>
+
+    <style name="Space.Top24">
+        <item name="android:layout_marginTop">24dp</item>
+    </style>
+
+    <style name="Space.Top38">
+        <item name="android:layout_marginTop">38dp</item>
+    </style>
+
+
+
+    <!-- navigation bottom -->
+    <style name="BottomNav">
+        <item name="cardBackgroundColor">#EEFFFFFF</item>
+        <item name="cardCornerRadius">44dp</item>
+        <item name="cardElevation">14dp</item>
+        <item name="cardUseCompatPadding">false</item>
+        <item name="cardPreventCornerOverlap">true</item>
+        <item name="strokeColor">#DDE7E2</item>
+        <item name="strokeWidth">1dp</item>
+    </style>
+
+    <style name="BottomNav.Container">
+
+        <item name="android:paddingStart">12dp</item>
+        <item name="android:paddingEnd">12dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:orientation">horizontal</item>
+    </style>
+
+    <style name="BottomNav.Item">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:gravity">center</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:paddingTop">8dp</item>
+        <item name="android:paddingBottom">8dp</item>
+    </style>
+    <style name="Theme.Downsteps1" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+    </style>
+
+    <!-- search bar-->
+    <style name="Input.Search" parent="Input.Rounded">
+        <item name="boxCornerRadiusTopStart">28dp</item>
+        <item name="boxCornerRadiusTopEnd">28dp</item>
+        <item name="boxCornerRadiusBottomStart">28dp</item>
+        <item name="boxCornerRadiusBottomEnd">28dp</item>
+        <item name="boxStrokeWidth">1dp</item>
+        <item name="boxStrokeWidthFocused">1dp</item>
+        <item name="boxStrokeColor">@color/input_border</item>
+        <item name="boxBackgroundColor">@color/input_bg</item>
+        <item name="hintTextColor">@color/text_hint_layout</item>
+    </style>
+
+    <!--Calendar-->
+    <style name="ThemeOverlay.DownSteps.DatePicker" parent="ThemeOverlay.MaterialComponents.MaterialCalendar">
+        <item name="colorPrimary">@color/btn_primary</item>
+        <item name="colorOnPrimary">@color/white</item>
+    </style>
+
+    <style name="ProgressBar.Primary" parent="@android:style/Widget.ProgressBar.Horizontal">
+        <item name="android:progressTint">@color/btn_primary</item>
+        <item name="android:progressBackgroundTint">@color/card_border</item>
+    </style>
+
+
+    <!--Links-->
+    <style name="Text.Link.Small" parent="Text.Small">
+        <item name="android:textColor">@color/text_forgot</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+
+    <style name="Text.Link.Primary" parent="Text.Small">
+        <item name="android:textColor">@color/text_signup</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+
+    <!--CheckBox-->
+    <style name="CheckBox.Primary" parent="Widget.AppCompat.CompoundButton.CheckBox">
+        <item name="android:textColor">@color/text_label</item>
+        <item name="buttonTint">@color/btn_primary</item>
+    </style>
+
+
+
+    <!--BottomSheet-->
+    <style name="BottomSheet.Root" parent="BottomSheet">
+        <item name="android:paddingStart">20dp</item>
+        <item name="android:paddingTop">12dp</item>
+        <item name="android:paddingEnd">20dp</item>
+        <item name="android:paddingBottom">24dp</item>
+        <item name="android:background">@color/card_bg</item>
+    </style>
+
+</resources>

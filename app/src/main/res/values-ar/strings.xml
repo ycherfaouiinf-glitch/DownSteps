@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">DownSteps</string>
+    <string name="centers_title">المراكز والجمعيات</string>
+    <string name="sos_widget_description">DownSteps SOS emergency widget</string>
+</resources>

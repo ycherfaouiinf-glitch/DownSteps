@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:minHeight="72dp"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:paddingStart="8dp"
+    android:paddingTop="8dp"
+    android:paddingEnd="8dp"
+    android:paddingBottom="8dp">
+
+    <ImageView
+        android:id="@+id/imgAudioCover"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:background="@drawable/bg_audio_item_cover"
+        android:padding="10dp"
+        android:scaleType="centerCrop"
+        android:src="@android:drawable/ic_media_play" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/txtAudioTitle"
+            style="@style/Text.Label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Little Lion Story" />
+
+        <TextView
+            android:id="@+id/txtDuration"
+            style="@style/Text.Hint.Small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:text="03:25" />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/btnQuickPlay"
+        style="@style/Icon.Nav"
+        android:src="@android:drawable/ic_media_play"
+        app:tint="@color/btn_primary" />
+
+</LinearLayout>

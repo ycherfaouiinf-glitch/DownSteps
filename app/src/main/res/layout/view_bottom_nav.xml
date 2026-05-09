@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/customBottomNav"
+    style="@style/BottomNav"
+    android:background="@drawable/bg_bottom_nav"
+    android:backgroundTint="#66FFFFFF"
+    android:stateListAnimator="@null"
+    android:layout_width="match_parent"
+    android:layout_height="64dp">
+
+    <LinearLayout
+        style="@style/BottomNav.Container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:weightSum="4">
+
+        <LinearLayout
+            android:id="@+id/homeTab"
+            style="@style/BottomNav.Item">
+
+            <ImageView
+                android:id="@+id/navHome"
+                style="@style/Icon.Nav"
+                android:contentDescription="Home"
+                android:src="@drawable/home"
+                app:tint="@color/btn_primary" />
+
+            <TextView
+                android:id="@+id/txtHome"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="Home"
+                style="@style/Text.BottomNav" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/sosTab"
+            style="@style/BottomNav.Item">
+
+            <ImageView
+                android:id="@+id/navSos"
+                style="@style/Icon.Nav"
+                android:contentDescription="SOS"
+                android:src="@drawable/sos"
+                app:tint="@color/text_label" />
+
+            <TextView
+                android:id="@+id/txtSos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="SOS"
+                style="@style/Text.BottomNav" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/profileTab"
+            style="@style/BottomNav.Item">
+
+            <ImageView
+                android:id="@+id/navProfile"
+                style="@style/Icon.Nav"
+                android:contentDescription="Profile"
+                android:src="@drawable/ic_profil"
+                app:tint="@color/text_label" />
+
+            <TextView
+                android:id="@+id/txtProfile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="Profile"
+                style="@style/Text.BottomNav" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/settingsTab"
+            style="@style/BottomNav.Item">
+
+            <ImageView
+                android:id="@+id/navSettings"
+                style="@style/Icon.Nav"
+                android:contentDescription="Settings"
+                android:src="@drawable/engrenage"
+                app:tint="@color/text_label" />
+
+            <TextView
+                android:id="@+id/txtSettings"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="Settings"
+                style="@style/Text.BottomNav"/>
+        </LinearLayout>
+
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>
