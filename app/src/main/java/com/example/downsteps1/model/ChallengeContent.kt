@@ -10,4 +10,4 @@ data class ChallengeContent(
     val imageRes: Int = 0,
     val steps: List<String> = emptyList(),
     val tip: String = ""
-)
+)//
