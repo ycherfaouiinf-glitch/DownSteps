@@ -1,55 +1,42 @@
 package com.example.downsteps1.ui
 
-import com.example.downsteps1.common.ui.BaseActivity
 import android.content.Intent
 import android.os.Bundle
 import android.widget.ImageView
 import com.example.downsteps1.R
 import com.example.downsteps1.common.navigation.BottomNavHelper
+import com.example.downsteps1.common.ui.BaseActivity
 import com.google.android.material.card.MaterialCardView
 
 class ChallengeTypeActivity : BaseActivity() {
-
-    private lateinit var btnBack: ImageView
-    private lateinit var cardMotor: MaterialCardView
-    private lateinit var cardLanguage: MaterialCardView
-    private lateinit var cardSpeech: MaterialCardView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_challenge_type)
 
         BottomNavHelper.setup(this, "home")
-        initViews()
-        setupClicks()
-    }
 
-    private fun initViews() {
-        btnBack = findViewById(R.id.btnBack)
-        cardMotor = findViewById(R.id.cardMotor)
-        cardLanguage = findViewById(R.id.cardLanguage)
-        cardSpeech = findViewById(R.id.cardSpeech)
-    }
+        val btnBack = findViewById<ImageView>(R.id.btnBack)
+        val cardMotor = findViewById<MaterialCardView>(R.id.cardMotor)
+        val cardLanguage = findViewById<MaterialCardView>(R.id.cardLanguage)
+        val cardSpeech = findViewById<MaterialCardView>(R.id.cardSpeech)
 
-    private fun setupClicks() {
-        btnBack.setOnClickListener {
-            finish()
-        }
+        btnBack.setOnClickListener { finish() }
 
         cardMotor.setOnClickListener {
-            openChallengeTimeline("motor")
+            openTimeline("motor")
         }
 
         cardLanguage.setOnClickListener {
-            openChallengeTimeline("language")
+            openTimeline("language")
         }
 
         cardSpeech.setOnClickListener {
-            openChallengeTimeline("speech")
+            openTimeline("speech")
         }
     }
 
-    private fun openChallengeTimeline(type: String) {
+    private fun openTimeline(type: String) {
         val intent = Intent(this, ChallengesTimelineActivity::class.java)
         intent.putExtra("challenge_type", type)
         startActivity(intent)

@@ -70,8 +70,15 @@ class LoginActivity : BaseActivity() {
 
     override fun onStart() {
         super.onStart()
-        // Keep the login screen available so Forgot Password and Register Here
-        // always work. Users go to Home only after pressing Login successfully.
+
+        val currentUser = com.google.firebase.auth.FirebaseAuth
+            .getInstance()
+            .currentUser
+
+        if (currentUser != null) {
+            startActivity(Intent(this, HomeActivity::class.java))
+            finish()
+        }
     }
 
     private fun initializeViews() {

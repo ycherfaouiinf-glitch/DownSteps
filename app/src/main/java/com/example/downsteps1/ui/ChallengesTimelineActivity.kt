@@ -1,77 +1,72 @@
 package com.example.downsteps1.ui
 
 import android.content.Intent
-import android.graphics.Color
 import android.os.Bundle
-import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
-import androidx.core.view.WindowCompat
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.downsteps1.R
 import com.example.downsteps1.common.navigation.BottomNavHelper
 import com.example.downsteps1.common.ui.BaseActivity
+import com.example.downsteps1.data.FirestoreChallengeContentRepository
+import com.example.downsteps1.model.ChallengeContent
 import com.example.downsteps1.model.ChallengeItem
 import com.example.downsteps1.ui.adapter.ChallengeAdapter
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import kotlinx.coroutines.launch
+import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.Locale
 
 class ChallengesTimelineActivity : BaseActivity() {
 
-    private lateinit var btnBack: ImageView
-    private lateinit var txtType: TextView
-    private lateinit var recyclerChallenges: RecyclerView
-
     private val auth = FirebaseAuth.getInstance()
     private val db = FirebaseFirestore.getInstance()
+    private val repository = FirestoreChallengeContentRepository()
 
-    private var challengeType: String = "motor"
-    private var currentDay: Int = 1
-    private var challengeLevel: String = "Beginner"
+    private var challengeType = "motor"
+    private var level = "beginner"
+    private var currentDay = 1
+    private var lastDate = ""
+
+    private lateinit var recyclerChallenges: RecyclerView
+    private lateinit var txtType: TextView
+    private lateinit var btnBack: ImageView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        WindowCompat.setDecorFitsSystemWindows(window, false)
-        window.statusBarColor = Color.TRANSPARENT
-        window.navigationBarColor = Color.TRANSPARENT
-
-        window.decorView.systemUiVisibility =
-            View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN or
-                    View.SYSTEM_UI_FLAG_LAYOUT_STABLE or
-                    View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
-
         setContentView(R.layout.activity_challenges_timeline)
 
         BottomNavHelper.setup(this, "home")
 
-        initializeViews()
-        setupClickListeners()
-
         challengeType = intent.getStringExtra("challenge_type") ?: "motor"
-        txtType.text = getChallengeTypeLabel(challengeType)
 
+        recyclerChallenges = findViewById(R.id.recyclerChallenges)
+        txtType = findViewById(R.id.txtType)
+        btnBack = findViewById(R.id.btnBack)
+
+        txtType.text = when (challengeType) {
+            "motor" -> "Motor Challenge"
+            "language" -> "Language Challenge"
+            "speech" -> "Speech Challenge"
+            else -> "Challenge"
+        }
+
+        btnBack.setOnClickListener { finish() }
+
+        recyclerChallenges.layoutManager = LinearLayoutManager(this)
     }
+
     override fun onResume() {
         super.onResume()
-        loadUserProgressFromFirebase()
+        loadUserData()
     }
 
-    private fun initializeViews() {
-        btnBack = findViewById(R.id.btnBack)
-        txtType = findViewById(R.id.txtType)
-        recyclerChallenges = findViewById(R.id.recyclerChallenges)
-    }
-
-    private fun setupClickListeners() {
-        btnBack.setOnClickListener {
-            finish()
-        }
-    }
-
-    private fun loadUserProgressFromFirebase() {
+    private fun loadUserData() {
         val userId = auth.currentUser?.uid
 
         if (userId == null) {
@@ -81,104 +76,110 @@ class ChallengesTimelineActivity : BaseActivity() {
 
         db.collection("users").document(userId)
             .get()
-            .addOnSuccessListener { document ->
+            .addOnSuccessListener { doc ->
 
-                if (!document.exists()) {
-                    Toast.makeText(this, "User data not found", Toast.LENGTH_SHORT).show()
-                    showTimeline()
-                    return@addOnSuccessListener
-                }
+                level = when (challengeType) {
+                    "motor" -> {
+                        doc.getString("motorLevel")
+                            ?: doc.getString("motorAssessment.motorLevel")
+                            ?: "beginner"
+                    }
+
+                    "language" -> {
+                        doc.getString("languageLevel")
+                            ?: doc.getString("languageAssessment.languageLevel")
+                            ?: "beginner"
+                    }
+
+                    "speech" -> {
+                        doc.getString("speechLevel")
+                            ?: doc.getString("speechAssessment.level")
+                            ?: "beginner"
+                    }
+
+                    else -> "beginner"
+                }.lowercase()
 
                 currentDay = when (challengeType) {
-                    "motor" -> document.getLong("currentDayMotor")?.toInt() ?: 1
-                    "language" -> document.getLong("currentDayLanguage")?.toInt() ?: 1
-                    "speech" -> document.getLong("currentDaySpeech")?.toInt() ?: 1
+                    "motor" -> doc.getLong("currentDayMotor")?.toInt() ?: 1
+                    "language" -> doc.getLong("currentDayLanguage")?.toInt() ?: 1
+                    "speech" -> doc.getLong("currentDaySpeech")?.toInt() ?: 1
                     else -> 1
                 }
 
-                challengeLevel = when (challengeType) {
-                    "motor" -> document.getString("motorAssessment.motorLevel") ?: "Beginner"
-                    "language" -> document.getString("languageAssessment.languageLevel") ?: "Beginner"
-                    "speech" -> document.getString("speechAssessment.level") ?: "Beginner"
-                    else -> "Beginner"
+                lastDate = when (challengeType) {
+                    "motor" -> doc.getString("lastDateMotor") ?: ""
+                    "language" -> doc.getString("lastDateLanguage") ?: ""
+                    "speech" -> doc.getString("lastDateSpeech") ?: ""
+                    else -> ""
                 }
 
-                challengeLevel = normalizeLevel(challengeLevel)
-
-                showTimeline()
+                loadChallenges()
             }
-            .addOnFailureListener { e ->
-                Toast.makeText(this, "Error: ${e.message}", Toast.LENGTH_SHORT).show()
-                showTimeline()
+            .addOnFailureListener {
+                Toast.makeText(this, "Error loading user data", Toast.LENGTH_SHORT).show()
             }
     }
 
-    private fun showTimeline() {
-        val challenges = mutableListOf<ChallengeItem>()
-
-        for (day in 1..30) {
-            val isLocked = day > currentDay
-            val description = when {
-                day < currentDay -> "Completed"
-                day == currentDay -> "Open"
-                else -> "Locked"
-            }
-
-            challenges.add(
-                ChallengeItem(
-                    id = day,
-                    title = "Day $day",
-                    description = description,
-                    challengeType = challengeType,
-                    isLocked = isLocked
+    private fun loadChallenges() {
+        lifecycleScope.launch {
+            try {
+                val challenges = repository.getChallengesByTypeAndLevel(
+                    type = challengeType,
+                    level = level
                 )
+
+                showChallenges(challenges)
+
+            } catch (e: Exception) {
+                Toast.makeText(
+                    this@ChallengesTimelineActivity,
+                    "Error: ${e.message}",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
+        }
+    }
+
+    private fun showChallenges(challenges: List<ChallengeContent>) {
+        val doneToday = lastDate == getTodayDate()
+
+        val challengeItems = challenges.map { challenge ->
+            val locked = challenge.day > currentDay ||
+                    (doneToday && challenge.day == currentDay)
+
+            ChallengeItem(
+                id = challenge.day,
+                title = if (locked) "Day ${challenge.day}" else challenge.title,
+                description = if (locked) {
+                    "Locked"
+                } else if (challenge.day < currentDay) {
+                    "Completed"
+                } else {
+                    "Today"
+                },
+                challengeType = challenge.type,
+                isLocked = locked
             )
         }
 
-        recyclerChallenges.layoutManager = LinearLayoutManager(this)
-        recyclerChallenges.setHasFixedSize(true)
-        recyclerChallenges.adapter = ChallengeAdapter(
-            challenges = challenges,
+        val adapter = ChallengeAdapter(
+            challenges = challengeItems,
             challengeType = challengeType,
             onChallengeClick = { challenge ->
-                openChallengeDay(
-                    challengeType = challenge.challengeType,
-                    day = challenge.id,
-                    isCompleted = challenge.id < currentDay
-                )
+                val intent = Intent(this, Challange1Activity::class.java)
+                intent.putExtra("challenge_type", challengeType)
+                intent.putExtra("challenge_level", level)
+                intent.putExtra("challenge_day", challenge.id)
+                intent.putExtra("is_completed", challenge.id < currentDay)
+                startActivity(intent)
             }
         )
+
+        recyclerChallenges.adapter = adapter
     }
 
-    private fun openChallengeDay(
-        challengeType: String,
-        day: Int,
-        isCompleted: Boolean
-    ) {
-        val intent = Intent(this, Challange1Activity::class.java).apply {
-            putExtra("challenge_type", challengeType)
-            putExtra("challenge_day", day)
-            putExtra("challenge_level", challengeLevel)
-            putExtra("is_completed", isCompleted)
-        }
-        startActivity(intent)
-    }
-
-    private fun getChallengeTypeLabel(type: String): String {
-        return when (type) {
-            "motor" -> "Motor Challenge"
-            "language" -> "Language Challenge"
-            "speech" -> "Speech Challenge"
-            else -> "Motor Challenge"
-        }
-    }
-
-    private fun normalizeLevel(level: String): String {
-        return when (level.trim().lowercase()) {
-            "beginner" -> "beginner"
-            "intermediate" -> "intermediate"
-            "advanced" -> "advanced"
-            else -> "beginner"
-        }
+    private fun getTodayDate(): String {
+        return SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(Date())
     }
 }

@@ -44,7 +44,7 @@ class ChallengeAdapter(
             holder.txtNumber.visibility = View.GONE
             holder.iconLock.visibility = View.VISIBLE
             holder.circle.setBackgroundResource(R.drawable.bg_timeline_locked_circle)
-            holder.itemView.alpha = 0.85f
+            holder.itemView.alpha = 1f
         } else {
             holder.txtNumber.visibility = View.VISIBLE
             holder.iconLock.visibility = View.GONE
@@ -52,11 +52,8 @@ class ChallengeAdapter(
             holder.itemView.alpha = 1f
         }
 
-        if (position == challenges.lastIndex) {
-            holder.line.visibility = View.GONE
-        } else {
-            holder.line.visibility = View.VISIBLE
-        }
+        holder.line.visibility =
+            if (position == challenges.lastIndex) View.GONE else View.VISIBLE
 
         holder.itemView.setOnClickListener {
             if (!challenge.isLocked) {

@@ -8,23 +8,36 @@ class FirestoreChallengeContentRepository {
 
     private val db = FirebaseFirestore.getInstance()
 
-    suspend fun getChallengeFromFirebase(
+    suspend fun getChallengesByTypeAndLevel(
         type: String,
-        day: Int,
         level: String
+    ): List<ChallengeContent> {
+        val snapshot = db.collection("challenges")
+            .whereEqualTo("type", type)
+            .whereEqualTo("level", level.lowercase())
+            .get()
+            .await()
+
+        return snapshot.documents.mapNotNull { doc ->
+            doc.toObject(ChallengeContent::class.java)?.apply {
+                id = doc.id
+            }
+        }.sortedBy { it.day }
+    }
+
+    suspend fun getChallengeDetails(
+        type: String,
+        level: String,
+        day: Int
     ): ChallengeContent? {
-        return try {
-            val snapshot = db.collection("challenges")
-                .whereEqualTo("type", type)
-                .whereEqualTo("day", day)
-                .whereEqualTo("level", level)
-                .get()
-                .await()
+        val snapshot = db.collection("challenges")
+            .whereEqualTo("type", type)
+            .whereEqualTo("level", level.lowercase())
+            .whereEqualTo("day", day)
+            .get()
+            .await()
 
-            snapshot.documents.firstOrNull()?.toObject(ChallengeContent::class.java)
-
-        } catch (e: Exception) {
-            null
-        }
+        return snapshot.documents.firstOrNull()
+            ?.toObject(ChallengeContent::class.java)
     }
 }
