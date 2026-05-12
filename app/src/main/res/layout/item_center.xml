@@ -143,8 +143,8 @@
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_marginEnd="8dp"
-                android:text="Location"
-                app:icon="@drawable/ic_location"
+                android:text="Call Now"
+                app:icon="@drawable/ic_call"
                 app:iconTint="@color/btn_primary"
                 app:iconPadding="6dp" />
         </LinearLayout>

@@ -7,13 +7,14 @@ import android.net.Uri
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
-import android.widget.ImageView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.downsteps1.R
 import com.example.downsteps1.common.navigation.BottomNavHelper
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 
 class SosActivity : BaseActivity() {
 
@@ -22,8 +23,10 @@ class SosActivity : BaseActivity() {
     private lateinit var etSecondaryNumber2: EditText
     private lateinit var etContactName: EditText
     private lateinit var prefs: SharedPreferences
-
     private lateinit var btnSaveSos: Button
+
+    private val auth = FirebaseAuth.getInstance()
+    private val db = FirebaseFirestore.getInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,22 +42,17 @@ class SosActivity : BaseActivity() {
 
         prefs = getSharedPreferences("sos_prefs", MODE_PRIVATE)
 
-        // Views
         etPrimaryNumber = findViewById(R.id.etPrimaryNumber)
         etSecondaryNumber1 = findViewById(R.id.etSecondaryNumber1)
         etSecondaryNumber2 = findViewById(R.id.etSecondaryNumber2)
         etContactName = findViewById(R.id.etContactName)
-
         btnSaveSos = findViewById(R.id.btnSaveSos)
-
-
 
         loadSavedData()
 
         btnSaveSos.setOnClickListener {
             saveSosData()
         }
-
     }
 
     private fun saveSosData() {
@@ -69,18 +67,84 @@ class SosActivity : BaseActivity() {
             return
         }
 
-        prefs.edit()
-            .putString("primary_number", primary)
-            .putString("secondary_number_1", secondary1)
-            .putString("secondary_number_2", secondary2)
-            .putString("contact_name", contactName)
-            .apply()
+        val userId = auth.currentUser?.uid
+        if (userId == null) {
+            Toast.makeText(this, "User not logged in", Toast.LENGTH_SHORT).show()
+            return
+        }
 
-        SosWidgetProvider.requestRefresh(this)
-        Toast.makeText(this, "SOS contacts saved", Toast.LENGTH_SHORT).show()
+        val sosData = mapOf(
+            "sos.primaryNumber" to primary,
+            "sos.secondaryNumber1" to secondary1,
+            "sos.secondaryNumber2" to secondary2,
+            "sos.contactName" to contactName
+        )
+
+        db.collection("users").document(userId)
+            .update(sosData)
+            .addOnSuccessListener {
+                prefs.edit()
+                    .putString("primary_number", primary)
+                    .putString("secondary_number_1", secondary1)
+                    .putString("secondary_number_2", secondary2)
+                    .putString("contact_name", contactName)
+                    .apply()
+
+                SosWidgetProvider.requestRefresh(this)
+                Toast.makeText(this, "SOS contacts saved", Toast.LENGTH_SHORT).show()
+            }
+            .addOnFailureListener {
+                Toast.makeText(this, "Error saving SOS contacts", Toast.LENGTH_SHORT).show()
+            }
     }
 
     private fun loadSavedData() {
+        val userId = auth.currentUser?.uid
+
+        if (userId == null) {
+            loadFromPrefs()
+            return
+        }
+
+        db.collection("users").document(userId)
+            .get()
+            .addOnSuccessListener { doc ->
+                val primary = doc.getString("sos.primaryNumber")
+                    ?: prefs.getString("primary_number", "")
+                    ?: ""
+
+                val secondary1 = doc.getString("sos.secondaryNumber1")
+                    ?: prefs.getString("secondary_number_1", "")
+                    ?: ""
+
+                val secondary2 = doc.getString("sos.secondaryNumber2")
+                    ?: prefs.getString("secondary_number_2", "")
+                    ?: ""
+
+                val contactName = doc.getString("sos.contactName")
+                    ?: prefs.getString("contact_name", "")
+                    ?: ""
+
+                etPrimaryNumber.setText(primary)
+                etSecondaryNumber1.setText(secondary1)
+                etSecondaryNumber2.setText(secondary2)
+                etContactName.setText(contactName)
+
+                prefs.edit()
+                    .putString("primary_number", primary)
+                    .putString("secondary_number_1", secondary1)
+                    .putString("secondary_number_2", secondary2)
+                    .putString("contact_name", contactName)
+                    .apply()
+
+                SosWidgetProvider.requestRefresh(this)
+            }
+            .addOnFailureListener {
+                loadFromPrefs()
+            }
+    }
+
+    private fun loadFromPrefs() {
         etPrimaryNumber.setText(prefs.getString("primary_number", ""))
         etSecondaryNumber1.setText(prefs.getString("secondary_number_1", ""))
         etSecondaryNumber2.setText(prefs.getString("secondary_number_2", ""))

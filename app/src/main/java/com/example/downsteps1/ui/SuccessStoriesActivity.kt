@@ -11,10 +11,13 @@ import com.example.downsteps1.R
 import com.example.downsteps1.common.navigation.BottomNavHelper
 import com.example.downsteps1.data.remote.SuccessStory
 import com.example.downsteps1.data.remote.SuccessStoryAdapter
+import android.widget.Toast
+import com.google.firebase.firestore.FirebaseFirestore
 
 class SuccessStoriesActivity : BaseActivity() {
 
     private lateinit var recyclerStories: RecyclerView
+    private val db = FirebaseFirestore.getInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,38 +40,40 @@ class SuccessStoriesActivity : BaseActivity() {
 
         recyclerStories = findViewById(R.id.recyclerStories)
 
-        val stories = arrayListOf(
-            SuccessStory(
-                "Ahmed, from student to inspiration",
-                "Ahmed loves learning and community participation. With determination and encouragement, he continues building his future with confidence.",
-                "Education",
-                "2023",
-                R.drawable.succesahmed
-            ),
-            SuccessStory(
-                "Sara, a champion at heart",
-                "Sara discovered her love for swimming early. Through practice and support, she became a source of pride and motivation for others.",
-                "Sports",
-                "2022",
-                R.drawable.successara
-            ),
-            SuccessStory(
-                "Lila, an artist of dreams",
-                "Lila expresses herself through colors and creativity. Her artwork reflects joy, emotion, and beautiful imagination.",
-                "Arts",
-                "2021",
-                R.drawable.successara
-            ),
-            SuccessStory(
-                "Khaled, working with passion",
-                "Khaled enjoys helping others and taking responsibility. His journey shows that independence grows step by step.",
-                "Work",
-                "2023",
-                R.drawable.successara
-            )
-        )
-
         recyclerStories.layoutManager = LinearLayoutManager(this)
-        recyclerStories.adapter = SuccessStoryAdapter(stories)
+        loadStoriesFromFirebase()
+    }
+
+    private fun loadStoriesFromFirebase() {
+        db.collection("successStories")
+            .get()
+            .addOnSuccessListener { snapshot ->
+
+                val stories = snapshot.documents.mapNotNull { doc ->
+                    val imageName = doc.getString("imageName") ?: "succesahmed"
+
+                    SuccessStory(
+                        title = doc.getString("title") ?: "",
+                        description = doc.getString("description") ?: "",
+                        category = doc.getString("category") ?: "",
+                        year = doc.getString("year") ?: "",
+                        imageName = imageName,
+                        imageRes = getStoryImage(imageName)
+                    )
+                }
+
+                recyclerStories.adapter = SuccessStoryAdapter(ArrayList(stories))
+            }
+            .addOnFailureListener {
+                Toast.makeText(this, "Error loading stories", Toast.LENGTH_SHORT).show()
+            }
+    }
+
+    private fun getStoryImage(imageName: String): Int {
+        return when (imageName) {
+            "succesahmed" -> R.drawable.succesahmed
+            "successara" -> R.drawable.successara
+            else -> R.drawable.succesahmed
+        }
     }
 }

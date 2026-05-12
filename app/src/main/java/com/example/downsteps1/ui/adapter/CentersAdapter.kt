@@ -39,7 +39,11 @@ class CentersAdapter(
         holder.tvLocation.text = center.location
         holder.tvPhone.text = center.phone
         holder.tvCategory.text = center.category
-        holder.imgCenter.setImageResource(center.imageRes)
+        if (center.imageRes != 0) {
+            holder.imgCenter.setImageResource(center.imageRes)
+        } else {
+            holder.imgCenter.setImageResource(R.drawable.mfatih_eldjana_ass)
+        }
 
         holder.btnCall.setOnClickListener {
             val intent = Intent(Intent.ACTION_DIAL).apply {

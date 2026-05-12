@@ -11,6 +11,7 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
+import android.widget.Toast
 import com.google.android.material.button.MaterialButton
 import androidx.activity.enableEdgeToEdge
 import androidx.core.content.ContextCompat
@@ -25,6 +26,7 @@ import com.example.downsteps1.ui.adapter.CentersAdapter
 import com.example.downsteps1.ui.model.CenterModel
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.textfield.TextInputEditText
+import com.google.firebase.firestore.FirebaseFirestore
 
 
 class CentersAndAssociationsActivity : BaseActivity() {
@@ -44,35 +46,9 @@ class CentersAndAssociationsActivity : BaseActivity() {
     private var selectedCategory: String = "All Categories"
     private var selectedState: String = "All States"
 
-    private val allCenters = listOf(
-        CenterModel(
-            name = "Mafatih Al Jannah Association for Down Syndrome",
-            location = "Algeria - Bordj Bou Arreridj",
-            state = "Bordj Bou Arreridj",
-            phone = "0661809255",
-            mapQuery = "Bordj Bou Arreridj",
-            imageRes = R.drawable.mfatih_eldjana_ass,
-            category = "Association"
-        ),
-        CenterModel(
-            name = "Al Rahma Association for Down Syndrome Care",
-            location = "Algeria - Oran",
-            state = "Oran",
-            phone = "0666666666",
-            mapQuery = "Oran",
-            imageRes = R.drawable.mfatih_eldjana_ass,
-            category = "Association"
-        ),
-        CenterModel(
-            name = "Al Ishraq Autism Center",
-            location = "Algeria - Constantine",
-            state = "Constantine",
-            phone = "0777777777",
-            mapQuery = "Constantine",
-            imageRes = R.drawable.mfatih_eldjana_ass,
-            category = "Center"
-        )
-    )
+    private var allCenters: List<CenterModel> = emptyList()
+
+    private val db = FirebaseFirestore.getInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -93,7 +69,7 @@ class CentersAndAssociationsActivity : BaseActivity() {
         setupListeners()
 
         updateTopFilterTexts()
-        filterCenters()
+        loadCentersFromFirebase()
     }
 
 
@@ -574,6 +550,40 @@ class CentersAndAssociationsActivity : BaseActivity() {
 
         tvStateButton.text =
             if (selectedState == "All States") "All States" else selectedState
+    }
+
+    private fun loadCentersFromFirebase() {
+        db.collection("centers")
+            .get()
+            .addOnSuccessListener { snapshot ->
+
+                allCenters = snapshot.documents.mapNotNull { doc ->
+                    val imageName = doc.getString("imageName") ?: "mfatih_eldjana_ass"
+
+                    CenterModel(
+                        name = doc.getString("name") ?: "",
+                        location = doc.getString("location") ?: "",
+                        state = doc.getString("state") ?: "",
+                        phone = doc.getString("phone") ?: "",
+                        mapQuery = doc.getString("mapQuery") ?: "",
+                        category = doc.getString("category") ?: "",
+                        imageName = imageName,
+                        imageRes = getImageResource(imageName)
+                    )
+                }
+
+                filterCenters()
+            }
+            .addOnFailureListener {
+                Toast.makeText(this, "Error loading centers", Toast.LENGTH_SHORT).show()
+            }
+    }
+
+    private fun getImageResource(imageName: String): Int {
+        return when (imageName) {
+            "mfatih_eldjana_ass" -> R.drawable.mfatih_eldjana_ass
+            else -> R.drawable.mfatih_eldjana_ass
+        }
     }
 
     private fun filterCenters() {
