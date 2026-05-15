@@ -16,11 +16,15 @@ import com.example.downsteps1.data.RepositoryProvider
 import com.example.downsteps1.model.AudioItem
 import com.example.downsteps1.ui.adapter.AudioAdapter
 import com.google.android.material.textfield.TextInputEditText
+import com.google.firebase.firestore.FirebaseFirestore
+import android.widget.ProgressBar
+import android.view.View
 
 class LibraryAudioActivity : BaseActivity() {
 
     private lateinit var btnBack: ImageView
-    private lateinit var btnPlayFeatured: ImageView
+
+    private lateinit var imgFeaturedCover: ImageView
     private lateinit var recyclerAudioList: RecyclerView
     private lateinit var etSearchAudio: TextInputEditText
 
@@ -33,6 +37,16 @@ class LibraryAudioActivity : BaseActivity() {
     private val audioRepository = RepositoryProvider.provideAudioRepository()
     private var audioList: List<AudioItem> = emptyList()
 
+    private val db = FirebaseFirestore.getInstance()
+
+    private val audioPrefs by lazy {
+        getSharedPreferences("audio_prefs", MODE_PRIVATE)
+    }
+    private lateinit var featuredProgress: ProgressBar
+
+    private lateinit var currentAudioCard: View
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -42,38 +56,107 @@ class LibraryAudioActivity : BaseActivity() {
         BottomNavHelper.setup(this, "home")
 
         initializeViews()
-        loadAudios()
-        loadFeaturedAudio()
+
         setupRecyclerView()
+
+        loadAudios()
+
         setupClickListeners()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        loadAudios()
     }
 
     private fun initializeViews() {
         btnBack = findViewById(R.id.btnBack)
-        btnPlayFeatured = findViewById(R.id.btnPlayFeatured)
+        imgFeaturedCover = findViewById(R.id.imgFeaturedCover)
         recyclerAudioList = findViewById(R.id.recyclerAudioList)
         etSearchAudio = findViewById(R.id.etSearchAudio)
 
         tvCurrentAudioTitle = findViewById(R.id.tvCurrentAudioTitle)
         tvCurrentDuration = findViewById(R.id.tvCurrentDuration)
+        featuredProgress = findViewById(R.id.featuredProgress)
+        currentAudioCard = findViewById(R.id.currentAudioCard)
     }
 
     private fun loadAudios() {
-        audioList = audioRepository.getAllAudio()
+
+        db.collection("audios")
+            .get()
+            .addOnSuccessListener { snapshot ->
+
+                audioList = snapshot.documents.mapNotNull { doc ->
+
+                    AudioItem(
+                        id = doc.getLong("id")?.toInt() ?: 0,
+                        title = doc.getString("title") ?: "",
+                        duration = doc.getString("duration") ?: "0:00",
+                        description = doc.getString("description") ?: "",
+                        audioName = doc.getString("audioName") ?: "",
+                        imageName = doc.getString("imageName") ?: "",
+                        featured = doc.getBoolean("featured") ?: false,
+                        imageResId = getAudioImage(doc.getString("imageName") ?: "")
+                    )
+                }.sortedBy { it.id }
+
+                etSearchAudio.setText("")
+                audioAdapter.updateList(audioList)
+                loadFeaturedAudio()
+            }
     }
 
     private fun loadFeaturedAudio() {
-        featuredAudio = audioRepository.getFeaturedAudio()
+        val lastTitle = audioPrefs.getString("last_audio_title", null)
+        val lastDuration = audioPrefs.getString("last_audio_duration", null)
+        val lastAudioName = audioPrefs.getString("last_audio_name", null)
+        val lastImageName = audioPrefs.getString("last_audio_image", null)
+
+        val lastAudioId = audioPrefs.getInt("last_audio_id", 0)
+
+        featuredAudio = if (lastTitle != null && lastAudioName != null && lastAudioId != 0) {
+
+
+            AudioItem(
+                id = lastAudioId,
+                title = lastTitle,
+                duration = lastDuration ?: "0:00",
+                audioName = lastAudioName,
+                imageName = lastImageName ?: "",
+                imageResId = getAudioImage(lastImageName ?: "")
+            )
+
+        } else {
+            audioList.find { it.featured } ?: audioList.firstOrNull()
+        }
 
         tvCurrentAudioTitle.text = featuredAudio?.title ?: "Story Title"
         tvCurrentDuration.text = featuredAudio?.duration ?: "0:00"
+
+        imgFeaturedCover.setImageResource(
+            featuredAudio?.imageResId ?: android.R.drawable.ic_media_play
+        )
+
+        val position = audioPrefs.getInt("last_audio_position", 0)
+        val durationMs = audioPrefs.getInt("last_audio_duration_ms", 0)
+
+        tvCurrentDuration.text =
+            if (durationMs > 0) {
+                "${formatTime(position)} / ${formatTime(durationMs)}"
+            } else {
+                featuredAudio?.duration ?: "0:00"
+            }
+
+        featuredProgress.progress =
+            if (durationMs > 0) (position * 100) / durationMs else 0
+
+
     }
 
     private fun setupRecyclerView() {
         audioAdapter = AudioAdapter(audioList) { selectedAudio ->
             featuredAudio = selectedAudio
-            tvCurrentAudioTitle.text = selectedAudio.title
-            tvCurrentDuration.text = selectedAudio.duration
             openAudioPlayer(selectedAudio)
         }
 
@@ -110,12 +193,6 @@ class LibraryAudioActivity : BaseActivity() {
             finish()
         }
 
-        btnPlayFeatured.setOnClickListener {
-            featuredAudio?.let { audioItem ->
-                openAudioPlayer(audioItem)
-            }
-        }
-
         etSearchAudio.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(
                 s: CharSequence?,
@@ -135,6 +212,18 @@ class LibraryAudioActivity : BaseActivity() {
 
             override fun afterTextChanged(s: Editable?) = Unit
         })
+
+        currentAudioCard.setOnClickListener {
+            featuredAudio?.let {
+                openAudioPlayer(it)
+            }
+        }
+
+        imgFeaturedCover.setOnClickListener {
+            featuredAudio?.let { audioItem ->
+                openAudioPlayer(audioItem)
+            }
+        }
     }
 
     private fun openAudioPlayer(audioItem: AudioItem) {
@@ -142,8 +231,33 @@ class LibraryAudioActivity : BaseActivity() {
             putExtra(AudioActivity.EXTRA_AUDIO_ID, audioItem.id)
             putExtra(AudioActivity.EXTRA_AUDIO_TITLE, audioItem.title)
             putExtra(AudioActivity.EXTRA_AUDIO_DURATION, audioItem.duration)
-            putExtra(AudioActivity.EXTRA_AUDIO_URL, audioItem.audioUrl)
+            putExtra("audio_name", audioItem.audioName)
+            putExtra("image_name", audioItem.imageName)
         }
         startActivity(intent)
     }
+
+    private fun getAudioImage(imageName: String): Int {
+
+        val resourceId = resources.getIdentifier(
+            imageName,
+            "drawable",
+            packageName
+        )
+
+        return if (resourceId != 0) {
+            resourceId
+        } else {
+            android.R.drawable.ic_media_play
+        }
+    }
+    private fun formatTime(milliseconds: Int): String {
+        val totalSeconds = milliseconds / 1000
+        val minutes = totalSeconds / 60
+        val seconds = totalSeconds % 60
+        return String.format("%d:%02d", minutes, seconds)
+    }
+
+
+
 }

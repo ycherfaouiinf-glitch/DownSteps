@@ -39,10 +39,17 @@ class AudioAdapter(
         private val btnQuickPlay: ImageView = itemView.findViewById(R.id.btnQuickPlay)
 
         fun bind(item: AudioItem) {
-            txtAudioTitle.text = item.title
-            txtDuration.text = item.duration
 
-            if (item.imageResId != null && item.imageResId != 0) {
+            txtAudioTitle.text = item.title
+
+            txtDuration.text =
+                if (item.duration.isNotBlank()) {
+                    item.duration
+                } else {
+                    "0:00"
+                }
+
+            if (item.imageResId != 0) {
                 imgAudioCover.setImageResource(item.imageResId)
             } else {
                 imgAudioCover.setImageResource(android.R.drawable.ic_media_play)

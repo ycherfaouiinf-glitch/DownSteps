@@ -1,93 +1,290 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/libraryAudioPage" android:layout_width="match_parent" android:layout_height="match_parent" android:background="@color/bg_main">
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/libraryAudioPage"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_main">
 
     <!-- Top background -->
-    <View android:id="@+id/topShape" style="@style/TopShape" android:layout_width="0dp" android:layout_height="170dp" android:alpha="0.18" app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"/>
+    <View
+        android:id="@+id/topShape"
+        style="@style/TopShape"
+        android:layout_width="0dp"
+        android:layout_height="170dp"
+        android:alpha="0.18"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <!-- Header -->
     <!-- Content -->
-    <androidx.core.widget.NestedScrollView android:id="@+id/scrollContent" android:layout_width="0dp" android:layout_height="0dp" android:clipToPadding="false" android:fillViewport="true" android:overScrollMode="never" android:paddingStart="16dp" android:paddingTop="8dp" android:paddingEnd="16dp" android:paddingBottom="110dp" android:scrollbars="none" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toTopOf="parent">
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scrollContent"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:clipToPadding="false"
+        android:fillViewport="true"
+        android:overScrollMode="never"
+        android:paddingStart="16dp"
+        android:paddingTop="8dp"
+        android:paddingEnd="16dp"
+        android:paddingBottom="110dp"
+        android:scrollbars="none"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-            <LinearLayout android:id="@+id/headerLayout" style="@style/Header" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:paddingBottom="8dp">
+            <LinearLayout
+                android:id="@+id/headerLayout"
+                style="@style/Header"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingBottom="8dp">
 
-        <LinearLayout android:id="@+id/topRow" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="14dp" android:gravity="center_vertical" android:orientation="horizontal">
+                <LinearLayout
+                    android:id="@+id/topRow"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="14dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
 
-            <LinearLayout android:id="@+id/backContainer" style="@style/BackBtn.Box" android:layout_width="44dp" android:layout_height="44dp" android:orientation="horizontal">
+                    <LinearLayout
+                        android:id="@+id/backContainer"
+                        style="@style/BackBtn.Box"
+                        android:layout_width="44dp"
+                        android:layout_height="44dp"
+                        android:orientation="horizontal">
 
-                <ImageView android:id="@+id/btnBack" style="@style/BackBtn.Icon" android:contentDescription="Back"/>
+                        <ImageView
+                            android:id="@+id/btnBack"
+                            style="@style/BackBtn.Icon"
+                            android:contentDescription="Back" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="1dp"
+                        android:layout_weight="1" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tvLibraryTitle"
+                    style="@style/Text.Title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Audio Library" />
+
+                <TextView
+                    android:id="@+id/tvLibrarySubtitle"
+                    style="@style/Text.Subtitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:text="Short stories, calm sounds, and bedtime audio" />
             </LinearLayout>
 
-            <View android:layout_width="0dp" android:layout_height="1dp" android:layout_weight="1"/>
+            <!-- Search box -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/searchCard"
+                style="@style/Card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="14dp"
+                app:cardElevation="0dp">
 
-            <ImageView android:id="@+id/btnSearchTop" android:layout_width="22dp" android:layout_height="22dp" android:contentDescription="Search" android:src="@android:drawable/ic_menu_search" app:tint="@color/text_label"/>
-        </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingStart="14dp"
+                    android:paddingTop="12dp"
+                    android:paddingEnd="14dp"
+                    android:paddingBottom="12dp">
 
-        <TextView android:id="@+id/tvLibraryTitle" style="@style/Text.Title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Audio Library"/>
+                    <ImageView
+                        style="@style/Icon.Small"
+                        android:layout_height="18dp"
+                        android:contentDescription="Search icon"
+                        android:src="@android:drawable/ic_menu_search"
+                        app:tint="@color/text_hint_layout" />
 
-        <TextView android:id="@+id/tvLibrarySubtitle" style="@style/Text.Subtitle" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:text="Short stories, calm sounds, and bedtime audio"/>
-    </LinearLayout>
-
-    <!-- Search box -->
-            <com.google.android.material.card.MaterialCardView android:id="@+id/searchCard" style="@style/Card" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="14dp" app:cardElevation="0dp">
-
-                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:gravity="center_vertical" android:orientation="horizontal" android:paddingStart="14dp" android:paddingTop="12dp" android:paddingEnd="14dp" android:paddingBottom="12dp">
-
-                    <ImageView style="@style/Icon.Small" android:layout_height="18dp" android:contentDescription="Search icon" android:src="@android:drawable/ic_menu_search" app:tint="@color/text_hint_layout"/>
-
-                    <com.google.android.material.textfield.TextInputEditText android:id="@+id/etSearchAudio" style="@style/EditText" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_marginStart="10dp" android:layout_weight="1" android:background="@android:color/transparent" android:hint="Search for audio stories..." android:inputType="text" android:maxLines="1" android:padding="0dp"/>
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etSearchAudio"
+                        style="@style/EditText"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_weight="1"
+                        android:background="@android:color/transparent"
+                        android:hint="Search for audio stories..."
+                        android:inputType="text"
+                        android:maxLines="1"
+                        android:padding="0dp" />
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
 
             <!-- Featured Story Card -->
-            <com.google.android.material.card.MaterialCardView android:id="@+id/currentAudioCard" style="@style/Card" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="16dp" app:cardElevation="0dp">
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/currentAudioCard"
+                style="@style/Card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:cardElevation="0dp">
 
-                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:gravity="center_vertical" android:orientation="horizontal" android:padding="18dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="18dp">
 
                     <!-- Left content -->
-                    <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical">
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
 
-                        <TextView android:id="@+id/tvNowPlayingLabel" style="@style/Text.Small" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Featured Story"/>
+                        <TextView
+                            android:id="@+id/tvNowPlayingLabel"
+                            style="@style/Text.Small"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Continue Listening" />
 
-                        <TextView android:id="@+id/tvCurrentAudioTitle" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:text="Little Lion Story" style="@style/Text.Featured"/>
+                        <TextView
+                            android:id="@+id/tvCurrentAudioTitle"
+                            style="@style/Text.Featured"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="6dp"
+                            android:text="Little Lion Story" />
 
-                        <TextView android:id="@+id/tvCurrentDuration" style="@style/Text.Subtitle" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:text="03:25 • Calm bedtime story"/>
+                        <TextView
+                            android:id="@+id/tvCurrentDuration"
+                            style="@style/Text.Subtitle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:text="03:25 • Calm bedtime story" />
 
-                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="16dp" android:gravity="center_vertical" android:orientation="horizontal">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="16dp"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
 
-                            <View android:layout_width="0dp" android:layout_height="5dp" android:layout_weight="1" android:background="@drawable/bg_audio_progress"/>
+                            <ProgressBar
+                                android:id="@+id/featuredProgress"
+                                style="?android:attr/progressBarStyleHorizontal"
+                                android:layout_width="0dp"
+                                android:layout_height="5dp"
+                                android:layout_weight="1"
+                                android:max="100"
+                                android:progress="0"
+                                android:progressTint="@color/btn_primary"
+                                android:progressBackgroundTint="@color/text_hint_layout" />
 
                         </LinearLayout>
                     </LinearLayout>
 
                     <!-- Right image -->
-                    <ImageView android:id="@+id/btnPlayFeatured" android:layout_width="64dp" android:layout_height="64dp" android:layout_marginStart="14dp" android:background="@drawable/bg_audio_play_button" android:padding="14dp" android:scaleType="centerInside" android:src="@android:drawable/ic_media_play" android:contentDescription="Play story" app:tint="@color/btn_primary"/>
+                    <ImageView
+                        android:id="@+id/imgFeaturedCover"
+                        android:layout_width="78dp"
+                        android:layout_height="78dp"
+                        android:layout_marginStart="14dp"
+                        android:contentDescription="Story image"
+                        android:scaleType="centerCrop"
+                        android:padding="0dp"
+                        android:adjustViewBounds="false" />
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
             <!-- Continue listening -->
-            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="10dp" android:gravity="center_vertical" android:orientation="horizontal">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
 
-                <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Continue Listening" style="@style/Text.Section"/>
+                <TextView
+                    style="@style/Text.Section"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Continue Listening" />
 
-                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="See all" android:textColor="@color/btn_primary" style="@style/Text.Small" android:textStyle="bold"/>
+                <TextView
+                    style="@style/Text.Small"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="See all"
+                    android:textColor="@color/btn_primary"
+                    android:textStyle="bold" />
             </LinearLayout>
 
             <!-- Audio List Card -->
-            <com.google.android.material.card.MaterialCardView android:id="@+id/audioListCard" style="@style/Card" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="14dp" app:cardElevation="0dp">
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/audioListCard"
+                style="@style/Card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="14dp"
+                app:cardElevation="0dp">
 
-                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="10dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="10dp">
 
-                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:gravity="center_vertical" android:orientation="horizontal" android:paddingStart="8dp" android:paddingTop="6dp" android:paddingEnd="8dp" android:paddingBottom="10dp">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:paddingStart="8dp"
+                        android:paddingTop="6dp"
+                        android:paddingEnd="8dp"
+                        android:paddingBottom="10dp">
 
-                        <TextView android:id="@+id/tvSectionTitle" style="@style/Text.Section" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Short Stories"/>
+                        <TextView
+                            android:id="@+id/tvSectionTitle"
+                            style="@style/Text.Section"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Short Stories" />
 
-                        <ImageView android:id="@+id/btnExpand" style="@style/Icon.Small" android:contentDescription="Expand" android:src="@android:drawable/arrow_down_float" app:tint="@color/input_icon"/>
+                        <ImageView
+                            android:id="@+id/btnExpand"
+                            style="@style/Icon.Small"
+                            android:contentDescription="Expand"
+                            android:src="@android:drawable/arrow_down_float"
+                            app:tint="@color/input_icon" />
                     </LinearLayout>
 
-                    <androidx.recyclerview.widget.RecyclerView android:id="@+id/recyclerAudioList" android:layout_width="match_parent" android:layout_height="wrap_content" android:nestedScrollingEnabled="false"/>
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recyclerAudioList"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:nestedScrollingEnabled="false" />
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
