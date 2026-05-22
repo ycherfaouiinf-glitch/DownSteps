@@ -51,7 +51,7 @@
                 style="@style/Text.Title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Tests Completed" />
+                android:text="@string/tests_completed" />
 
             <TextView
                 style="@style/Text.Subtitle"
@@ -59,7 +59,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:gravity="center"
-                android:text="Enable the SOS Widget to show it on your phone screen and access emergency help instantly." />
+                android:text="@string/sos_widget_intro" />
 
             <com.google.android.material.card.MaterialCardView
                 style="@style/Card"
@@ -115,7 +115,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="22dp"
-                        android:text="SOS Widget Feature" />
+                        android:text="@string/sos_widget_feature" />
 
                     <TextView
                         android:id="@+id/tvActivationState"
@@ -124,7 +124,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="6dp"
                         android:gravity="center"
-                        android:text="Status: Disabled" />
+                        android:text="@string/widget_status_disabled" />
 
                     <TextView
                         style="@style/Text.Body"
@@ -132,7 +132,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
                         android:gravity="center"
-                        android:text="After activation, add the DownSteps SOS Widget from your phone widgets. Pressing it will open the SOS page or call the saved emergency number." />
+                        android:text="@string/sos_widget_descriptionn" />
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
@@ -142,7 +142,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
-                android:text="Enable SOS Widget" />
+                android:text="@string/enable_sos_widget" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnOpenSosSettings"
@@ -150,7 +150,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
-                android:text="Configure SOS Number" />
+                android:text="@string/configure_sos_number" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnGoHome"
@@ -158,7 +158,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
-                android:text="Go Home" />
+                android:text="@string/go_home" />
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 

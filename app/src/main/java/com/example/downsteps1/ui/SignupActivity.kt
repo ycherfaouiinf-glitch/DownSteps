@@ -81,25 +81,13 @@ class SignupActivity : BaseActivity() {
 
     private fun showTermsDialog() {
         AlertDialog.Builder(this)
-            .setTitle("Terms and Conditions")
-            .setMessage(
-                """
-                • Your personal information must be accurate.
-                
-                • The SOS feature is only for emergency situations.
-                
-                • You are responsible for the emergency number you save.
-                
-                • DownSteps is not responsible for misuse of the SOS feature.
-                
-                • By creating an account, you agree to use the app safely and responsibly.
-                """.trimIndent()
-            )
-            .setPositiveButton("I Agree") { dialog, _ ->
+            .setTitle(getString(R.string.terms_conditions))
+            .setMessage(getString(R.string.terms_conditions_message))
+            .setPositiveButton(getString(R.string.i_agree)) { dialog, _ ->
                 cbTerms.isChecked = true
                 dialog.dismiss()
             }
-            .setNegativeButton("Cancel") { dialog, _ ->
+            .setNegativeButton(getString(R.string.cancel)) { dialog, _ ->
                 cbTerms.isChecked = false
                 dialog.dismiss()
             }
@@ -112,33 +100,33 @@ class SignupActivity : BaseActivity() {
         val password = etPassword.text?.toString()?.trim().orEmpty()
 
         if (name.isEmpty()) {
-            etName.error = "Name is required"
+            etName.error = getString(R.string.name_required)
             return
         }
 
         if (email.isEmpty()) {
-            etEmail.error = "Email is required"
+            etEmail.error = getString(R.string.email_required)
             return
         }
 
         if (password.isEmpty()) {
-            etPassword.error = "Password is required"
+            etPassword.error = getString(R.string.password_required)
             return
         }
 
         if (password.length < 6) {
-            etPassword.error = "Password must be at least 6 characters"
+            etPassword.error = getString(R.string.password_min_length)
             return
         }
 
         if (!cbTerms.isChecked) {
-            Toast.makeText(this, "Please accept terms", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, getString(R.string.accept_terms), Toast.LENGTH_SHORT).show()
             return
         }
 
         authRepository.signup(name, email, password) { isSuccess, errorMessage ->
             if (isSuccess) {
-                Toast.makeText(this, "Account created successfully", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, getString(R.string.account_created_successfully), Toast.LENGTH_SHORT).show()
 
                 val intent = Intent(this, ChildInformationActivity::class.java)
                 intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
@@ -147,7 +135,7 @@ class SignupActivity : BaseActivity() {
             } else {
                 Toast.makeText(
                     this,
-                    errorMessage ?: "Signup failed",
+                    errorMessage ?: getString(R.string.signup_failed),
                     Toast.LENGTH_SHORT
                 ).show()
             }

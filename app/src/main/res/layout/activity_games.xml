@@ -66,7 +66,7 @@
                         <ImageView
                             android:id="@+id/btnBackChallange1"
                             style="@style/BackBtn.Icon"
-                            android:contentDescription="Back" />
+                            android:contentDescription="@string/back"/>
                     </LinearLayout>
 
                     <!-- Sound + Music: RIGHT -->
@@ -92,7 +92,7 @@
                                 android:layout_gravity="center"
                                 android:src="@drawable/ic_sound_custom"
                                 app:tint="@color/btn_primary"
-                                android:contentDescription="Sound" />
+                                android:contentDescription="@string/sound" />
                         </com.google.android.material.card.MaterialCardView>
 
                         <com.google.android.material.card.MaterialCardView
@@ -112,7 +112,7 @@
                                 android:layout_gravity="center"
                                 android:src="@drawable/ic_music_note_custom"
                                 app:tint="@color/btn_primary"
-                                android:contentDescription="Music" />
+                                android:contentDescription="@string/music" />
                         </com.google.android.material.card.MaterialCardView>
 
                     </LinearLayout>
@@ -125,7 +125,7 @@
                     style="@style/Text.Title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Games" />
+                    android:text="@string/games"/>
 
                 <TextView
                     android:id="@+id/tvWelcome"
@@ -133,7 +133,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
-                    android:text="Let’s start playing! 👋"
+                    android:text="@string/lets_start_playing"
                     android:textStyle="bold"/>
 
                 <TextView
@@ -142,7 +142,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
-                    android:text="Choose a game and enjoy learning and fun" />
+                    android:text="@string/choose_game_fun"/>
 
             </LinearLayout>
 
@@ -181,12 +181,12 @@
                             android:layout_marginEnd="4dp"
                             android:src="@drawable/ic_star"
                             app:tint="@color/text_label"
-                            android:contentDescription="Star" />
+                            android:contentDescription="@string/star" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Suggested Today"
+                            android:text="@string/suggested_today"
                             style="@style/Text.Badge" />
                     </LinearLayout>
 
@@ -204,7 +204,7 @@
                             android:layout_height="92dp"
                             android:src="@android:drawable/ic_menu_gallery"
                             android:scaleType="fitCenter"
-                            android:contentDescription="Game image" />
+                            android:contentDescription="@string/game_image" />
 
                         <LinearLayout
                             android:layout_width="0dp"
@@ -235,7 +235,7 @@
                                 android:layout_width="115dp"
                                 android:layout_height="46dp"
                                 android:layout_marginTop="12dp"
-                                android:text="Start"
+                                android:text="@string/start"
                                 android:textAllCaps="false"
                                 android:textColor="#FFFFFF"
                                 android:textSize="17sp"
@@ -261,7 +261,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="All Games"
+                    android:text="@string/all_games"
                     style="@style/Text.Title" />
 
                 <com.google.android.material.card.MaterialCardView
@@ -289,13 +289,13 @@
                             android:layout_marginEnd="6dp"
                             android:src="@drawable/ic_heart_outline"
                             app:tint="@color/text_label"
-                            android:contentDescription="Favorites" />
+                            android:contentDescription="@string/favorites" />
 
                         <TextView
                             android:id="@+id/tvFavorites"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Favorites"
+                            android:text="@string/favorites"
                             style="@style/Text.Label"/>
 
                     </LinearLayout>
@@ -325,13 +325,13 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="No favorite games yet"
+                    android:text="@string/no_favorite_games"
                     style="@style/Text.Small"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Tap the heart to add a game ❤️"
+                    android:text="@string/add_favorite_game"
                     style="@style/Text.Subtitle"/>
 
             </LinearLayout>

@@ -113,11 +113,11 @@ class LoginActivity : BaseActivity() {
         val password = etPassword.text?.toString()?.trim().orEmpty()
 
         if (email.isEmpty()) {
-            etEmail.error = "Email is required"
+            etEmail.error = getString(R.string.email_required)
             return
         }
         if (password.isEmpty()) {
-            etPassword.error = "Password is required"
+            etPassword.error = getString(R.string.password_required)
             return
         }
 
@@ -125,7 +125,7 @@ class LoginActivity : BaseActivity() {
             if (isSuccess) {
                 navigateToHome()
             } else {
-                showError(errorMessage ?: "Login failed")
+                showError(errorMessage ?: getString(R.string.login_failed))
             }
         }
     }
@@ -147,7 +147,7 @@ class LoginActivity : BaseActivity() {
     }
 
     private fun navigateToChildInfo() {
-        Toast.makeText(this, "Please complete your profile", Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, getString(R.string.complete_profile), Toast.LENGTH_SHORT).show()
 
         val intent = Intent(this, ChildInformationActivity::class.java)
         startActivity(intent)

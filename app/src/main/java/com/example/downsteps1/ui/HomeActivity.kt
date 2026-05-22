@@ -8,6 +8,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.downsteps1.R
 import com.example.downsteps1.common.navigation.BottomNavHelper
+import com.example.downsteps1.data.CenterSeeder
 import com.google.android.material.card.MaterialCardView
 
 class HomeActivity : BaseActivity() {

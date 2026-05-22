@@ -62,14 +62,19 @@ class SosActivity : BaseActivity() {
         val contactName = etContactName.text.toString().trim()
 
         if (primary.isEmpty()) {
-            etPrimaryNumber.error = "Primary number is required"
+            etPrimaryNumber.error =
+                getString(R.string.primary_number_required)
             etPrimaryNumber.requestFocus()
             return
         }
 
         val userId = auth.currentUser?.uid
         if (userId == null) {
-            Toast.makeText(this, "User not logged in", Toast.LENGTH_SHORT).show()
+            Toast.makeText(
+                this,
+                getString(R.string.user_not_logged_in),
+                Toast.LENGTH_SHORT
+            ).show()
             return
         }
 
@@ -91,10 +96,18 @@ class SosActivity : BaseActivity() {
                     .apply()
 
                 SosWidgetProvider.requestRefresh(this)
-                Toast.makeText(this, "SOS contacts saved", Toast.LENGTH_SHORT).show()
+                Toast.makeText(
+                    this,
+                    getString(R.string.sos_contacts_saved),
+                    Toast.LENGTH_SHORT
+                ).show()
             }
             .addOnFailureListener {
-                Toast.makeText(this, "Error saving SOS contacts", Toast.LENGTH_SHORT).show()
+                Toast.makeText(
+                    this,
+                    getString(R.string.error_saving_sos_contacts),
+                    Toast.LENGTH_SHORT
+                ).show()
             }
     }
 
@@ -155,7 +168,11 @@ class SosActivity : BaseActivity() {
         val primaryNumber = prefs.getString("primary_number", "")?.trim().orEmpty()
 
         if (primaryNumber.isEmpty()) {
-            Toast.makeText(this, "Please save a primary SOS number first", Toast.LENGTH_SHORT).show()
+            Toast.makeText(
+                this,
+                getString(R.string.save_primary_sos_first),
+                Toast.LENGTH_SHORT
+            ).show()
             return
         }
 

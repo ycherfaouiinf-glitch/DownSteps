@@ -27,8 +27,8 @@ class Challange1Activity : BaseActivity() {
     private val auth = FirebaseAuth.getInstance()
     private val db = FirebaseFirestore.getInstance()
 
-    private var challengeType = "motor"
-    private var level = "beginner"
+    private var challengeType = CHALLENGE_MOTOR
+    private var level = LEVEL_BEGINNER
     private var day = 1
     private var isCompleted = false
 
@@ -70,10 +70,10 @@ class Challange1Activity : BaseActivity() {
         )
 
         if (isCompleted) {
-            btnDone.text = "Back"
+            btnDone.text = getString(R.string.back)
             btnDone.setOnClickListener { finish() }
         } else {
-            btnDone.text = "Done"
+            btnDone.text = getString(R.string.done)
             btnDone.setOnClickListener {
                 saveDone()
             }
@@ -98,7 +98,7 @@ class Challange1Activity : BaseActivity() {
                 if (challenge == null) {
                     Toast.makeText(
                         this@Challange1Activity,
-                        "Challenge not found",
+                        getString(R.string.challenge_not_found),
                         Toast.LENGTH_SHORT
                     ).show()
                     return@launch
@@ -132,7 +132,10 @@ class Challange1Activity : BaseActivity() {
             } catch (e: Exception) {
                 Toast.makeText(
                     this@Challange1Activity,
-                    "Error: ${e.message}",
+                    getString(
+                        R.string.error_message,
+                        e.message ?: ""
+                    ),
                     Toast.LENGTH_SHORT
                 ).show()
             }
@@ -143,7 +146,11 @@ class Challange1Activity : BaseActivity() {
         val userId = auth.currentUser?.uid
 
         if (userId == null) {
-            Toast.makeText(this, "User not logged in", Toast.LENGTH_SHORT).show()
+            Toast.makeText(
+                this,
+                getString(R.string.user_not_logged_in),
+                Toast.LENGTH_SHORT
+            ).show()
             return
         }
 
@@ -182,11 +189,24 @@ class Challange1Activity : BaseActivity() {
         db.collection("users").document(userId)
             .update(updates)
             .addOnSuccessListener {
-                Toast.makeText(this, "Challenge completed", Toast.LENGTH_SHORT).show()
+                Toast.makeText(
+                    this,
+                    getString(R.string.challenge_completed),
+                    Toast.LENGTH_SHORT
+                ).show()
                 finish()
             }
             .addOnFailureListener {
-                Toast.makeText(this, "Error saving progress", Toast.LENGTH_SHORT).show()
+                Toast.makeText(
+                    this,
+                    getString(R.string.error_saving_progress),
+                    Toast.LENGTH_SHORT
+                ).show()
             }
+    }
+
+    private companion object {
+        const val CHALLENGE_MOTOR = "motor"
+        const val LEVEL_BEGINNER = "beginner"
     }
 }

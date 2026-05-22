@@ -24,15 +24,15 @@ class ChallengeTypeActivity : BaseActivity() {
         btnBack.setOnClickListener { finish() }
 
         cardMotor.setOnClickListener {
-            openTimeline("motor")
+            openTimeline(TYPE_MOTOR)
         }
 
         cardLanguage.setOnClickListener {
-            openTimeline("language")
+            openTimeline(TYPE_LANGUAGE)
         }
 
         cardSpeech.setOnClickListener {
-            openTimeline("speech")
+            openTimeline(TYPE_SPEECH)
         }
     }
 
@@ -40,5 +40,11 @@ class ChallengeTypeActivity : BaseActivity() {
         val intent = Intent(this, ChallengesTimelineActivity::class.java)
         intent.putExtra("challenge_type", type)
         startActivity(intent)
+    }
+
+    private companion object {
+        const val TYPE_MOTOR = "motor"
+        const val TYPE_LANGUAGE = "language"
+        const val TYPE_SPEECH = "speech"
     }
 }

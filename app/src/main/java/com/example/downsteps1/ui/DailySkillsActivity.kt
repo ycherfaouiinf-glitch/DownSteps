@@ -42,19 +42,30 @@ class DailySkillsActivity : BaseActivity() {
         }
 
         itemSpeech.setOnClickListener {
-            openSkillVideos("Speech", "speech")
+            openSkillVideos(
+                getString(R.string.speech),
+                TYPE_SPEECH
+            )
         }
 
         itemWriting.setOnClickListener {
-            openSkillVideos("Writing", "writing")
+            openSkillVideos(
+                getString(R.string.writing),
+                TYPE_WRITING
+            )
         }
 
         itemSelfCare.setOnClickListener {
-            openSkillVideos("Self Care", "selfcare")
+            openSkillVideos(
+                getString(R.string.self_care),
+                TYPE_SELFCARE
+            )
         }
-
         itemBehavior.setOnClickListener {
-            openSkillVideos("Behavior", "behavior")
+            openSkillVideos(
+                getString(R.string.behavior),
+                TYPE_BEHAVIOR
+            )
         }
     }
 
@@ -63,5 +74,12 @@ class DailySkillsActivity : BaseActivity() {
         intent.putExtra("skill_title", skillTitle)
         intent.putExtra("skill_type", skillType)
         startActivity(intent)
+    }
+
+    private companion object {
+        const val TYPE_SPEECH = "speech"
+        const val TYPE_WRITING = "writing"
+        const val TYPE_SELFCARE = "selfcare"
+        const val TYPE_BEHAVIOR = "behavior"
     }
 }

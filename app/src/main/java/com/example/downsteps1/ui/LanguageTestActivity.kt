@@ -77,7 +77,11 @@ class LanguageTestActivity : BaseActivity() {
         val selectedId = rgAnswers.checkedRadioButtonId
 
         if (selectedId == -1) {
-            Toast.makeText(this, "Please select an answer", Toast.LENGTH_SHORT).show()
+            Toast.makeText(
+                this,
+                getString(R.string.select_answer),
+                Toast.LENGTH_SHORT
+            ).show()
             return
         }
 
@@ -98,7 +102,11 @@ class LanguageTestActivity : BaseActivity() {
         val currentQuestion = questions[currentIndex]
 
         tvQuestion.text = currentQuestion.questionText
-        btnNext.text = if (currentIndex == questions.size - 1) "Finish" else "Next"
+        btnNext.text =
+            if (currentIndex == questions.size - 1)
+                getString(R.string.finish)
+            else
+                getString(R.string.next)
 
         val step = currentIndex + 1
         tvProgress.text = "$step/${questions.size}"
@@ -107,18 +115,18 @@ class LanguageTestActivity : BaseActivity() {
 
     private fun scoreFromAnswer(answer: String): Int {
         return when (answer) {
-            "Yes" -> 2
-            "Sometimes" -> 1
-            "No" -> 0
+            getString(R.string.yes) -> 2
+            getString(R.string.sometimes) -> 1
+            getString(R.string.no) -> 0
             else -> 0
         }
     }
 
     private fun finishLanguageGoMotor() {
         val level = when {
-            totalScore <= 3 -> "Beginner"
-            totalScore <= 7 -> "Intermediate"
-            else -> "Advanced"
+            totalScore <= 3 -> "beginner"
+            totalScore <= 7 -> "intermediate"
+            else -> "advanced"
         }
 
         // --- حفظ النتيجة في Cloud Firestore ---
@@ -135,20 +143,43 @@ class LanguageTestActivity : BaseActivity() {
             db.collection("users").document(userId)
                 .set(hashMapOf("languageAssessment" to languageResult), com.google.firebase.firestore.SetOptions.merge())
                 .addOnSuccessListener {
-                    Toast.makeText(this, "Language assessment saved!\nLevel: $level", Toast.LENGTH_LONG).show()
+                    Toast.makeText(
+                        this,
+                        getString(
+                            R.string.language_assessment_saved,
+                            translateLevel(level)
+                        ),
+                        Toast.LENGTH_LONG
+                    ).show()
 
                     startActivity(Intent(this, MotorTestActivity::class.java))
                     finish()
                 }
                 .addOnFailureListener { e ->
 
-                    Toast.makeText(this, "Saved locally. Level: $level", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(
+                        this,
+                        getString(
+                            R.string.saved_locally_level,
+                            translateLevel(level)
+                        ),
+                        Toast.LENGTH_SHORT
+                    ).show()
                     startActivity(Intent(this, MotorTestActivity::class.java))
                     finish()
                 }
         } else {
             startActivity(Intent(this, MotorTestActivity::class.java))
             finish()
+        }
+    }
+
+    private fun translateLevel(level: String): String {
+        return when (level.lowercase()) {
+            "beginner" -> getString(R.string.beginner)
+            "intermediate" -> getString(R.string.intermediate)
+            "advanced" -> getString(R.string.advanced)
+            else -> level
         }
     }
 }

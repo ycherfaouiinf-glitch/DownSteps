@@ -19,11 +19,12 @@ class GamesIntroActivity : BaseActivity() {
         val tvGreeting = findViewById<TextView>(R.id.tvGreeting)
         val hour = Calendar.getInstance().get(Calendar.HOUR_OF_DAY)
 
-        tvGreeting.text = if (hour < 12) {
-            "Good morning, let’s start playing ☀️"
-        } else {
-            "Good evening, shall we play a quick game? 🌙"
-        }
+        tvGreeting.text =
+            if (hour < 12) {
+                getString(R.string.games_greeting_morning)
+            } else {
+                getString(R.string.games_greeting_evening)
+            }
 
         val dot1 = findViewById<View>(R.id.dot1)
         val dot2 = findViewById<View>(R.id.dot2)

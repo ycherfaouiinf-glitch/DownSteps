@@ -65,7 +65,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
-                android:text="Browse available centers and associations" />
+                android:text="@string/centers_subtitle" />
 
         </LinearLayout>
 
@@ -75,7 +75,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
-            android:hint="Search for a center or association..."
+            android:hint="@string/search_center"
             app:startIconDrawable="@android:drawable/ic_menu_search"
             app:startIconTint="@color/input_icon">
 
@@ -135,7 +135,7 @@
                     style="@style/Text.Label"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Category" />
+                    android:text="@string/category" />
 
                 <ImageView
                     android:id="@+id/ivCategoryArrow"
@@ -162,7 +162,7 @@
                     style="@style/Text.Label"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="All States" />
+                    android:text="@string/all_states"/>
 
                 <ImageView
                     android:id="@+id/ivStateArrow"
@@ -194,7 +194,7 @@
         style="@style/Text.Subtitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="No matching results found"
+        android:text="@string/no_results_found"
         android:visibility="gone"
         app:layout_constraintTop_toBottomOf="@id/topSection"
         app:layout_constraintBottom_toBottomOf="parent"

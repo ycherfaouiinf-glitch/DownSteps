@@ -59,15 +59,15 @@ class FaqActivity : BaseActivity() {
         val faqItems = listOf(
             FaqSearchItem(
                 cardFaq1,
-                "down syndrome genetic chromosome physical growth learning communication"
+                getString(R.string.faq_keywords_down_syndrome)
             ),
             FaqSearchItem(
                 cardFaq2,
-                "communication child simple words repetition visual support songs encouragement"
+                getString(R.string.faq_keywords_communication)
             ),
             FaqSearchItem(
                 cardFaq3,
-                "early assessment motor language speech skills activities challenges"
+                getString(R.string.faq_keywords_assessment)
             )
         )
 

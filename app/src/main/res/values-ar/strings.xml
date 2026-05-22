@@ -1,5 +1,439 @@
 <resources>
     <string name="app_name">DownSteps</string>
+    <string name="sos_widget_description">أداة DownSteps SOS للطوارئ</string>
+
+    <string name="home">الرئيسية</string>
+    <string name="welcome_back">مرحبًا بعودتك</string>
+    <string name="parent_name">اسم الولي</string>
+    <string name="support_child">لنساعد طفلك خطوة بخطوة</string>
+    <string name="explore_features">استكشف الميزات</string>
+
+    <string name="faq_info">الأسئلة والمعلومات</string>
+    <string name="faq_description">إجابات مفيدة ومعلومات مهمة</string>
+
+    <string name="challenges">التحديات</string>
+    <string name="challenges_description">تمارين يومية للتقدم</string>
+
+    <string name="daily_skills">المهارات اليومية</string>
+    <string name="daily_skills_description">مهام بسيطة لكل يوم</string>
+
+    <string name="centers">المراكز</string>
+    <string name="centers_description">مراكز دعم قريبة</string>
     <string name="centers_title">المراكز والجمعيات</string>
-    <string name="sos_widget_description">DownSteps SOS emergency widget</string>
+    <string name="centers_subtitle">تصفح المراكز والجمعيات المتاحة</string>
+    <string name="search_center">ابحث عن مركز أو جمعية...</string>
+    <string name="category">الفئة</string>
+    <string name="no_results_found">لا توجد نتائج مطابقة</string>
+
+    <string name="games">الألعاب</string>
+    <string name="games_description">أنشطة تعليمية ممتعة</string>
+    <string name="lets_start_playing">هيا نبدأ اللعب! 👋</string>
+    <string name="choose_game_fun">اختر لعبة واستمتع بالتعلم والمرح</string>
+    <string name="sound">الصوت</string>
+    <string name="music">الموسيقى</string>
+    <string name="star">نجمة</string>
+    <string name="suggested_today">المقترح اليوم</string>
+    <string name="game_image">صورة اللعبة</string>
+    <string name="start">ابدأ</string>
+    <string name="all_games">جميع الألعاب</string>
+    <string name="favorites">المفضلة</string>
+    <string name="no_favorite_games">لا توجد ألعاب مفضلة بعد</string>
+    <string name="add_favorite_game">اضغط على القلب لإضافة لعبة ❤️</string>
+    <string name="intro">مقدمة</string>
+    <string name="lets_start_playing_intro">هيا نبدأ اللعب!</string>
+    <string name="games_intro_subtitle">قمنا بإعداد ألعاب لمساعدة طفلك على التعلم والتركيز</string>
+    <string name="preparing_games">جاري تحضير الألعاب...</string>
+
+    <string name="success_stories">قصص النجاح</string>
+    <string name="success_stories_description">تجارب حقيقية ملهمة</string>
+    <string name="success_stories_subtitle">قصص ملهمة عن الإنجاز والإصرار</string>
+    <string name="real_stories_endless_inspiration">قصص حقيقية وإلهام بلا حدود</string>
+    <string name="down_syndrome_success_message">يمكن للأشخاص المصابين بمتلازمة داون تحقيق أهداف جميلة بالدعم والثقة والمثابرة.</string>
+
+    <string name="audio_library">المكتبة الصوتية</string>
+    <string name="audio_library_description">موارد صوتية مفيدة ومحتوى للاستماع</string>
+    <string name="audio">الصوت</string>
+    <string name="listen_short_story">استمع إلى قصة قصيرة</string>
+    <string name="story_title">عنوان القصة</string>
+    <string name="audio_current_time">0:00</string>
+    <string name="audio_total_time">3:25</string>
+    <string name="audio_library_subtitle">قصص قصيرة وأصوات هادئة ومحتوى صوتي قبل النوم</string>
+    <string name="search_icon">أيقونة البحث</string>
+    <string name="search_audio_stories">ابحث عن القصص الصوتية...</string>
+    <string name="continue_listening">متابعة الاستماع</string>
+    <string name="story_image">صورة القصة</string>
+    <string name="see_all">عرض الكل</string>
+    <string name="short_stories">قصص قصيرة</string>
+    <string name="expand">توسيع</string>
+
+    <string name="about_application">حول التطبيق</string>
+    <string name="about_subtitle">تعرف أكثر على DownSteps</string>
+    <string name="app_slogan">الدعم، الإرشاد، وأدوات الرعاية اليومية</string>
+    <string name="what_is_downsteps">ما هو DownSteps؟</string>
+    <string name="downsteps_description">DownSteps هو تطبيق داعم مصمم لمساعدة أولياء أطفال متلازمة داون من خلال توفير معلومات موثوقة وأنشطة يومية وإرشادات وموارد مفيدة.</string>
+    <string name="our_mission">مهمتنا</string>
+    <string name="mission_description">هدف هذا التطبيق هو دعم العائلات عبر أدوات بسيطة ومحتوى تعليمي وتمارين عملية وميزات طوارئ تجعل المتابعة أسهل وأكثر تنظيمًا.</string>
+    <string name="application_info">معلومات التطبيق</string>
+    <string name="name">الاسم</string>
+    <string name="version">الإصدار:</string>
+    <string name="developer">المطور:</string>
+    <string name="back_to_settings">العودة إلى الإعدادات</string>
+
+    <string name="challenge_day">تحدي اليوم</string>
+    <string name="challenge_subtitle">خطوات صغيرة، تقدم كبير كل يوم</string>
+    <string name="motor_challenge">تحدي حركي</string>
+    <string name="default_challenge_title">القفز بكلتا القدمين</string>
+    <string name="default_challenge_description">نشاط يساعد الطفل على تطوير التوازن والتنسيق الحركي.</string>
+    <string name="steps_follow">الخطوات الواجب اتباعها</string>
+    <string name="done">تم</string>
+    <string name="choose_challenge_type">اختر نوع التحدي</string>
+    <string name="challenge_type_subtitle">اختر التحدي المناسب لليوم وابدأ تقدم طفلك خطوة بخطوة.</string>
+    <string name="motor_challenge_desc">أنشطة تساعد طفلك على تحسين المهارات الحركية والتوازن والتنسيق.</string>
+    <string name="language_challenge">تحدي لغوي</string>
+    <string name="language_challenge_desc">أنشطة تدعم تطور اللغة والتواصل والفهم.</string>
+    <string name="speech_challenge">تحدي النطق</string>
+    <string name="speech_challenge_desc">أنشطة لتحسين النطق ومساعدة طفلك على إخراج الأصوات بوضوح أكبر.</string>
+    <string name="daily_challenges">التحديات اليومية</string>
+    <string name="challenges_timeline_subtitle">أكمل التحديات لفتح تحديات جديدة</string>
+
+    <string name="back">رجوع</string>
+    <string name="change_password">تغيير كلمة المرور</string>
+    <string name="update_password_securely">قم بتحديث كلمة المرور الخاصة بك بأمان</string>
+    <string name="password_information">معلومات كلمة المرور</string>
+    <string name="current_password">كلمة المرور الحالية</string>
+    <string name="enter_current_password">أدخل كلمة المرور الحالية</string>
+    <string name="new_password">كلمة المرور الجديدة</string>
+    <string name="enter_new_password">أدخل كلمة المرور الجديدة</string>
+    <string name="confirm_new_password">تأكيد كلمة المرور الجديدة</string>
+    <string name="confirm_new_password_hint">أكد كلمة المرور الجديدة</string>
+    <string name="confirm_password">تأكيد كلمة المرور</string>
+    <string name="confirm_your_password">أكد كلمة المرور الخاصة بك</string>
+    <string name="save_changes">حفظ التغييرات</string>
+
+    <string name="change_profile">تعديل الملف الشخصي</string>
+    <string name="update_account_information">قم بتحديث معلومات حسابك بسهولة</string>
+    <string name="profile_information">معلومات الملف الشخصي</string>
+    <string name="edit_personal_details">قم بتعديل معلوماتك الشخصية أدناه</string>
+    <string name="enter_full_name">أدخل اسمك الكامل</string>
+    <string name="email">البريد الإلكتروني</string>
+    <string name="enter_email_address">أدخل بريدك الإلكتروني</string>
+
+    <string name="child_information">معلومات الطفل</string>
+    <string name="enter_child_information">أدخل معلومات طفلك للمتابعة</string>
+    <string name="pick_image">اختيار صورة</string>
+    <string name="upload_child_photo">تحميل صورة الطفل</string>
+    <string name="child_name">اسم الطفل</string>
+    <string name="female">أنثى</string>
+    <string name="male">ذكر</string>
+    <string name="birth_date">تاريخ الميلاد</string>
+    <string name="save_and_continue">حفظ والمتابعة</string>
+    <string name="edit_child">تعديل الطفل</string>
+    <string name="update_child_information">قم بتحديث معلومات طفلك</string>
+    <string name="child_image">صورة الطفل</string>
+    <string name="child_profile">ملف الطفل</string>
+    <string name="child_name_label">اسم الطفل</string>
+    <string name="enter_child_name">أدخل اسم الطفل</string>
+    <string name="gender">الجنس</string>
+    <string name="birth_date_label">تاريخ الميلاد</string>
+    <string name="select_birth_date">اختر تاريخ الميلاد</string>
+
+    <string name="daily_skills_subtitle">أنشطة تدريبية لدعم التطور اليومي لطفلك</string>
+    <string name="training_videos">فيديوهات تدريبية</string>
+    <string name="training_videos_description">محتوى تدريبي بسيط لتحسين النطق والكتابة والسلوك ومهارات العناية الذاتية.</string>
+    <string name="speech">النطق</string>
+    <string name="writing">الكتابة</string>
+    <string name="self_care">العناية الذاتية</string>
+    <string name="behavior">السلوك</string>
+    <string name="open">فتح</string>
+    <string name="skill_videos_subtitle">أنشطة لدعم تطور طفلك.</string>
+    <string name="video">فيديو</string>
+    <string name="video_placeholder">سيتم إضافة مشغل الفيديو هنا لاحقًا.</string>
+
+    <string name="faq_title">الأسئلة الشائعة</string>
+    <string name="faq_subtitle">الأسئلة الشائعة والمعلومات المفيدة</string>
+    <string name="search">بحث...</string>
+    <string name="what_is_down_syndrome">ما هي متلازمة داون؟</string>
+    <string name="down_syndrome_answer">متلازمة داون هي حالة وراثية ناتجة عن وجود نسخة إضافية من الكروموسوم 21. قد تؤثر على النمو الجسدي والتعلم والتواصل، لكن كل طفل يتطور بطريقته الخاصة.</string>
+    <string name="help_child_communication">كيف يمكنني مساعدة طفلي على تحسين التواصل؟</string>
+    <string name="help_child_communication_answer">استخدم كلمات بسيطة، والتكرار اليومي، والدعم البصري، والأغاني، والتشجيع الإيجابي. التدريب القصير يوميًا يعطي نتائج أفضل من الجلسات الطويلة غير المنتظمة.</string>
+    <string name="why_early_assessment">لماذا يعتبر التقييم المبكر مهمًا؟</string>
+    <string name="why_early_assessment_answer">يساعد التقييم المبكر في تحديد المستوى الحالي لمهارات الحركة واللغة والنطق حتى يتمكن التطبيق من عرض الأنشطة والتحديات المناسبة.</string>
+
+    <string name="help_support">المساعدة والدعم</string>
+    <string name="help_support_subtitle">نحن هنا لمساعدتك</string>
+    <string name="need_assistance">هل تحتاج إلى مساعدة؟</string>
+    <string name="help_support_description">إذا كنت بحاجة إلى مساعدة في استخدام التطبيق، أو لديك مشكلة تقنية، أو تريد المزيد من المعلومات، يمكنك التواصل مع الدعم عبر الخيارات أدناه.</string>
+    <string name="contact_information">معلومات التواصل</string>
+    <string name="frequently_asked_questions">الأسئلة الشائعة</string>
+    <string name="faq_save_child_data">• كيف يمكنني حفظ بيانات طفلي؟</string>
+    <string name="faq_daily_challenges">• كيف أصل إلى التحديات اليومية؟</string>
+    <string name="faq_sos_feature">• كيف يمكنني استخدام ميزة SOS؟</string>
+    <string name="contact_support">التواصل مع الدعم</string>
+
+    <string name="language">اللغة</string>
+    <string name="choose_preferred_language">اختر لغتك المفضلة</string>
+    <string name="app_language">لغة التطبيق</string>
+    <string name="english">الإنجليزية</string>
+    <string name="arabic">العربية</string>
+    <string name="save">حفظ</string>
+    <string name="language_assessment">تقييم اللغة</string>
+    <string name="language_assessment_subtitle">أجب عن الأسئلة التالية لتحديد مستوى اللغة.</string>
+    <string name="yes">نعم</string>
+    <string name="sometimes">أحيانًا</string>
+    <string name="no">لا</string>
+    <string name="next">التالي</string>
+    <string name="speech_assessment">تقييم النطق</string>
+    <string name="speech_assessment_subtitle">أجب عن الأسئلة التالية لتحديد مستوى النطق.</string>
+
+    <string name="log_in">تسجيل الدخول</string>
+    <string name="login_subtitle">خطوة بخطوة معك.</string>
+    <string name="password">كلمة المرور</string>
+    <string name="forgot_password">نسيت كلمة المرور؟</string>
+    <string name="or_separator">- أو -</string>
+    <string name="login_with_google">تسجيل الدخول عبر Google</string>
+    <string name="dont_have_account">ليس لديك حساب؟</string>
+    <string name="register_here">سجل هنا!</string>
+
+    <string name="new_password_title">كلمة مرور جديدة</string>
+    <string name="create_new_password">أنشئ كلمة المرور الجديدة الخاصة بك</string>
+    <string name="set_new_password">تعيين كلمة مرور جديدة</string>
+    <string name="save_password">حفظ كلمة المرور</string>
+    <string name="reset_password">إعادة تعيين كلمة المرور</string>
+    <string name="reset_password_subtitle">أدخل بريدك الإلكتروني لتلقي رابط إعادة التعيين</string>
+    <string name="account_recovery">استرجاع الحساب</string>
+    <string name="enter_your_email">أدخل بريدك الإلكتروني</string>
+    <string name="send_reset_link">إرسال رابط إعادة التعيين</string>
+    <string name="verification_code">رمز التحقق</string>
+    <string name="verification_code_subtitle">أدخل الرمز المرسل إلى بريدك الإلكتروني</string>
+    <string name="email_verification">التحقق من البريد الإلكتروني</string>
+    <string name="code">الرمز</string>
+    <string name="enter_verification_code">أدخل رمز التحقق</string>
+    <string name="resend_code">إعادة إرسال الرمز</string>
+    <string name="verify">تحقق</string>
+
+    <string name="profile">الملف الشخصي</string>
+    <string name="name_label">الاسم:</string>
+    <string name="gender_label">الجنس:</string>
+    <string name="birth_label">تاريخ الميلاد:</string>
+    <string name="edit_child_information">تعديل معلومات الطفل</string>
+    <string name="levels">المستويات</string>
+    <string name="re_evaluate">إعادة التقييم</string>
+
+    <string name="settings">الإعدادات</string>
+    <string name="manage_preferences">إدارة تفضيلاتك</string>
+    <string name="account">الحساب</string>
+    <string name="change_profile_information">تعديل معلومات الملف الشخصي</string>
+    <string name="preferences">التفضيلات</string>
+    <string name="appearance">المظهر</string>
+    <string name="notifications">الإشعارات</string>
+    <string name="daily_challenge_reminders">تذكيرات التحديات اليومية</string>
+    <string name="general_notifications">الإشعارات العامة</string>
+    <string name="support">الدعم</string>
+    <string name="help_and_support">المساعدة والدعم</string>
+    <string name="log_out">تسجيل الخروج</string>
+
+    <string name="create">إنشاء</string>
+    <string name="new_account">حساب جديد</string>
+    <string name="email_or_phone">البريد الإلكتروني أو رقم الهاتف</string>
+    <string name="agree_terms_conditions">أوافق على الشروط والأحكام</string>
+    <string name="create_account">إنشاء حساب</string>
+    <string name="already_user">لديك حساب بالفعل؟</string>
+
+    <string name="sos">SOS</string>
+    <string name="emergency_contact_settings">إعدادات جهات اتصال الطوارئ</string>
+    <string name="emergency_contacts">جهات اتصال الطوارئ</string>
+    <string name="primary_sos_number">الرقم الرئيسي للطوارئ</string>
+    <string name="enter_primary_number">أدخل الرقم الرئيسي</string>
+    <string name="additional_number_1">رقم إضافي 1</string>
+    <string name="additional_number_2">رقم إضافي 2</string>
+    <string name="optional">اختياري</string>
+    <string name="contact_name">اسم جهة الاتصال</string>
+    <string name="contact_name_hint">الأب / الأم / قريب / إسعاف</string>
+    <string name="tests_completed">تم إكمال الاختبارات</string>
+    <string name="sos_widget_intro">قم بتفعيل أداة SOS لتظهر على شاشة هاتفك والوصول إلى المساعدة الطارئة فورًا.</string>
+    <string name="sos_widget_feature">ميزة أداة SOS</string>
+    <string name="widget_status_disabled">الحالة: غير مفعلة</string>
+    <string name="sos_widget_descriptionn">بعد التفعيل، أضف أداة DownSteps SOS من أدوات الهاتف. عند الضغط عليها سيتم فتح صفحة SOS أو الاتصال برقم الطوارئ المحفوظ.</string>
+    <string name="enable_sos_widget">تفعيل أداة SOS</string>
+    <string name="configure_sos_number">إعداد رقم SOS</string>
+    <string name="go_home">الصفحة الرئيسية</string>
+
+    <string name="choose_category">اختر الفئة</string>
+    <string name="select_category_subtitle">اختر النوع الذي تبحث عنه</string>
+    <string name="all_categories">جميع الفئات</string>
+    <string name="all_categories_desc">عرض جميع المراكز والجمعيات</string>
+    <string name="association">جمعية</string>
+    <string name="association_desc">عرض الجمعيات والمنظمات المجتمعية</string>
+    <string name="center">مركز</string>
+    <string name="center_desc">عرض المراكز والمرافق المتخصصة</string>
+    <string name="apply">تطبيق</string>
+    <string name="filter_results">تصفية النتائج</string>
+    <string name="state">الولاية</string>
+    <string name="all_states">جميع الولايات</string>
+    <string name="reset">إعادة تعيين</string>
+    <string name="choose_state">اختر الولاية</string>
+    <string name="select_state_subtitle">اختر ولاية لعرض المراكز المتاحة</string>
+    <string name="show_more">عرض المزيد</string>
+
+    <string name="dark_mode">الوضع الداكن</string>
+    <string name="light_mode">الوضع الفاتح</string>
+    <string name="daily_reminders_enabled">تم تفعيل التذكيرات اليومية</string>
+    <string name="daily_reminders_disabled">تم تعطيل التذكيرات اليومية</string>
+    <string name="general_notifications_enabled">تم تفعيل الإشعارات العامة</string>
+    <string name="general_notifications_disabled">تم تعطيل الإشعارات العامة</string>
+    <string name="logged_out">تم تسجيل الخروج</string>
+
+
+    <string name="email_required">البريد الإلكتروني مطلوب</string>
+    <string name="password_required">كلمة المرور مطلوبة</string>
+    <string name="login_failed">فشل تسجيل الدخول</string>
+    <string name="complete_profile">يرجى إكمال ملفك الشخصي</string>
+
+    <string name="terms_conditions">الشروط والأحكام</string>
+    <string name="terms_conditions_message">• يجب أن تكون معلوماتك الشخصية صحيحة.&#10;&#10;• ميزة SOS مخصصة لحالات الطوارئ فقط.&#10;&#10;• أنت مسؤول عن رقم الطوارئ الذي تقوم بحفظه.&#10;&#10;• تطبيق DownSteps غير مسؤول عن سوء استخدام ميزة SOS.&#10;&#10;• بإنشاء حساب، فإنك توافق على استخدام التطبيق بأمان ومسؤولية.</string>
+    <string name="i_agree">أوافق</string>
+    <string name="cancel">إلغاء</string>
+    <string name="name_required">الاسم مطلوب</string>
+    <string name="password_min_length">يجب أن تتكون كلمة المرور من 6 أحرف على الأقل</string>
+    <string name="accept_terms">يرجى قبول الشروط</string>
+    <string name="account_created_successfully">تم إنشاء الحساب بنجاح</string>
+    <string name="signup_failed">فشل إنشاء الحساب</string>
+
+    <string name="reset_link_sent">تم إرسال رابط إعادة التعيين إلى بريدك الإلكتروني</string>
+    <string name="reset_email_failed">فشل إرسال بريد إعادة التعيين</string>
+
+    <string name="google_password_settings">مستخدمو Google يديرون كلمات المرور من إعدادات Google.</string>
+    <string name="fill_all_fields">يرجى ملء جميع الحقول</string>
+    <string name="passwords_do_not_match">كلمتا المرور غير متطابقتين</string>
+    <string name="password_updated_successfully">تم تحديث كلمة المرور بنجاح!</string>
+    <string name="error_message">خطأ: %1$s</string>
+    <string name="incorrect_current_password">كلمة المرور الحالية غير صحيحة</string>
+    <string name="current_password_wrong">كلمة المرور الحالية خاطئة</string>
+
+
+    <string name="google_email_change_not_allowed">لا يمكن لحسابات Google تغيير البريد الإلكتروني من هنا. يرجى إدارته من إعدادات Google الخاصة بك.</string>
+    <string name="fill_fields_confirm_password">يرجى ملء جميع الحقول وإدخال كلمة المرور للتأكيد</string>
+    <string name="email_error_message">خطأ في البريد الإلكتروني: %1$s</string>
+    <string name="incorrect_password">كلمة المرور غير صحيحة!</string>
+    <string name="name_updated_successfully">تم تحديث الاسم بنجاح!</string>
+    <string name="profile_updated_successfully">تم تحديث الملف الشخصي بنجاح!</string>
+
+    <string name="fill_all_information">يرجى ملء جميع المعلومات</string>
+    <string name="data_saved_successfully">تم حفظ البيانات بنجاح!</string>
+    <string name="continuing_to_tests">جارٍ الانتقال إلى الاختبارات...</string>
+    <string name="starting_tests">تم إكمال المعلومات. بدء الاختبارات...</string>
+    <string name="age_range_error">يجب أن يكون العمر بين 0 و100</string>
+    <string name="select_image">اختر صورة</string>
+    <string name="child_saved_successfully">تم حفظ معلومات الطفل بنجاح!</string>
+    <string name="failed_to_save">فشل الحفظ: %1$s</string>
+
+    <string name="unknown">غير معروف</string>
+    <string name="not_set">غير محدد</string>
+    <string name="not_tested">لم يتم الاختبار</string>
+    <string name="beginner">مبتدئ</string>
+    <string name="intermediate">متوسط</string>
+    <string name="advanced">متقدم</string>
+    <string name="motor_level_format">الحركة: %1$s</string>
+    <string name="language_level_format">اللغة: %1$s</string>
+    <string name="speech_level_format">النطق: %1$s</string>
+
+
+    <string name="updated_successfully">تم التحديث بنجاح!</string>
+    <string name="update_failed">فشل التحديث: %1$s</string>
+
+    <string name="select_answer">يرجى اختيار إجابة</string>
+    <string name="finish">إنهاء</string>
+    <string name="language_assessment_saved">تم حفظ تقييم اللغة!\nالمستوى: %1$s</string>
+    <string name="saved_locally_level">تم الحفظ محليًا. المستوى: %1$s</string>
+
+    <string name="motor_assessment_saved">تم حفظ تقييم الحركة!\nالمستوى: %1$s</string>
+    <string name="proceeding_next_step">جارٍ الانتقال إلى الخطوة التالية...</string>
+
+    <string name="assessments_complete_level">تم إكمال جميع التقييمات! المستوى: %1$s</string>
+    <string name="opening_home">جارٍ فتح الصفحة الرئيسية...</string>
+
+
+    <string name="primary_number_required">الرقم الرئيسي مطلوب</string>
+    <string name="user_not_logged_in">المستخدم غير مسجل الدخول</string>
+    <string name="sos_contacts_saved">تم حفظ جهات اتصال SOS</string>
+    <string name="error_saving_sos_contacts">حدث خطأ أثناء حفظ جهات اتصال SOS</string>
+    <string name="save_primary_sos_first">يرجى حفظ رقم SOS الرئيسي أولاً</string>
+
+
+    <string name="sos_widget_activated">تم تفعيل أداة SOS</string>
+    <string name="add_sos_widget_manually">يرجى إضافة أداة SOS يدويًا من أدوات الشاشة الرئيسية لهاتفك</string>
+    <string name="widget_status_enabled">الحالة: مفعلة ✅</string>
+    <string name="sos_widget_enabled">أداة SOS مفعلة</string>
+
+    <string name="call_contact_quickly">اتصل بـ %1$s بسرعة</string>
+    <string name="tap_to_call_emergency">اضغط للاتصال بالطوارئ</string>
+    <string name="set_emergency_number_first">قم بتعيين رقم الطوارئ أولاً</string>
+
+    <string name="enter_code">أدخل الرمز</string>
+    <string name="code_too_short">الرمز قصير جدًا</string>
+    <string name="verification_code_sent_again">تم إرسال رمز التحقق مرة أخرى</string>
+
+    <string name="video_player_placeholder">لاحقًا يمكنك ربط هذه الصفحة بـ ExoPlayer أو Firebase Storage أو API.</string>
+    <string name="video_url_placeholder">
+    رابط الفيديو: %1$s
+لاحقًا يمكنك ربط هذه الصفحة بـ ExoPlayer أو Firebase Storage أو API.</string>
+
+    <string name="audio_default_duration">0:00</string>
+
+    <string name="challenge_not_found">لم يتم العثور على التحدي</string>
+    <string name="challenge_completed">تم إكمال التحدي</string>
+    <string name="error_saving_progress">حدث خطأ أثناء حفظ التقدم</string>
+
+    <string name="error_loading_user_data">حدث خطأ أثناء تحميل بيانات المستخدم</string>
+    <string name="day_format">اليوم %1$d</string>
+    <string name="locked">مغلق</string>
+    <string name="completed">مكتمل</string>
+    <string name="today">اليوم</string>
+
+    <string name="faq_keywords_down_syndrome">متلازمة داون وراثية كروموسوم نمو جسدي تعلم تواصل</string>
+    <string name="faq_keywords_communication">تواصل طفل كلمات بسيطة تكرار دعم بصري أغاني تشجيع</string>
+    <string name="faq_keywords_assessment">تقييم مبكر حركة لغة نطق مهارات أنشطة تحديات</string>
+
+    <string name="level_1">المستوى 1</string>
+    <string name="level_2">المستوى 2</string>
+
+    <string name="game_connect">التوصيل</string>
+    <string name="game_connect_desc">طابق العناصر المتشابهة</string>
+    <string name="game_connect_benefit">يساعد على تحسين التركيز عبر ربط العناصر المتشابهة بطريقة ممتعة.</string>
+
+    <string name="game_learn">التعلم</string>
+    <string name="game_learn_desc">تعلم الحروف والكلمات</string>
+    <string name="game_learn_benefit">يساعد الأطفال على تعلم الحروف والكلمات بسهولة.</string>
+
+    <string name="game_matching">المطابقة</string>
+    <string name="game_matching_desc">طابق الصور المتشابهة</string>
+    <string name="game_matching_benefit">يحسن الذاكرة والتركيز.</string>
+
+    <string name="game_puzzle">البازل</string>
+    <string name="game_puzzle_desc">كوّن الصورة من القطع</string>
+    <string name="game_puzzle_benefit">يعزز التفكير وحل المشكلات.</string>
+
+    <string name="game_coloring">التلوين</string>
+    <string name="game_coloring_desc">لوّن رسومات جميلة</string>
+    <string name="game_coloring_benefit">يحسن التعرف على الألوان والمهارات الحركية.</string>
+    <string name="game_not_implemented">لعبة %1$s غير متوفرة بعد</string>
+
+    <string name="games_greeting_morning">
+    صباح الخير، هيا نبدأ اللعب ☀️
+</string>
+
+    <string name="games_greeting_evening">
+    مساء الخير، هل نلعب لعبة سريعة؟ 🌙
+</string>
+
+    <string name="password_changed_successfully">
+    تم تغيير كلمة المرور بنجاح
+</string>
+
+
+    <string name="skill_videos">فيديوهات المهارات</string>
+    <string name="skill_speech_subtitle">أنشطة لتحسين مهارات الكلام والنطق.</string>
+    <string name="skill_writing_subtitle">أنشطة لتحسين مهارات الكتابة المبكرة.</string>
+    <string name="skill_selfcare_subtitle">أنشطة لدعم روتين العناية الذاتية اليومية.</string>
+    <string name="skill_behavior_subtitle">أنشطة لدعم السلوك الإيجابي.</string>
 </resources>

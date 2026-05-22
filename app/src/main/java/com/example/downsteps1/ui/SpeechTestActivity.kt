@@ -78,7 +78,11 @@ class SpeechTestActivity : BaseActivity() {
         val selectedId = rgAnswers.checkedRadioButtonId
 
         if (selectedId == -1) {
-            Toast.makeText(this, "Please select an answer", Toast.LENGTH_SHORT).show()
+            Toast.makeText(
+                this,
+                getString(R.string.select_answer),
+                Toast.LENGTH_SHORT
+            ).show()
             return
         }
 
@@ -99,7 +103,11 @@ class SpeechTestActivity : BaseActivity() {
         val currentQuestion = questions[currentIndex]
 
         tvQuestion.text = currentQuestion.questionText
-        btnNext.text = if (currentIndex == questions.size - 1) "Finish" else "Next"
+        btnNext.text =
+            if (currentIndex == questions.size - 1)
+                getString(R.string.finish)
+            else
+                getString(R.string.next)
 
         val step = currentIndex + 1
         tvProgress.text = "$step/${questions.size}"
@@ -108,18 +116,18 @@ class SpeechTestActivity : BaseActivity() {
 
     private fun scoreFromAnswer(answer: String): Int {
         return when (answer) {
-            "Yes" -> 2
-            "Sometimes" -> 1
-            "No" -> 0
+            getString(R.string.yes) -> 2
+            getString(R.string.sometimes) -> 1
+            getString(R.string.no) -> 0
             else -> 0
         }
     }
 
     private fun finishTest() {
         val level = when {
-            totalScore <= 5 -> "Beginner"
-            totalScore <= 11 -> "Intermediate"
-            else -> "Advanced"
+            totalScore <= 5 -> "beginner"
+            totalScore <= 11 -> "intermediate"
+            else -> "advanced"
         }
 
         val userId = FirebaseAuth.getInstance().currentUser?.uid
@@ -140,13 +148,24 @@ class SpeechTestActivity : BaseActivity() {
             db.collection("users").document(userId)
                 .set(finalUpdates, SetOptions.merge())
                 .addOnSuccessListener {
-                    Toast.makeText(this, "All assessments complete! Level: $level", Toast.LENGTH_LONG).show()
+                    Toast.makeText(
+                        this,
+                        getString(
+                            R.string.assessments_complete_level,
+                            translateLevel(level)
+                        ),
+                        Toast.LENGTH_LONG
+                    ).show()
 
 
                     goHome()
                 }
                 .addOnFailureListener { e ->
-                    Toast.makeText(this, "Opening home...", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(
+                        this,
+                        getString(R.string.opening_home),
+                        Toast.LENGTH_SHORT
+                    ).show()
                     goHome()
                 }
         } else {
@@ -164,5 +183,14 @@ class SpeechTestActivity : BaseActivity() {
         intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
         startActivity(intent)
         finish()
+    }
+
+    private fun translateLevel(level: String): String {
+        return when (level.lowercase()) {
+            "beginner" -> getString(R.string.beginner)
+            "intermediate" -> getString(R.string.intermediate)
+            "advanced" -> getString(R.string.advanced)
+            else -> level
+        }
     }
 }

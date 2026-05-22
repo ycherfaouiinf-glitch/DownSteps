@@ -580,9 +580,21 @@ class CentersAndAssociationsActivity : BaseActivity() {
     }
 
     private fun getImageResource(imageName: String): Int {
-        return when (imageName) {
-            "mfatih_eldjana_ass" -> R.drawable.mfatih_eldjana_ass
-            else -> R.drawable.mfatih_eldjana_ass
+
+        if (imageName.isBlank()) {
+            return R.drawable.ic_center_default
+        }
+
+        val resourceId = resources.getIdentifier(
+            imageName,
+            "drawable",
+            packageName
+        )
+
+        return if (resourceId != 0) {
+            resourceId
+        } else {
+            R.drawable.ic_center_default
         }
     }
 

@@ -92,7 +92,9 @@ class LibraryAudioActivity : BaseActivity() {
                     AudioItem(
                         id = doc.getLong("id")?.toInt() ?: 0,
                         title = doc.getString("title") ?: "",
-                        duration = doc.getString("duration") ?: "0:00",
+                        duration =
+                            doc.getString("duration")
+                                ?: getString(R.string.audio_default_duration),
                         description = doc.getString("description") ?: "",
                         audioName = doc.getString("audioName") ?: "",
                         imageName = doc.getString("imageName") ?: "",
@@ -121,7 +123,9 @@ class LibraryAudioActivity : BaseActivity() {
             AudioItem(
                 id = lastAudioId,
                 title = lastTitle,
-                duration = lastDuration ?: "0:00",
+                duration =
+                    lastDuration
+                        ?: getString(R.string.audio_default_duration),
                 audioName = lastAudioName,
                 imageName = lastImageName ?: "",
                 imageResId = getAudioImage(lastImageName ?: "")
@@ -131,8 +135,12 @@ class LibraryAudioActivity : BaseActivity() {
             audioList.find { it.featured } ?: audioList.firstOrNull()
         }
 
-        tvCurrentAudioTitle.text = featuredAudio?.title ?: "Story Title"
-        tvCurrentDuration.text = featuredAudio?.duration ?: "0:00"
+        tvCurrentAudioTitle.text =
+            featuredAudio?.title
+                ?: getString(R.string.story_title)
+        tvCurrentDuration.text =
+            featuredAudio?.duration
+                ?: getString(R.string.audio_default_duration)
 
         imgFeaturedCover.setImageResource(
             featuredAudio?.imageResId ?: android.R.drawable.ic_media_play
@@ -145,7 +153,8 @@ class LibraryAudioActivity : BaseActivity() {
             if (durationMs > 0) {
                 "${formatTime(position)} / ${formatTime(durationMs)}"
             } else {
-                featuredAudio?.duration ?: "0:00"
+                featuredAudio?.duration
+                    ?: getString(R.string.audio_default_duration)
             }
 
         featuredProgress.progress =

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/challange1Page"
     android:layout_width="match_parent"
@@ -14,9 +13,9 @@
         android:layout_width="0dp"
         android:layout_height="190dp"
         android:alpha="0.16"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <!-- Scrollable content -->
     <androidx.core.widget.NestedScrollView
@@ -31,10 +30,10 @@
         android:paddingEnd="18dp"
         android:paddingBottom="118dp"
         android:scrollbars="none"
-        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -44,10 +43,10 @@
             <!-- Header -->
             <LinearLayout
                 android:id="@+id/headerLayout"
+                style="@style/Header"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                style="@style/Header">
+                android:orientation="vertical">
 
                 <LinearLayout
                     android:id="@+id/backContainer"
@@ -68,7 +67,7 @@
                     style="@style/Text.Title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Challenge of the Day" />
+                    android:text="@string/challenge_day" />
 
                 <TextView
                     android:id="@+id/tvChallangeSubtitle"
@@ -76,7 +75,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
-                    android:text="Small steps, big progress every day" />
+                    android:text="@string/challenge_subtitle" />
             </LinearLayout>
 
             <!-- Hero Card -->
@@ -110,7 +109,7 @@
                             android:paddingTop="7dp"
                             android:paddingEnd="14dp"
                             android:paddingBottom="7dp"
-                            android:text="Motor Challenge"
+                            android:text="@string/motor_challenge"
                             android:textColor="@color/btn_primary"
                             android:textSize="12sp"
                             android:textStyle="bold" />
@@ -121,8 +120,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="14dp"
-                            android:text="Jumping on both feet"
-                             />
+                            android:text="@string/default_challenge_title" />
 
                         <TextView
                             android:id="@+id/txtChallengeDesc"
@@ -131,7 +129,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="8dp"
                             android:lineSpacingExtra="4dp"
-                            android:text="An activity that helps the child develop balance and motor coordination." />
+                            android:text="@string/default_challenge_description" />
                     </LinearLayout>
 
                     <ImageView
@@ -152,15 +150,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="12dp"
-                android:text="Steps to follow" />
+                android:text="@string/steps_follow"/>
 
 
             <LinearLayout
                 android:id="@+id/stepsContainer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_marginBottom="16dp"/>
+                android:layout_marginBottom="16dp"
+                android:orientation="vertical" />
 
             <!-- Tip Card -->
             <com.google.android.material.card.MaterialCardView
@@ -169,7 +167,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="18dp"
-                app:cardElevation="0dp"/>
+                app:cardElevation="0dp" />
 
             <!-- Done Button -->
             <com.google.android.material.button.MaterialButton
@@ -178,7 +176,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="58dp"
                 android:layout_marginBottom="4dp"
-                android:text="Done" />
+                android:text="@string/done"/>
 
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>

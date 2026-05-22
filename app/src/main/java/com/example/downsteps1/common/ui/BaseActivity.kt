@@ -16,8 +16,26 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.downsteps1.R
 import com.google.android.material.card.MaterialCardView
 import com.google.android.material.textfield.TextInputEditText
+import android.content.res.Configuration
+import java.util.Locale
 
 open class BaseActivity : AppCompatActivity() {
+
+
+    override fun attachBaseContext(newBase: Context) {
+        val prefs = newBase.getSharedPreferences("settings_prefs", MODE_PRIVATE)
+        val language = prefs.getString("app_language", "en") ?: "en"
+
+        val locale = Locale(language)
+        Locale.setDefault(locale)
+
+        val config = Configuration(newBase.resources.configuration)
+        config.setLocale(locale)
+        config.setLayoutDirection(locale)
+
+        val context = newBase.createConfigurationContext(config)
+        super.attachBaseContext(context)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         val darkModeEnabled = getSharedPreferences("settings_prefs", MODE_PRIVATE)

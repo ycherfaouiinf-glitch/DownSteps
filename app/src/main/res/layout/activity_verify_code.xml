@@ -34,7 +34,7 @@
             <ImageView
                 android:id="@+id/btnBack"
                 style="@style/BackBtn.Icon"
-                android:contentDescription="Back" />
+                android:contentDescription="@string/back" />
         </LinearLayout>
 
         <TextView
@@ -42,7 +42,7 @@
             style="@style/Text.Title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Verification Code" />
+            android:text="@string/verification_code" />
 
         <TextView
             android:id="@+id/tvSubtitle"
@@ -50,7 +50,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="6dp"
-            android:text="Enter the code sent to your email" />
+            android:text="@string/verification_code_subtitle" />
     </LinearLayout>
 
     <com.google.android.material.card.MaterialCardView
@@ -76,13 +76,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
-                android:text="Email Verification" />
+                android:text="@string/email_verification" />
 
             <TextView
                 style="@style/Text.Label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Code" />
+                android:text="@string/code" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/codeInputLayout"
@@ -90,7 +90,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="6dp"
-                android:hint="Enter verification code">
+                android:hint="@string/enter_verification_code">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/etVerificationCode"
@@ -106,7 +106,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="14dp"
-                android:text="Resend code"
+                android:text="@string/resend_code"
                 style="@style/Text.Link.Small"/>
 
             <com.google.android.material.button.MaterialButton
@@ -115,7 +115,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="18dp"
-                android:text="Verify" />
+                android:text="@string/verify"/>
 
         </LinearLayout>
 

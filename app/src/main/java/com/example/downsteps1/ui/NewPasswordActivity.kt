@@ -30,23 +30,31 @@ class NewPasswordActivity : BaseActivity() {
 
             when {
                 newPassword.isEmpty() -> {
-                    etNewPassword.error = "Enter new password"
+                    etNewPassword.error =
+                        getString(R.string.enter_new_password)
                 }
 
                 newPassword.length < 6 -> {
-                    etNewPassword.error = "Password must be at least 6 characters"
+                    etNewPassword.error =
+                        getString(R.string.password_min_length)
                 }
 
                 confirmPassword.isEmpty() -> {
-                    etConfirmPassword.error = "Confirm your password"
+                    etConfirmPassword.error =
+                        getString(R.string.confirm_your_password)
                 }
 
                 newPassword != confirmPassword -> {
-                    etConfirmPassword.error = "Passwords do not match"
+                    etConfirmPassword.error =
+                        getString(R.string.passwords_do_not_match)
                 }
 
                 else -> {
-                    Toast.makeText(this, "Password changed successfully", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(
+                        this,
+                        getString(R.string.password_changed_successfully),
+                        Toast.LENGTH_SHORT
+                    ).show()
                     startActivity(Intent(this, LoginActivity::class.java))
                     finishAffinity()
                 }

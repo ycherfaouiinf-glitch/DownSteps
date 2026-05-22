@@ -1,84 +1,272 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/settings" android:layout_width="match_parent" android:layout_height="match_parent" android:background="@color/bg_main">
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/settings"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_main">
 
     <!-- Top background -->
-    <View android:id="@+id/topShape" style="@style/TopShape" android:layout_width="0dp" android:layout_height="140dp" android:alpha="0.45" app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"/>
+    <View
+        android:id="@+id/topShape"
+        style="@style/TopShape"
+        android:layout_width="0dp"
+        android:layout_height="140dp"
+        android:alpha="0.45"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <!-- Header -->
     <!-- Content -->
-    <androidx.core.widget.NestedScrollView android:id="@+id/scrollContent" android:layout_width="0dp" android:layout_height="0dp" android:clipToPadding="false" android:fillViewport="true" android:overScrollMode="never" android:paddingStart="20dp" android:paddingTop="8dp" android:paddingEnd="20dp" android:paddingBottom="110dp" android:scrollbars="none" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toTopOf="parent">
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scrollContent"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:clipToPadding="false"
+        android:fillViewport="true"
+        android:overScrollMode="never"
+        android:paddingStart="20dp"
+        android:paddingTop="8dp"
+        android:paddingEnd="20dp"
+        android:paddingBottom="110dp"
+        android:scrollbars="none"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-            <LinearLayout android:id="@+id/headerLayout" style="@style/Header" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
+            <LinearLayout
+                android:id="@+id/headerLayout"
+                style="@style/Header"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
-        <TextView android:id="@+id/tvSettingsTitle" style="@style/Text.Title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Settings"/>
+                <TextView
+                    android:id="@+id/tvSettingsTitle"
+                    style="@style/Text.Title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/settings" />
 
-        <TextView android:id="@+id/tvSettingsSubtitle" style="@style/Text.Subtitle" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:text="Manage your preferences"/>
-    </LinearLayout>
+                <TextView
+                    android:id="@+id/tvSettingsSubtitle"
+                    style="@style/Text.Subtitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:text="@string/manage_preferences" />
+            </LinearLayout>
 
-    <!-- Account -->
-            <com.google.android.material.card.MaterialCardView android:id="@+id/accountCard" style="@style/Card" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="14dp">
+            <!-- Account -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/accountCard"
+                style="@style/Card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="14dp">
 
-                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" style="@style/Card.Padding">
+                <LinearLayout
+                    style="@style/Card.Padding"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
 
-                    <TextView android:id="@+id/tvAccountTitle" style="@style/Text.Section" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="14dp" android:text="Account"/>
+                    <TextView
+                        android:id="@+id/tvAccountTitle"
+                        style="@style/Text.Section"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="14dp"
+                        android:text="@string/account" />
 
-                    <LinearLayout android:id="@+id/rowChangeProfile" android:layout_width="match_parent" android:layout_height="wrap_content" android:minHeight="52dp" android:gravity="center_vertical" android:orientation="horizontal" android:paddingVertical="4dp">
+                    <LinearLayout
+                        android:id="@+id/rowChangeProfile"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:minHeight="52dp"
+                        android:orientation="horizontal"
+                        android:paddingVertical="4dp">
 
-                        <ImageView android:layout_marginEnd="12dp" style="@style/Icon.Small" android:contentDescription="@null" android:src="@drawable/ic_profil" app:tint="@color/input_icon"/>
+                        <ImageView
+                            style="@style/Icon.Small"
+                            android:layout_marginEnd="12dp"
+                            android:contentDescription="@null"
+                            android:src="@drawable/ic_profil"
+                            app:tint="@color/input_icon" />
 
-                        <TextView style="@style/Text.Body" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Change profile information"/>
+                        <TextView
+                            style="@style/Text.Body"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/change_profile_information" />
 
-                        <ImageView android:layout_width="16dp" android:layout_height="16dp" android:contentDescription="@null" android:src="@drawable/fleche2" app:tint="@color/text_hint"/>
+                        <ImageView
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
+                            android:contentDescription="@null"
+                            android:src="@drawable/fleche2"
+                            app:tint="@color/text_hint" />
                     </LinearLayout>
 
-                    <View android:layout_width="match_parent" android:layout_height="1dp" android:layout_marginVertical="10dp" android:background="@color/input_border"/>
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginVertical="10dp"
+                        android:background="@color/input_border" />
 
-                    <LinearLayout android:id="@+id/rowChangePassword" android:layout_width="match_parent" android:layout_height="wrap_content" android:minHeight="52dp" android:gravity="center_vertical" android:orientation="horizontal" android:paddingVertical="4dp">
+                    <LinearLayout
+                        android:id="@+id/rowChangePassword"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:minHeight="52dp"
+                        android:orientation="horizontal"
+                        android:paddingVertical="4dp">
 
-                        <ImageView style="@style/Icon.Small" android:layout_marginEnd="12dp" android:contentDescription="@null" android:src="@drawable/ic_lock" app:tint="@color/input_icon"/>
+                        <ImageView
+                            style="@style/Icon.Small"
+                            android:layout_marginEnd="12dp"
+                            android:contentDescription="@null"
+                            android:src="@drawable/ic_lock"
+                            app:tint="@color/input_icon" />
 
-                        <TextView style="@style/Text.Body" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Change password"/>
+                        <TextView
+                            style="@style/Text.Body"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/change_password" />
 
-                        <ImageView android:layout_width="16dp" android:layout_height="16dp" android:contentDescription="@null" android:src="@drawable/fleche2" app:tint="@color/text_hint"/>
+                        <ImageView
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
+                            android:contentDescription="@null"
+                            android:src="@drawable/fleche2"
+                            app:tint="@color/text_hint" />
                     </LinearLayout>
 
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
             <!-- Preferences -->
-            <com.google.android.material.card.MaterialCardView android:id="@+id/preferencesCard" style="@style/Card" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="14dp">
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/preferencesCard"
+                style="@style/Card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="14dp">
 
-                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" style="@style/Card.Padding">
+                <LinearLayout
+                    style="@style/Card.Padding"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
 
-                    <TextView android:id="@+id/tvPreferencesTitle" style="@style/Text.Section" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="14dp" android:text="Preferences"/>
+                    <TextView
+                        android:id="@+id/tvPreferencesTitle"
+                        style="@style/Text.Section"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="14dp"
+                        android:text="@string/preferences"/>
 
-                    <LinearLayout android:id="@+id/rowLanguage" android:layout_width="match_parent" android:layout_height="wrap_content" android:minHeight="56dp" android:gravity="center_vertical" android:orientation="horizontal" android:paddingVertical="4dp">
+                    <LinearLayout
+                        android:id="@+id/rowLanguage"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:minHeight="56dp"
+                        android:orientation="horizontal"
+                        android:paddingVertical="4dp">
 
-                        <ImageView style="@style/Icon.Small" android:layout_marginEnd="12dp" android:contentDescription="@null" android:src="@drawable/language" app:tint="@color/input_icon"/>
+                        <ImageView
+                            style="@style/Icon.Small"
+                            android:layout_marginEnd="12dp"
+                            android:contentDescription="@null"
+                            android:src="@drawable/language"
+                            app:tint="@color/input_icon" />
 
-                        <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical">
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
 
-                            <TextView style="@style/Text.Label" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Language"/>
+                            <TextView
+                                style="@style/Text.Label"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/language" />
 
-                            <TextView android:id="@+id/tvCurrentLanguage" style="@style/Text.Small" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="2dp" android:text="English" android:textColor="@color/text_hint"/>
+                            <TextView
+                                android:id="@+id/tvCurrentLanguage"
+                                style="@style/Text.Small"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="2dp"
+                                android:text="English"
+                                android:textColor="@color/text_hint" />
                         </LinearLayout>
 
-                        <ImageView android:layout_width="16dp" android:layout_height="16dp" android:contentDescription="@null" android:src="@drawable/fleche2" app:tint="@color/text_hint"/>
+                        <ImageView
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
+                            android:contentDescription="@null"
+                            android:src="@drawable/fleche2"
+                            app:tint="@color/text_hint" />
                     </LinearLayout>
 
-                    <View android:layout_width="match_parent" android:layout_height="1dp" android:layout_marginVertical="10dp" android:background="@color/input_border"/>
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginVertical="10dp"
+                        android:background="@color/input_border" />
 
-                    <LinearLayout android:id="@+id/rowThemeMode" android:layout_width="match_parent" android:layout_height="wrap_content" android:minHeight="56dp" android:gravity="center_vertical" android:orientation="horizontal" android:paddingVertical="4dp">
+                    <LinearLayout
+                        android:id="@+id/rowThemeMode"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:minHeight="56dp"
+                        android:orientation="horizontal"
+                        android:paddingVertical="4dp">
 
-                        <ImageView style="@style/Icon.Small" android:layout_marginEnd="12dp" android:contentDescription="@null" android:src="@drawable/lightdark_mode" app:tint="@color/input_icon"/>
+                        <ImageView
+                            style="@style/Icon.Small"
+                            android:layout_marginEnd="12dp"
+                            android:contentDescription="@null"
+                            android:src="@drawable/lightdark_mode"
+                            app:tint="@color/input_icon" />
 
-                        <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical">
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
 
-                            <TextView style="@style/Text.Label" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Appearance"/>
+                            <TextView
+                                style="@style/Text.Label"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/appearance" />
 
-                            <TextView android:id="@+id/tvCurrentMode" style="@style/Text.Small" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="2dp" android:text="Light mode" android:textColor="@color/text_hint"/>
+                            <TextView
+                                android:id="@+id/tvCurrentMode"
+                                style="@style/Text.Small"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="2dp"
+                                android:text="Light mode"
+                                android:textColor="@color/text_hint" />
                         </LinearLayout>
 
                         <androidx.appcompat.widget.SwitchCompat
@@ -86,86 +274,206 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             app:thumbTint="@color/btn_primary"
-                            app:trackTint="@color/switch_track"/>
+                            app:trackTint="@color/switch_track" />
                     </LinearLayout>
 
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
             <!-- Notifications -->
-            <com.google.android.material.card.MaterialCardView android:id="@+id/notificationCard" style="@style/Card" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="14dp">
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/notificationCard"
+                style="@style/Card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="14dp">
 
-                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" style="@style/Card.Padding">
+                <LinearLayout
+                    style="@style/Card.Padding"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
 
-                    <TextView android:id="@+id/tvNotificationTitle" style="@style/Text.Section" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="14dp" android:text="Notifications"/>
+                    <TextView
+                        android:id="@+id/tvNotificationTitle"
+                        style="@style/Text.Section"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="14dp"
+                        android:text="@string/notifications" />
 
-                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:minHeight="54dp" android:gravity="center_vertical" android:orientation="horizontal" android:paddingVertical="4dp">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:minHeight="54dp"
+                        android:orientation="horizontal"
+                        android:paddingVertical="4dp">
 
-                        <TextView style="@style/Text.Body" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Daily challenge reminders"/>
+                        <TextView
+                            style="@style/Text.Body"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/daily_challenge_reminders" />
 
                         <androidx.appcompat.widget.SwitchCompat
                             android:id="@+id/switchReminder"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             app:thumbTint="@color/btn_primary"
-                            app:trackTint="@color/switch_track"/>
+                            app:trackTint="@color/switch_track" />
                     </LinearLayout>
 
-                    <View android:layout_width="match_parent" android:layout_height="1dp" android:layout_marginVertical="10dp" android:background="@color/input_border"/>
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginVertical="10dp"
+                        android:background="@color/input_border" />
 
-                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:minHeight="54dp" android:gravity="center_vertical" android:orientation="horizontal" android:paddingVertical="4dp">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:minHeight="54dp"
+                        android:orientation="horizontal"
+                        android:paddingVertical="4dp">
 
-                        <TextView style="@style/Text.Body" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="General notifications"/>
+                        <TextView
+                            style="@style/Text.Body"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/general_notifications" />
 
                         <androidx.appcompat.widget.SwitchCompat
                             android:id="@+id/switchGeneralNotif"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             app:thumbTint="@color/btn_primary"
-                            app:trackTint="@color/switch_track"/>
+                            app:trackTint="@color/switch_track" />
                     </LinearLayout>
 
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
             <!-- Support -->
-            <com.google.android.material.card.MaterialCardView android:id="@+id/supportCard" style="@style/Card" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="16dp">
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/supportCard"
+                style="@style/Card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp">
 
-                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" style="@style/Card.Padding">
+                <LinearLayout
+                    style="@style/Card.Padding"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
 
-                    <TextView android:id="@+id/tvSupportTitle" style="@style/Text.Section" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="14dp" android:text="Support"/>
+                    <TextView
+                        android:id="@+id/tvSupportTitle"
+                        style="@style/Text.Section"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="14dp"
+                        android:text="@string/support" />
 
-                    <LinearLayout android:id="@+id/rowHelpSupport" android:layout_width="match_parent" android:layout_height="wrap_content" android:minHeight="52dp" android:gravity="center_vertical" android:orientation="horizontal" android:paddingVertical="4dp">
+                    <LinearLayout
+                        android:id="@+id/rowHelpSupport"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:minHeight="52dp"
+                        android:orientation="horizontal"
+                        android:paddingVertical="4dp">
 
-                        <ImageView style="@style/Icon.Small" android:layout_marginEnd="12dp" android:contentDescription="@null" android:src="@drawable/helpandsupport" app:tint="@color/input_icon"/>
+                        <ImageView
+                            style="@style/Icon.Small"
+                            android:layout_marginEnd="12dp"
+                            android:contentDescription="@null"
+                            android:src="@drawable/helpandsupport"
+                            app:tint="@color/input_icon" />
 
-                        <TextView style="@style/Text.Body" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Help and support"/>
+                        <TextView
+                            style="@style/Text.Body"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/help_and_support" />
 
-                        <ImageView android:layout_width="16dp" android:layout_height="16dp" android:contentDescription="@null" android:src="@drawable/fleche2" app:tint="@color/text_hint"/>
+                        <ImageView
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
+                            android:contentDescription="@null"
+                            android:src="@drawable/fleche2"
+                            app:tint="@color/text_hint" />
                     </LinearLayout>
 
-                    <View android:layout_width="match_parent" android:layout_height="1dp" android:layout_marginVertical="10dp" android:background="@color/input_border"/>
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginVertical="10dp"
+                        android:background="@color/input_border" />
 
-                    <LinearLayout android:id="@+id/rowAboutApp" android:layout_width="match_parent" android:layout_height="wrap_content" android:minHeight="52dp" android:gravity="center_vertical" android:orientation="horizontal" android:paddingVertical="4dp">
+                    <LinearLayout
+                        android:id="@+id/rowAboutApp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:minHeight="52dp"
+                        android:orientation="horizontal"
+                        android:paddingVertical="4dp">
 
-                        <ImageView style="@style/Icon.Small" android:layout_marginEnd="12dp" android:contentDescription="@null" android:src="@drawable/application" app:tint="@color/input_icon"/>
+                        <ImageView
+                            style="@style/Icon.Small"
+                            android:layout_marginEnd="12dp"
+                            android:contentDescription="@null"
+                            android:src="@drawable/application"
+                            app:tint="@color/input_icon" />
 
-                        <TextView style="@style/Text.Body" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="About the application"/>
+                        <TextView
+                            style="@style/Text.Body"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/about_application"/>
 
-                        <ImageView android:layout_width="16dp" android:layout_height="16dp" android:contentDescription="@null" android:src="@drawable/fleche2" app:tint="@color/text_hint"/>
+                        <ImageView
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
+                            android:contentDescription="@null"
+                            android:src="@drawable/fleche2"
+                            app:tint="@color/text_hint" />
                     </LinearLayout>
 
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
             <!-- Logout -->
-            <com.google.android.material.button.MaterialButton android:id="@+id/btnLogout" style="@style/Btn.Primary" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:text="Log out"/>
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnLogout"
+                style="@style/Btn.Primary"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="@string/log_out"/>
 
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 
 
     <!-- Bottom Navigation -->
-    <include android:id="@+id/bottomNavInclude" layout="@layout/view_bottom_nav" android:layout_width="0dp" android:layout_height="64dp" android:layout_marginStart="34dp" android:layout_marginEnd="34dp" android:layout_marginBottom="14dp" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"/>
+    <include
+        android:id="@+id/bottomNavInclude"
+        layout="@layout/view_bottom_nav"
+        android:layout_width="0dp"
+        android:layout_height="64dp"
+        android:layout_marginStart="34dp"
+        android:layout_marginEnd="34dp"
+        android:layout_marginBottom="14dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

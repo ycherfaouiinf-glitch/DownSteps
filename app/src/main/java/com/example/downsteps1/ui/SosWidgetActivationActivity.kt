@@ -67,7 +67,7 @@ class SosWidgetActivationActivity : BaseActivity() {
 
         Toast.makeText(
             this,
-            "SOS Widget activated",
+            getString(R.string.sos_widget_activated),
             Toast.LENGTH_SHORT
         ).show()
 
@@ -92,7 +92,7 @@ class SosWidgetActivationActivity : BaseActivity() {
             } else {
                 Toast.makeText(
                     this,
-                    "Please add the SOS Widget manually from your home screen widgets",
+                    getString(R.string.add_sos_widget_manually),
                     Toast.LENGTH_LONG
                 ).show()
             }
@@ -112,15 +112,15 @@ class SosWidgetActivationActivity : BaseActivity() {
         ).getBoolean("sos_widget_enabled", false)
 
         tvActivationState.text = if (isEnabled) {
-            "Status: Enabled ✅"
+            getString(R.string.widget_status_enabled)
         } else {
-            "Status: Disabled"
+            getString(R.string.widget_status_disabled)
         }
 
         btnActivateWidget.text = if (isEnabled) {
-            "SOS Widget Enabled"
+            getString(R.string.sos_widget_enabled)
         } else {
-            "Enable SOS Widget"
+            getString(R.string.enable_sos_widget)
         }
 
         btnActivateWidget.isEnabled = !isEnabled

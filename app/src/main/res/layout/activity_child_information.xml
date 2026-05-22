@@ -54,7 +54,7 @@
                     <ImageView
                         android:id="@+id/btnBack"
                         style="@style/BackBtn.Icon"
-                        android:contentDescription="Back" />
+                        android:contentDescription="@string/back"/>
                 </LinearLayout>
 
                 <TextView
@@ -62,7 +62,7 @@
                     style="@style/Text.Title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Child Information" />
+                    android:text="@string/child_information" />
 
                 <TextView
                     android:id="@+id/tvChildSubtitle"
@@ -70,7 +70,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
-                    android:text="Enter your child’s information to continue"
+                    android:text="@string/enter_child_information"
                     android:textColor="@color/text_small" />
             </LinearLayout>
 
@@ -131,7 +131,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="14dp"
-                android:text="Upload child photo"
+                android:text="@string/upload_child_photo"
                 android:textColor="@color/text_small"
                 android:textSize="15sp" />
 
@@ -141,7 +141,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
-                android:hint="Child name"
+                android:hint="@string/child_name"
                 app:startIconDrawable="@drawable/ic_profil"
                 app:startIconTint="@color/input_icon">
 
@@ -184,7 +184,7 @@
                             style="@style/Text.Label"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Female"
+                            android:text="@string/female"
                             android:textColor="@color/female_bg"
                             android:textSize="17sp" />
 
@@ -217,7 +217,7 @@
                             style="@style/Text.Label"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Male"
+                            android:text="@string/male"
                             android:textColor="@color/male_bg"
                             android:textSize="17sp" />
 
@@ -237,7 +237,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="18dp"
-                android:hint="Birth date"
+                android:hint="@string/birth_date"
                 app:startIconDrawable="@drawable/calender"
                 app:startIconTint="@color/input_icon">
 
@@ -260,7 +260,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="38dp"
                 android:layout_marginBottom="16dp"
-                android:text="Save and Continue" />
+                android:text="@string/save_and_continue" />
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -28,8 +28,8 @@ class ChallengesTimelineActivity : BaseActivity() {
     private val db = FirebaseFirestore.getInstance()
     private val repository = FirestoreChallengeContentRepository()
 
-    private var challengeType = "motor"
-    private var level = "beginner"
+    private var challengeType = CHALLENGE_MOTOR
+    private var level = LEVEL_BEGINNER
     private var currentDay = 1
     private var lastDate = ""
 
@@ -43,17 +43,19 @@ class ChallengesTimelineActivity : BaseActivity() {
 
         BottomNavHelper.setup(this, "home")
 
-        challengeType = intent.getStringExtra("challenge_type") ?: "motor"
+        challengeType =
+            intent.getStringExtra("challenge_type")
+                ?: CHALLENGE_MOTOR
 
         recyclerChallenges = findViewById(R.id.recyclerChallenges)
         txtType = findViewById(R.id.txtType)
         btnBack = findViewById(R.id.btnBack)
 
         txtType.text = when (challengeType) {
-            "motor" -> "Motor Challenge"
-            "language" -> "Language Challenge"
-            "speech" -> "Speech Challenge"
-            else -> "Challenge"
+            "motor" -> getString(R.string.motor_challenge)
+            "language" -> getString(R.string.language_challenge)
+            "speech" -> getString(R.string.speech_challenge)
+            else -> getString(R.string.challenges)
         }
 
         btnBack.setOnClickListener { finish() }
@@ -70,7 +72,11 @@ class ChallengesTimelineActivity : BaseActivity() {
         val userId = auth.currentUser?.uid
 
         if (userId == null) {
-            Toast.makeText(this, "User not logged in", Toast.LENGTH_SHORT).show()
+            Toast.makeText(
+                this,
+                getString(R.string.user_not_logged_in),
+                Toast.LENGTH_SHORT
+            ).show()
             return
         }
 
@@ -82,19 +88,19 @@ class ChallengesTimelineActivity : BaseActivity() {
                     "motor" -> {
                         doc.getString("motorLevel")
                             ?: doc.getString("motorAssessment.motorLevel")
-                            ?: "beginner"
+                            ?: LEVEL_BEGINNER
                     }
 
                     "language" -> {
                         doc.getString("languageLevel")
                             ?: doc.getString("languageAssessment.languageLevel")
-                            ?: "beginner"
+                            ?: LEVEL_BEGINNER
                     }
 
                     "speech" -> {
                         doc.getString("speechLevel")
                             ?: doc.getString("speechAssessment.level")
-                            ?: "beginner"
+                            ?: LEVEL_BEGINNER
                     }
 
                     else -> "beginner"
@@ -117,7 +123,11 @@ class ChallengesTimelineActivity : BaseActivity() {
                 loadChallenges()
             }
             .addOnFailureListener {
-                Toast.makeText(this, "Error loading user data", Toast.LENGTH_SHORT).show()
+                Toast.makeText(
+                    this,
+                    getString(R.string.error_loading_user_data),
+                    Toast.LENGTH_SHORT
+                ).show()
             }
     }
 
@@ -134,7 +144,10 @@ class ChallengesTimelineActivity : BaseActivity() {
             } catch (e: Exception) {
                 Toast.makeText(
                     this@ChallengesTimelineActivity,
-                    "Error: ${e.message}",
+                    getString(
+                        R.string.error_message,
+                        e.message ?: ""
+                    ),
                     Toast.LENGTH_SHORT
                 ).show()
             }
@@ -150,13 +163,20 @@ class ChallengesTimelineActivity : BaseActivity() {
 
             ChallengeItem(
                 id = challenge.day,
-                title = if (locked) "Day ${challenge.day}" else challenge.title,
+                title =
+                    if (locked)
+                        getString(
+                            R.string.day_format,
+                            challenge.day
+                        )
+                    else
+                        challenge.title,
                 description = if (locked) {
-                    "Locked"
+                    getString(R.string.locked)
                 } else if (challenge.day < currentDay) {
-                    "Completed"
+                    getString(R.string.completed)
                 } else {
-                    "Today"
+                    getString(R.string.today)
                 },
                 challengeType = challenge.type,
                 isLocked = locked
@@ -181,5 +201,10 @@ class ChallengesTimelineActivity : BaseActivity() {
 
     private fun getTodayDate(): String {
         return SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(Date())
+    }
+
+    private companion object {
+        const val CHALLENGE_MOTOR = "motor"
+        const val LEVEL_BEGINNER = "beginner"
     }
 }

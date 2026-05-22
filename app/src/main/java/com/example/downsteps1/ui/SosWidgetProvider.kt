@@ -72,16 +72,16 @@ class SosWidgetProvider : AppWidgetProvider() {
                 ?.trim()
                 .orEmpty()
 
-            val title = "SOS"
+            val title = context.getString(R.string.sos)
 
             val subtitle = if (primaryNumber.isNotEmpty()) {
                 if (contactName.isNotEmpty()) {
-                    "Call $contactName quickly"
+                    context.getString(R.string.call_contact_quickly, contactName)
                 } else {
-                    "Tap to call emergency"
+                    context.getString(R.string.tap_to_call_emergency)
                 }
             } else {
-                "Set emergency number first"
+                context.getString(R.string.set_emergency_number_first)
             }
 
             val openIntent = if (primaryNumber.isNotEmpty()) {

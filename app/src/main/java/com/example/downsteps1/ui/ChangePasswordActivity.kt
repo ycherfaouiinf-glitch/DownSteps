@@ -58,24 +58,24 @@ class ChangePasswordActivity : BaseActivity() {
         // 1. التحقق من أن المستخدم ليس مسجل عبر جوجل
         val isGoogleUser = user?.providerData?.any { it.providerId == "google.com" } ?: false
         if (isGoogleUser) {
-            Toast.makeText(this, "Google users manage passwords through Google Settings.", Toast.LENGTH_LONG).show()
+            Toast.makeText(this, getString(R.string.google_password_settings), Toast.LENGTH_LONG).show()
             return
         }
 
         // 2. التحقق من تعبئة الحقول
         if (currentPass.isEmpty() || newPass.isEmpty() || confirmPass.isEmpty()) {
-            Toast.makeText(this, "Please fill all fields", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, getString(R.string.fill_all_fields), Toast.LENGTH_SHORT).show()
             return
         }
 
         // 3. التحقق من تطابق كلمة السر الجديدة
         if (newPass != confirmPass) {
-            etConfirmNewPass.error = "Passwords do not match"
+            etConfirmNewPass.error = getString(R.string.passwords_do_not_match)
             return
         }
 
         if (newPass.length < 6) {
-            etNewPass.error = "Password must be at least 6 characters"
+            etNewPass.error = getString(R.string.password_min_length)
             return
         }
 
@@ -90,17 +90,21 @@ class ChangePasswordActivity : BaseActivity() {
                     // 5. تحديث كلمة السر في Firebase Auth
                     user.updatePassword(newPass).addOnCompleteListener { updateTask ->
                         if (updateTask.isSuccessful) {
-                            Toast.makeText(this, "Password updated successfully!", Toast.LENGTH_LONG).show()
+                            Toast.makeText(this, getString(R.string.password_updated_successfully), Toast.LENGTH_LONG).show()
                             finish()
                         } else {
                             btnSavePassword.isEnabled = true
-                            Toast.makeText(this, "Error: ${updateTask.exception?.message}", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(
+                                this,
+                                getString(R.string.error_message, updateTask.exception?.message ?: ""),
+                                Toast.LENGTH_SHORT
+                            ).show()
                         }
                     }
                 } else {
                     btnSavePassword.isEnabled = true
-                    etCurrentPass.error = "Incorrect current password"
-                    Toast.makeText(this, "Current password is wrong", Toast.LENGTH_SHORT).show()
+                    etCurrentPass.error = getString(R.string.incorrect_current_password)
+                    Toast.makeText(this, getString(R.string.current_password_wrong), Toast.LENGTH_SHORT).show()
                 }
             }
         }

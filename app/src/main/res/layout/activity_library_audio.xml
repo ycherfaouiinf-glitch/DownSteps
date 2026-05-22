@@ -67,7 +67,7 @@
                         <ImageView
                             android:id="@+id/btnBack"
                             style="@style/BackBtn.Icon"
-                            android:contentDescription="Back" />
+                            android:contentDescription="@string/back"/>
                     </LinearLayout>
 
                     <View
@@ -82,7 +82,7 @@
                     style="@style/Text.Title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Audio Library" />
+                    android:text="@string/audio_library" />
 
                 <TextView
                     android:id="@+id/tvLibrarySubtitle"
@@ -90,7 +90,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="6dp"
-                    android:text="Short stories, calm sounds, and bedtime audio" />
+                    android:text="@string/audio_library_subtitle" />
             </LinearLayout>
 
             <!-- Search box -->
@@ -115,7 +115,7 @@
                     <ImageView
                         style="@style/Icon.Small"
                         android:layout_height="18dp"
-                        android:contentDescription="Search icon"
+                        android:contentDescription="@string/search_icon"
                         android:src="@android:drawable/ic_menu_search"
                         app:tint="@color/text_hint_layout" />
 
@@ -127,7 +127,7 @@
                         android:layout_marginStart="10dp"
                         android:layout_weight="1"
                         android:background="@android:color/transparent"
-                        android:hint="Search for audio stories..."
+                        android:hint="@string/search_audio_stories"
                         android:inputType="text"
                         android:maxLines="1"
                         android:padding="0dp" />
@@ -163,7 +163,7 @@
                             style="@style/Text.Small"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Continue Listening" />
+                            android:text="@string/continue_listening" />
 
                         <TextView
                             android:id="@+id/tvCurrentAudioTitle"
@@ -208,7 +208,7 @@
                         android:layout_width="78dp"
                         android:layout_height="78dp"
                         android:layout_marginStart="14dp"
-                        android:contentDescription="Story image"
+                        android:contentDescription="@string/story_image"
                         android:scaleType="centerCrop"
                         android:padding="0dp"
                         android:adjustViewBounds="false" />
@@ -228,13 +228,13 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Continue Listening" />
+                    android:text="@string/continue_listening" />
 
                 <TextView
                     style="@style/Text.Small"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="See all"
+                    android:text="@string/see_all"
                     android:textColor="@color/btn_primary"
                     android:textStyle="bold" />
             </LinearLayout>
@@ -270,12 +270,12 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="Short Stories" />
+                            android:text="@string/short_stories"/>
 
                         <ImageView
                             android:id="@+id/btnExpand"
                             style="@style/Icon.Small"
-                            android:contentDescription="Expand"
+                            android:contentDescription="@string/expand"
                             android:src="@android:drawable/arrow_down_float"
                             app:tint="@color/input_icon" />
                     </LinearLayout>

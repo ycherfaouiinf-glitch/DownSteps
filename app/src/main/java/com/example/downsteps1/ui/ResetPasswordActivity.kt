@@ -48,7 +48,7 @@ class ResetPasswordActivity : BaseActivity() {
         val email = etResetEmail.text?.toString()?.trim().orEmpty()
 
         if (email.isEmpty()) {
-            etResetEmail.error = "Email is required"
+            etResetEmail.error = getString(R.string.email_required)
             return
         }
 
@@ -58,14 +58,18 @@ class ResetPasswordActivity : BaseActivity() {
             btnSendReset.isEnabled = true
             if (isSuccess) {
 
-                Toast.makeText(this, "A reset link has been sent to your email", Toast.LENGTH_LONG).show()
+                Toast.makeText(
+                    this,
+                    getString(R.string.reset_link_sent),
+                    Toast.LENGTH_LONG
+                ).show()
 
                 val intent = Intent(this, LoginActivity::class.java)
                 intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
                 startActivity(intent)
                 finish()
             } else {
-                etResetEmail.error = errorMessage ?: "Failed to send reset email"
+                etResetEmail.error = errorMessage ?: getString(R.string.reset_email_failed)
             }
         }
     }

@@ -81,7 +81,11 @@ class ChangeProfileActivity : BaseActivity() {
             if (isGoogleUser) {
                 // تنبيه مستخدم جوجل إذا حاول تغيير الإيميل[cite: 688, 899]
                 if (newEmail != user.email) {
-                    Toast.makeText(this, "Google accounts cannot change email from here. Please manage it in your Google settings.", Toast.LENGTH_LONG).show()
+                    Toast.makeText(
+                        this,
+                        getString(R.string.google_email_change_not_allowed),
+                        Toast.LENGTH_LONG
+                    ).show()
                     return // توقف عن التنفيذ
                 }
 
@@ -92,7 +96,11 @@ class ChangeProfileActivity : BaseActivity() {
 
             // 2. إذا كان مستخدم "إيميل وكلمة سر" (المسار الطبيعي لإعادة المصادقة)
             if (newName.isEmpty() || newEmail.isEmpty() || currentPassword.isEmpty()) {
-                Toast.makeText(this, "Please fill all fields and enter password to confirm", Toast.LENGTH_SHORT).show()
+                Toast.makeText(
+                    this,
+                    getString(R.string.fill_fields_confirm_password),
+                    Toast.LENGTH_SHORT
+                ).show()
                 return
             }
 
@@ -106,12 +114,23 @@ class ChangeProfileActivity : BaseActivity() {
                             updateFirestoreData(user.uid, newName, newEmail)
                         } else {
                             btnSaveProfile.isEnabled = true
-                            Toast.makeText(this, "Email error: ${emailTask.exception?.message}", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(
+                                this,
+                                getString(
+                                    R.string.email_error_message,
+                                    emailTask.exception?.message ?: ""
+                                ),
+                                Toast.LENGTH_SHORT
+                            ).show()
                         }
                     }
                 } else {
                     btnSaveProfile.isEnabled = true
-                    Toast.makeText(this, "Incorrect password!", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(
+                        this,
+                        getString(R.string.incorrect_password),
+                        Toast.LENGTH_SHORT
+                    ).show()
                 }
             }
         }
@@ -122,7 +141,11 @@ class ChangeProfileActivity : BaseActivity() {
         FirebaseFirestore.getInstance().collection("users").document(uid)
             .set(hashMapOf("name" to newName), SetOptions.merge())
             .addOnSuccessListener {
-                Toast.makeText(this, "Name updated successfully!", Toast.LENGTH_SHORT).show()
+                Toast.makeText(
+                    this,
+                    getString(R.string.name_updated_successfully),
+                    Toast.LENGTH_SHORT
+                ).show()
                 finish()
             }
     }
@@ -133,7 +156,11 @@ class ChangeProfileActivity : BaseActivity() {
         FirebaseFirestore.getInstance().collection("users").document(uid)
             .set(updates, SetOptions.merge())
             .addOnSuccessListener {
-                Toast.makeText(this, "Profile updated successfully!", Toast.LENGTH_SHORT).show()
+                Toast.makeText(
+                    this,
+                    getString(R.string.profile_updated_successfully),
+                    Toast.LENGTH_SHORT
+                ).show()
                 finish()
             }
     }

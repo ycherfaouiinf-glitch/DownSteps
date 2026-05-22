@@ -42,7 +42,7 @@
                 android:clickable="true"
                 android:focusable="true"
                 android:padding="2dp"
-                android:contentDescription="Back" />
+                android:contentDescription="@string/back" />
         </LinearLayout>
 
         <TextView
@@ -50,7 +50,7 @@
             style="@style/Text.Subtitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Create" />
+            android:text="@string/create"/>
 
         <TextView
             android:id="@+id/tvNewAccount"
@@ -58,7 +58,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
-            android:text="New account" />
+            android:text="@string/new_account"/>
     </LinearLayout>
 
     <LinearLayout
@@ -79,7 +79,7 @@
             style="@style/Input"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Name"
+            android:hint="@string/name"
             app:startIconDrawable="@drawable/ic_profil"
             app:startIconTint="@color/input_icon">
 
@@ -98,7 +98,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            android:hint="Email or phone number"
+            android:hint="@string/email_or_phone"
             app:startIconDrawable="@drawable/ic_mail"
             app:startIconTint="@color/input_icon">
 
@@ -117,7 +117,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            android:hint="Password"
+            android:hint="@string/password"
             app:endIconMode="password_toggle"
             app:endIconTint="@color/input_icon"
             app:startIconDrawable="@drawable/ic_lock"
@@ -136,7 +136,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="I agree to the Terms and Conditions"
+            android:text="@string/agree_terms_conditions"
             android:textColor="@color/text_label"
             app:buttonTint="@color/btn_primary"
             app:buttonIconTint="@color/white"
@@ -148,7 +148,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:text="Create account" />
+            android:text="@string/create_account" />
 
         <!-- Login -->
         <com.google.android.material.button.MaterialButton
@@ -157,7 +157,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="14dp"
-            android:text="Already a User?" />
+            android:text="@string/already_user" />
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

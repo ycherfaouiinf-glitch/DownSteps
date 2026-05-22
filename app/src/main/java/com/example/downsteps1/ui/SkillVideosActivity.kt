@@ -59,8 +59,12 @@ class SkillVideosActivity : BaseActivity() {
     }
 
     private fun setupHeader() {
-        val skillTitle = intent.getStringExtra("skill_title") ?: "Skill Videos"
-        val skillType = intent.getStringExtra("skill_type") ?: "speech"
+        val skillTitle =
+            intent.getStringExtra("skill_title")
+                ?: getString(R.string.skill_videos)
+        val skillType =
+            intent.getStringExtra("skill_type")
+                ?: TYPE_SPEECH
 
         txtSkillTitle.text = skillTitle
         txtSubTitle.text = getSubtitleBySkillType(skillType)
@@ -73,7 +77,9 @@ class SkillVideosActivity : BaseActivity() {
     }
 
     private fun loadVideos() {
-        val skillType = intent.getStringExtra("skill_type") ?: "speech"
+        val skillType =
+            intent.getStringExtra("skill_type")
+                ?: TYPE_SPEECH
         val videos = skillsRepository.getVideosBySkillType(skillType)
 
         videoList.clear()
@@ -83,11 +89,18 @@ class SkillVideosActivity : BaseActivity() {
 
     private fun getSubtitleBySkillType(skillType: String): String {
         return when (skillType) {
-            "speech" -> "Activities to improve speaking and pronunciation skills."
-            "writing" -> "Activities to improve early writing skills."
-            "selfcare" -> "Activities to support daily self-care routines."
-            "behavior" -> "Activities to support positive behavior."
-            else -> "Activities to support your child’s development."
+            TYPE_SPEECH -> getString(R.string.skill_speech_subtitle)
+            TYPE_WRITING -> getString(R.string.skill_writing_subtitle)
+            TYPE_SELFCARE -> getString(R.string.skill_selfcare_subtitle)
+            TYPE_BEHAVIOR -> getString(R.string.skill_behavior_subtitle)
+            else -> getString(R.string.skill_videos_subtitle)
         }
+    }
+
+    private companion object {
+        const val TYPE_SPEECH = "speech"
+        const val TYPE_WRITING = "writing"
+        const val TYPE_SELFCARE = "selfcare"
+        const val TYPE_BEHAVIOR = "behavior"
     }
 }

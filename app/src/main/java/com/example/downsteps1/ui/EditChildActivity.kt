@@ -60,8 +60,8 @@ class EditChildActivity : BaseActivity() {
                         etChildName.setText(document.getString("childName"))
                         etBirthDate.setText(document.getString("birthDate"))
                         val gender = document.getString("gender")
-                        if (gender == "Male") rbMale.isChecked = true
-                        else if (gender == "Female") rbFemale.isChecked = true
+                        if (gender == "MALE") rbMale.isChecked = true
+                        else if (gender == "FEMALE") rbFemale.isChecked = true
                     }
                 }
         }
@@ -71,10 +71,10 @@ class EditChildActivity : BaseActivity() {
     private fun updateChildDataInFirestore() {
         val name = etChildName.text.toString().trim()
         val date = etBirthDate.text.toString().trim()
-        val gender = if (rbMale.isChecked) "Male" else if (rbFemale.isChecked) "Female" else ""
+        val gender = if (rbMale.isChecked) "MALE" else if (rbFemale.isChecked) "FEMALE" else ""
 
         if (name.isEmpty() || date.isEmpty() || gender.isEmpty()) {
-            Toast.makeText(this, "Please fill all fields", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, getString(R.string.fill_all_fields), Toast.LENGTH_SHORT).show()
             return
         }
 
@@ -91,12 +91,16 @@ class EditChildActivity : BaseActivity() {
             FirebaseFirestore.getInstance().collection("users").document(userId)
                 .set(updatedData, SetOptions.merge()) // [cite: 90, 131, 318]
                 .addOnSuccessListener {
-                    Toast.makeText(this, "Updated successfully!", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, getString(R.string.updated_successfully), Toast.LENGTH_SHORT).show()
                     finish()
                 }
                 .addOnFailureListener { e ->
                     btnSaveChildInfo.isEnabled = true
-                    Toast.makeText(this, "Update failed: ${e.message}", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(
+                        this,
+                        getString(R.string.update_failed, e.message ?: ""),
+                        Toast.LENGTH_SHORT
+                    ).show()
                 }
         }
     }

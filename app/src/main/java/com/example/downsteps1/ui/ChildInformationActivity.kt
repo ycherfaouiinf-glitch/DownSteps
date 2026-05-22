@@ -110,7 +110,11 @@ class ChildInformationActivity : BaseActivity() {
 
                     // Check if fields are not empty
                     if (name.isNullOrEmpty() || birthDate.isNullOrEmpty() || gender.isNullOrEmpty()) {
-                        Toast.makeText(this, "Please fill in all the information", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(
+                            this,
+                            getString(R.string.fill_all_information),
+                            Toast.LENGTH_SHORT
+                        ).show()
                         return@setOnClickListener
                     }
 
@@ -130,20 +134,32 @@ class ChildInformationActivity : BaseActivity() {
                         db.collection("users").document(userId)
                             .set(childData, SetOptions.merge())
                             .addOnSuccessListener {
-                                Toast.makeText(this, "Data saved successfully!", Toast.LENGTH_SHORT).show()
+                                Toast.makeText(
+                                    this,
+                                    getString(R.string.data_saved_successfully),
+                                    Toast.LENGTH_SHORT
+                                ).show()
                                 val intent = Intent(this, LanguageTestActivity::class.java)
                                 startActivity(intent)
                                 finish()
                             }
                             .addOnFailureListener { e ->
                                 // Continue the onboarding flow even if Firestore save fails.
-                                Toast.makeText(this, "Continuing to tests...", Toast.LENGTH_SHORT).show()
+                                Toast.makeText(
+                                    this,
+                                    getString(R.string.continuing_to_tests),
+                                    Toast.LENGTH_SHORT
+                                ).show()
                                 val intent = Intent(this, LanguageTestActivity::class.java)
                                 startActivity(intent)
                                 finish()
                             }
                     } else {
-                        Toast.makeText(this, "Information completed. Starting tests...", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(
+                            this,
+                            getString(R.string.starting_tests),
+                            Toast.LENGTH_SHORT
+                        ).show()
                         startActivity(Intent(this, LanguageTestActivity::class.java))
                         finish()
                     }
@@ -181,7 +197,7 @@ class ChildInformationActivity : BaseActivity() {
             .build()
 
         val picker = com.google.android.material.datepicker.MaterialDatePicker.Builder.datePicker()
-            .setTitleText("Select birth date")
+            .setTitleText(getString(R.string.select_birth_date))
             .setCalendarConstraints(constraints)
             .build()
 
@@ -201,7 +217,8 @@ class ChildInformationActivity : BaseActivity() {
                 )
                 etBirthDate.setText(sdf.format(java.util.Date(millis)))
             } else {
-                etBirthDate.error = "Age must be between 0 and 100"
+                etBirthDate.error =
+                    getString(R.string.age_range_error)
             }
         }
     }
@@ -233,7 +250,10 @@ class ChildInformationActivity : BaseActivity() {
 
         val cameraIntent = Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE)
 
-        val chooser = Intent.createChooser(galleryIntent, "Select Image")
+        val chooser = Intent.createChooser(
+            galleryIntent,
+            getString(R.string.select_image)
+        )
         chooser.putExtra(Intent.EXTRA_INITIAL_INTENTS, arrayOf(cameraIntent))
 
         pickImageWithCamera.launch(chooser)
@@ -295,12 +315,23 @@ class ChildInformationActivity : BaseActivity() {
         db.collection("users").document(userId)
             .set(userUpdates, SetOptions.merge())
             .addOnSuccessListener {
-                Toast.makeText(this, "Child saved successfully!", Toast.LENGTH_SHORT).show()
+                Toast.makeText(
+                    this,
+                    getString(R.string.child_saved_successfully),
+                    Toast.LENGTH_SHORT
+                ).show()
                 startActivity(Intent(this, LanguageTestActivity::class.java))
                 finish()
             }
             .addOnFailureListener { error ->
-                Toast.makeText(this, "Failed to save: ${error.message}", Toast.LENGTH_SHORT).show()
+                Toast.makeText(
+                    this,
+                    getString(
+                        R.string.failed_to_save,
+                        error.message ?: ""
+                    ),
+                    Toast.LENGTH_SHORT
+                ).show()
                 findViewById<View>(R.id.btnSaveContinue).isEnabled = true
             }
     }

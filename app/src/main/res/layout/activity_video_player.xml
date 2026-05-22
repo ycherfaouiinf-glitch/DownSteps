@@ -40,7 +40,7 @@
                 <ImageView
                     android:id="@+id/btnBack"
                     style="@style/BackBtn.Icon"
-                    android:contentDescription="Back" />
+                    android:contentDescription="@string/back"/>
             </LinearLayout>
 
             <View
@@ -54,7 +54,7 @@
             style="@style/Text.Title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Video Title" />
+            android:text="Video Title"/>
     </LinearLayout>
 
     <com.google.android.material.card.MaterialCardView
@@ -78,6 +78,6 @@
             android:layout_height="match_parent"
             android:gravity="center"
             android:padding="24dp"
-            android:text="Video player will be added here later." />
+            android:text="@string/video_placeholder"/>
     </com.google.android.material.card.MaterialCardView>
 </androidx.constraintlayout.widget.ConstraintLayout>

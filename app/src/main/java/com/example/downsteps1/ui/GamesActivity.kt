@@ -62,10 +62,10 @@ class GamesActivity : BaseActivity() {
 
         gamesList = mutableListOf(
             GameModel(
-                name = "Connect",
-                description = "Match similar items",
-                suggestedBenefit = "Helps improve focus by connecting similar elements in a fun way.",
-                level = "Level 1",
+                name = getString(R.string.game_connect),
+                description = getString(R.string.game_connect_desc),
+                suggestedBenefit = getString(R.string.game_connect_benefit),
+                level = getString(R.string.level_1),
                 imageResId = R.drawable.ic_connect,
                 backgroundColor = "#EEF4FF",
                 buttonColor = "#4C6FFF",
@@ -73,10 +73,10 @@ class GamesActivity : BaseActivity() {
                 levelTextColor = "#4C6FFF"
             ),
             GameModel(
-                name = "Learn",
-                description = "Learn letters and words",
-                suggestedBenefit = "Helps children learn letters and words easily.",
-                level = "Level 1",
+                name = getString(R.string.game_learn),
+                description = getString(R.string.game_learn_desc),
+                suggestedBenefit = getString(R.string.game_learn_benefit),
+                level = getString(R.string.level_1),
                 imageResId = R.drawable.ic_learn,
                 backgroundColor = "#F5EEFF",
                 buttonColor = "#A66BFF",
@@ -85,10 +85,10 @@ class GamesActivity : BaseActivity() {
                 isPopular = true
             ),
             GameModel(
-                name = "Matching",
-                description = "Match similar images",
-                suggestedBenefit = "Improves memory and concentration.",
-                level = "Level 2",
+                name = getString(R.string.game_matching),
+                description = getString(R.string.game_matching_desc),
+                suggestedBenefit = getString(R.string.game_matching_benefit),
+                level = getString(R.string.level_2),
                 imageResId = R.drawable.ic_matching,
                 backgroundColor = "#FFF4E8",
                 buttonColor = "#FF9F2E",
@@ -96,10 +96,10 @@ class GamesActivity : BaseActivity() {
                 levelTextColor = "#FF9F2E"
             ),
             GameModel(
-                name = "Puzzle",
-                description = "Build the image from pieces",
-                suggestedBenefit = "Enhances thinking and problem-solving.",
-                level = "Level 2",
+                name = getString(R.string.game_puzzle),
+                description = getString(R.string.game_puzzle_desc),
+                suggestedBenefit = getString(R.string.game_puzzle_benefit),
+                level = getString(R.string.level_2),
                 imageResId = R.drawable.ic_puzzle,
                 backgroundColor = "#EEF9EE",
                 buttonColor = "#59C36A",
@@ -107,10 +107,10 @@ class GamesActivity : BaseActivity() {
                 levelTextColor = "#59C36A"
             ),
             GameModel(
-                name = "Coloring",
-                description = "Color beautiful drawings",
-                suggestedBenefit = "Improves color recognition and motor skills.",
-                level = "Level 1",
+                name = getString(R.string.game_coloring),
+                description = getString(R.string.game_coloring_desc),
+                suggestedBenefit = getString(R.string.game_coloring_benefit),
+                level = getString(R.string.level_1),
                 imageResId = R.drawable.ic_color_palette,
                 backgroundColor = "#FFEFF4",
                 buttonColor = "#FF6FA0",
@@ -204,6 +204,13 @@ class GamesActivity : BaseActivity() {
     }
 
     private fun openGame(game: GameModel) {
-        Toast.makeText(this, "${game.name} is not implemented yet", Toast.LENGTH_SHORT).show()
+        Toast.makeText(
+            this,
+            getString(
+                R.string.game_not_implemented,
+                game.name
+            ),
+            Toast.LENGTH_SHORT
+        ).show()
     }
 }

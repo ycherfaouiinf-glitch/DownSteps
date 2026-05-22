@@ -30,7 +30,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:text="Choose Category"
+            android:text="@string/choose_category"
             style="@style/Text.Section"/>
     </RelativeLayout>
 
@@ -39,7 +39,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="10dp"
-        android:text="Select the type you are looking for"
+        android:text="@string/select_category_subtitle"
         style="@style/Text.Small"/>
 
     <LinearLayout
@@ -71,14 +71,14 @@
                 android:id="@+id/tvAllCategories"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="All Categories"
+                android:text="@string/all_categories"
                 style="@style/Text.Section"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
-                android:text="Show all centers and associations"
+                android:text="@string/all_categories_desc"
                 style="@style/Text.Subtitle"/>
         </LinearLayout>
 
@@ -119,14 +119,14 @@
                 android:id="@+id/tvAssociation"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Association"
+                android:text="@string/association"
                 style="@style/Text.Section" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
-                android:text="Show charities and community organizations"
+                android:text="@string/association_desc"
                 style="@style/Text.Subtitle" />
         </LinearLayout>
 
@@ -167,14 +167,14 @@
                 android:id="@+id/tvCenter"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Center"
+                android:text="@string/center"
                 style="@style/Text.Section" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
-                android:text="Show specialized centers and facilities"
+                android:text="@string/center_desc"
                 style="@style/Text.Subtitle"/>
         </LinearLayout>
 
@@ -192,7 +192,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="22dp"
-        android:text="Apply" />
+        android:text="@string/apply"/>
 
     </LinearLayout>
 

@@ -55,7 +55,7 @@
                     style="@style/Text.Title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Speech Assessment" />
+                    android:text="@string/speech_assessment"/>
 
                 <TextView
                     android:id="@+id/tvPageSubtitle"
@@ -63,7 +63,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="6dp"
-                    android:text="Answer the following questions to identify the speech level." />
+                    android:text="@string/speech_assessment_subtitle"/>
 
             </LinearLayout>
 
@@ -136,7 +136,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="12dp"
-                            android:text="Yes"
+                            android:text="@string/yes"
                             app:buttonTint="@color/btn_primary" />
 
                         <RadioButton
@@ -145,7 +145,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="12dp"
-                            android:text="Sometimes"
+                            android:text="@string/sometimes"
                             app:buttonTint="@color/btn_primary" />
 
                         <RadioButton
@@ -153,7 +153,7 @@
                             style="@style/Radio"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="No"
+                            android:text="@string/no"
                             app:buttonTint="@color/btn_primary" />
 
                     </RadioGroup>
@@ -168,7 +168,7 @@
                 style="@style/Btn.Primary"
                 android:layout_width="match_parent"
                 android:layout_height="54dp"
-                android:text="Next" />
+                android:text="@string/next" />
 
         </LinearLayout>
 

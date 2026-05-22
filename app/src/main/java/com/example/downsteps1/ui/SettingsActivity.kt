@@ -59,10 +59,20 @@ class SettingsActivity : BaseActivity() {
         // Button
         val btnLogout = findViewById<Button>(R.id.btnLogout)
 
-        tvCurrentLanguage.text = "English"
+        val currentLanguage = prefs.getString("app_language", "en")
+
+        tvCurrentLanguage.text = if (currentLanguage == "ar") {
+            "العربية"
+        } else {
+            "English"
+        }
         val isDarkMode = prefs.getBoolean("dark_mode", false)
         switchDarkMode.isChecked = isDarkMode
-        tvCurrentMode.text = if (isDarkMode) "Dark mode" else "Light mode"
+        tvCurrentMode.text =
+            if (isDarkMode)
+                getString(R.string.dark_mode)
+            else
+                getString(R.string.light_mode)
 
 
 
@@ -84,7 +94,11 @@ class SettingsActivity : BaseActivity() {
 
         switchDarkMode.setOnCheckedChangeListener { _, isChecked ->
             prefs.edit().putBoolean("dark_mode", isChecked).apply()
-            tvCurrentMode.text = if (isChecked) "Dark mode" else "Light mode"
+            tvCurrentMode.text =
+                if (isChecked)
+                    getString(R.string.dark_mode)
+                else
+                    getString(R.string.light_mode)
             AppCompatDelegate.setDefaultNightMode(
                 if (isChecked) AppCompatDelegate.MODE_NIGHT_YES else AppCompatDelegate.MODE_NIGHT_NO
             )
@@ -92,17 +106,17 @@ class SettingsActivity : BaseActivity() {
 
         switchReminder.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) {
-                Toast.makeText(this, "Daily reminders enabled", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, getString(R.string.daily_reminders_enabled), Toast.LENGTH_SHORT).show()
             } else {
-                Toast.makeText(this, "Daily reminders disabled", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, getString(R.string.daily_reminders_disabled), Toast.LENGTH_SHORT).show()
             }
         }
 
         switchGeneralNotif.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) {
-                Toast.makeText(this, "General notifications enabled", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, getString(R.string.general_notifications_enabled), Toast.LENGTH_SHORT).show()
             } else {
-                Toast.makeText(this, "General notifications disabled", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, getString(R.string.general_notifications_disabled), Toast.LENGTH_SHORT).show()
             }
         }
 
@@ -116,7 +130,7 @@ class SettingsActivity : BaseActivity() {
 
         btnLogout.setOnClickListener {
             FirebaseAuth.getInstance().signOut()
-            Toast.makeText(this, "Logged out", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, getString(R.string.logged_out), Toast.LENGTH_SHORT).show()
 
             val intent = Intent(this, LoginActivity::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK

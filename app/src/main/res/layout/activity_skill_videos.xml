@@ -38,7 +38,7 @@
                 <ImageView
                     android:id="@+id/btnBack"
                     style="@style/BackBtn.Icon"
-                    android:contentDescription="Back" />
+                    android:contentDescription="@string/back" />
             </LinearLayout>
 
             <TextView
@@ -47,7 +47,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                android:text="Speech" />
+                android:text="@string/speech" />
         </RelativeLayout>
 
         <com.google.android.material.card.MaterialCardView
@@ -73,7 +73,7 @@
                         style="@style/Text.Section"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Training Videos" />
+                        android:text="@string/training_videos" />
 
                     <TextView
                         android:id="@+id/txtSubTitle"
@@ -81,12 +81,12 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
-                        android:text="Activities to support your child’s development." />
+                        android:text="@string/skill_videos_subtitle"/>
                 </LinearLayout>
 
                 <ImageView
                     style="@style/Icon.Feature"
-                    android:contentDescription="Video"
+                    android:contentDescription="@string/video"
                     android:src="@android:drawable/ic_media_play"
                     app:tint="@color/btn_primary" />
             </LinearLayout>

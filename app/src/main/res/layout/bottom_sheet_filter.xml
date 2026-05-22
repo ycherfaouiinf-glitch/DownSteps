@@ -42,7 +42,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                android:text="Filter Results"
+                android:text="@string/filter_results"
                 style="@style/Text.Section"/>
         </RelativeLayout>
 
@@ -63,7 +63,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Category"
+                android:text="@string/category"
                 style="@style/Text.Section"/>
         </LinearLayout>
 
@@ -96,7 +96,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:text="All Categories"
+                    android:text="@string/all_categories"
                     style="@style/Text.Label"/>
             </LinearLayout>
 
@@ -122,7 +122,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:text="Association"
+                    android:text="@string/association"
                     style="@style/Text.Label" />
             </LinearLayout>
 
@@ -147,7 +147,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:text="Center"
+                    android:text="@string/center"
                     style="@style/Text.Label" />
             </LinearLayout>
         </LinearLayout>
@@ -175,7 +175,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="State"
+                android:text="@string/state"
                 style="@style/Text.Section"/>
         </LinearLayout>
 
@@ -210,7 +210,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="6dp"
-                    android:text="All States"
+                    android:text="@string/all_states"
                     style="@style/Text.Label" />
             </LinearLayout>
 
@@ -300,7 +300,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="6dp"
-                    android:text="Show More"
+                    android:text="@string/show_more"
                     style="@style/Text.Label" />
             </LinearLayout>
 
@@ -366,7 +366,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="22dp"
-            android:text="Apply" />
+            android:text="@string/apply" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnResetFilter"
@@ -374,7 +374,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            android:text="Reset" />
+            android:text="@string/reset" />
 
     </LinearLayout>
 </ScrollView>

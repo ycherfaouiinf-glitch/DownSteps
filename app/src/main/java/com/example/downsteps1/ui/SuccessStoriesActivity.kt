@@ -70,10 +70,15 @@ class SuccessStoriesActivity : BaseActivity() {
     }
 
     private fun getStoryImage(imageName: String): Int {
-        return when (imageName) {
-            "succesahmed" -> R.drawable.succesahmed
-            "successara" -> R.drawable.successara
-            else -> R.drawable.succesahmed
+
+        if (imageName.isBlank()) {
+            return 0
         }
+
+        return resources.getIdentifier(
+            imageName,
+            "drawable",
+            packageName
+        )
     }
 }

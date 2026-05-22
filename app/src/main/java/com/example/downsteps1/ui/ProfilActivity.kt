@@ -70,19 +70,27 @@ class ProfilActivity : BaseActivity() {
             db.collection("users").document(userId)
                 .addSnapshotListener { document, error ->
                     if (error != null) {
-                        Toast.makeText(this, "Error: ${error.message}", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(
+                            this,
+                            getString(R.string.error_message, error.message ?: ""),
+                            Toast.LENGTH_SHORT
+                        ).show()
                         return@addSnapshotListener
                     }
 
                     if (document != null && document.exists()) {
-                        // جلب البيانات وتحديث الواجهة فوراً
-                        val name = document.getString("childName") ?: "Unknown"
-                        val gender = document.getString("gender") ?: "Not set"
-                        val birth = document.getString("birthDate") ?: "Not set"
+                        val name = document.getString("childName") ?: getString(R.string.unknown)
+                        val genderRaw = document.getString("gender") ?: ""
+                        val birth = document.getString("birthDate") ?: getString(R.string.not_set)
 
-                        val motor = document.getString("motorAssessment.motorLevel") ?: "Not tested"
-                        val language = document.getString("languageAssessment.languageLevel") ?: "Not tested"
-                        val speech = document.getString("speechAssessment.level") ?: "Not tested"
+                        val motorRaw = document.getString("motorAssessment.motorLevel") ?: ""
+                        val languageRaw = document.getString("languageAssessment.languageLevel") ?: ""
+                        val speechRaw = document.getString("speechAssessment.level") ?: ""
+
+                        val gender = translateGender(genderRaw)
+                        val motor = translateLevel(motorRaw)
+                        val language = translateLevel(languageRaw)
+                        val speech = translateLevel(speechRaw)
 
                         // تحديث العناصر في الواجهة
                         tvChildName.text = name
@@ -90,11 +98,28 @@ class ProfilActivity : BaseActivity() {
                         tvChildGender.text = gender
                         tvChildBirthDate.text = birth
 
-                        tvMotorLevel.text = "Motor: $motor"
-                        tvLanguageLevel.text = "Language: $language"
-                        tvSpeechLevel.text = "Speech: $speech"
+                        tvMotorLevel.text = getString(R.string.motor_level_format, motor)
+                        tvLanguageLevel.text = getString(R.string.language_level_format, language)
+                        tvSpeechLevel.text = getString(R.string.speech_level_format, speech)
                     }
                 }
+        }
+    }
+
+    private fun translateGender(gender: String): String {
+        return when (gender.uppercase()) {
+            "MALE" -> getString(R.string.male)
+            "FEMALE" -> getString(R.string.female)
+            else -> getString(R.string.not_set)
+        }
+    }
+
+    private fun translateLevel(level: String): String {
+        return when (level.lowercase()) {
+            "beginner" -> getString(R.string.beginner)
+            "intermediate" -> getString(R.string.intermediate)
+            "advanced" -> getString(R.string.advanced)
+            else -> getString(R.string.not_tested)
         }
     }
 }

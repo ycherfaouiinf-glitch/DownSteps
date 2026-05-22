@@ -30,16 +30,21 @@ class VideoPlayerActivity : BaseActivity() {
     }
 
     private fun setupData() {
-        val videoTitle = intent.getStringExtra(EXTRA_VIDEO_TITLE) ?: "Video"
+        val videoTitle =
+            intent.getStringExtra(EXTRA_VIDEO_TITLE)
+                ?: getString(R.string.video)
         val videoUrl = intent.getStringExtra(EXTRA_VIDEO_URL) ?: ""
 
         tvVideoTitle.text = videoTitle
 
         tvPlaceholder.text =
             if (videoUrl.isNotEmpty()) {
-                "Video URL: $videoUrl\n\nLater, you can connect this screen to ExoPlayer, Firebase Storage, or an API."
+                getString(
+                    R.string.video_url_placeholder,
+                    videoUrl
+                )
             } else {
-                "Later, you can connect this screen to ExoPlayer, Firebase Storage, or an API."
+                getString(R.string.video_player_placeholder)
             }
     }
 

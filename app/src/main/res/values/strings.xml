@@ -1,5 +1,435 @@
 <resources>
     <string name="app_name">DownSteps</string>
-    <string name="centers_title">Centers &amp; Associations</string>
     <string name="sos_widget_description">DownSteps SOS emergency widget</string>
+
+    <string name="home">Home</string>
+    <string name="welcome_back">Welcome back</string>
+    <string name="parent_name">Parent Name</string>
+    <string name="support_child">Let’s support your child step by step</string>
+    <string name="explore_features">Explore features</string>
+
+    <string name="faq_info">FAQ and Info</string>
+    <string name="faq_description">Helpful answers and useful information</string>
+
+    <string name="challenges">Challenges</string>
+    <string name="challenges_description">Daily exercises for progress</string>
+
+    <string name="daily_skills">Daily Skills</string>
+    <string name="daily_skills_description">Simple tasks for each day</string>
+
+    <string name="centers">Centers</string>
+    <string name="centers_description">Nearby support centers</string>
+    <string name="centers_title">Centers and Associations</string>
+    <string name="centers_subtitle">Browse available centers and associations</string>
+    <string name="search_center">Search for a center or association...</string>
+    <string name="category">Category</string>
+    <string name="no_results_found">No matching results found</string>
+
+    <string name="games">Games</string>
+    <string name="games_description">Fun educational activities</string>
+    <string name="lets_start_playing">Let’s start playing! 👋</string>
+    <string name="choose_game_fun">Choose a game and enjoy learning and fun</string>
+    <string name="sound">Sound</string>
+    <string name="music">Music</string>
+    <string name="star">Star</string>
+    <string name="suggested_today">Suggested Today</string>
+    <string name="game_image">Game image</string>
+    <string name="start">Start</string>
+    <string name="all_games">All Games</string>
+    <string name="favorites">Favorites</string>
+    <string name="no_favorite_games">No favorite games yet</string>
+    <string name="add_favorite_game">Tap the heart to add a game ❤️</string>
+    <string name="intro">Intro</string>
+    <string name="lets_start_playing_intro">Let’s start playing!</string>
+    <string name="games_intro_subtitle">We prepared games to help your child learn and focus</string>
+    <string name="preparing_games">Preparing games...</string>
+
+    <string name="success_stories">Success Stories</string>
+    <string name="success_stories_description">Inspiring real experiences</string>
+    <string name="success_stories_subtitle">Inspiring stories of achievement and determination</string>
+    <string name="real_stories_endless_inspiration">Real stories, endless inspiration</string>
+    <string name="down_syndrome_success_message">People with Down syndrome can achieve beautiful goals with support, confidence, and perseverance.</string>
+
+    <string name="audio_library">Audio Library</string>
+    <string name="audio_library_description">Useful audio resources and listening content</string>
+    <string name="audio">Audio</string>
+    <string name="listen_short_story">Listen to a short story</string>
+    <string name="story_title">Story Title</string>
+    <string name="audio_current_time">0:00</string>
+    <string name="audio_total_time">3:25</string>
+    <string name="audio_library_subtitle">Short stories, calm sounds, and bedtime audio</string>
+    <string name="search_icon">Search icon</string>
+    <string name="search_audio_stories">Search for audio stories...</string>
+    <string name="continue_listening">Continue Listening</string>
+    <string name="story_image">Story image</string>
+    <string name="see_all">See all</string>
+    <string name="short_stories">Short Stories</string>
+    <string name="expand">Expand</string>
+
+    <string name="about_application">About the Application</string>
+    <string name="about_subtitle">Learn more about DownSteps</string>
+    <string name="app_slogan">Support, guidance, and daily care tools</string>
+    <string name="what_is_downsteps">What is DownSteps?</string>
+    <string name="downsteps_description">DownSteps is a supportive application designed to help parents of children with Down syndrome by providing trusted information, daily activities, guidance, and useful resources.</string>
+    <string name="our_mission">Our Mission</string>
+    <string name="mission_description">The goal of this application is to support families through simple tools, educational content, practical exercises, and emergency features that make follow-up easier and more organized.</string>
+    <string name="application_info">Application Info</string>
+    <string name="name">Name</string>
+    <string name="version">Version:</string>
+    <string name="developer">Developer:</string>
+    <string name="back_to_settings">Back to Settings</string>
+
+    <string name="challenge_day">Challenge of the Day</string>
+    <string name="challenge_subtitle">Small steps, big progress every day</string>
+    <string name="motor_challenge">Motor Challenge</string>
+    <string name="default_challenge_title">Jumping on both feet</string>
+    <string name="default_challenge_description">An activity that helps the child develop balance and motor coordination.</string>
+    <string name="steps_follow">Steps to follow</string>
+    <string name="done">Done</string>
+    <string name="choose_challenge_type">Choose Challenge Type</string>
+    <string name="challenge_type_subtitle">Choose the right challenge for today and start your child\'s progress step by step.</string>
+    <string name="motor_challenge_desc">Activities that help your child improve movement skills, coordination, and balance.</string>
+    <string name="language_challenge">Language Challenge</string>
+    <string name="language_challenge_desc">Activities that support language development, communication, and understanding.</string>
+    <string name="speech_challenge">Speech Challenge</string>
+    <string name="speech_challenge_desc">Activities to improve pronunciation and help your child produce sounds more clearly.</string>
+    <string name="daily_challenges">Daily Challenges</string>
+    <string name="challenges_timeline_subtitle">Complete challenges to unlock new ones</string>
+
+    <string name="back">Back</string>
+    <string name="change_password">Change Password</string>
+    <string name="update_password_securely">Update your password securely</string>
+    <string name="password_information">Password Information</string>
+    <string name="current_password">Current Password</string>
+    <string name="enter_current_password">Enter current password</string>
+    <string name="new_password">New Password</string>
+    <string name="enter_new_password">Enter new password</string>
+    <string name="confirm_new_password">Confirm New Password</string>
+    <string name="confirm_new_password_hint">Confirm new password</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="confirm_your_password">Confirm your password</string>
+    <string name="save_changes">Save Changes</string>
+
+    <string name="change_profile">Change Profile</string>
+    <string name="update_account_information">Update your account information easily</string>
+    <string name="profile_information">Profile Information</string>
+    <string name="edit_personal_details">Edit your personal details below</string>
+    <string name="enter_full_name">Enter your full name</string>
+    <string name="email">Email</string>
+    <string name="enter_email_address">Enter your email address</string>
+
+    <string name="child_information">Child Information</string>
+    <string name="enter_child_information">Enter your child’s information to continue</string>
+    <string name="pick_image">Pick image</string>
+    <string name="upload_child_photo">Upload child photo</string>
+    <string name="child_name">Child name</string>
+    <string name="female">Female</string>
+    <string name="male">Male</string>
+    <string name="birth_date">Birth date</string>
+    <string name="save_and_continue">Save and Continue</string>
+    <string name="edit_child">Edit Child</string>
+    <string name="update_child_information">Update your child information</string>
+    <string name="child_image">Child image</string>
+    <string name="child_profile">Child profile</string>
+    <string name="child_name_label">Child Name</string>
+    <string name="enter_child_name">Enter child name</string>
+    <string name="gender">Gender</string>
+    <string name="birth_date_label">Birth Date</string>
+    <string name="select_birth_date">Select birth date</string>
+
+    <string name="daily_skills_subtitle">Training activities to support your child’s daily development</string>
+    <string name="training_videos">Training Videos</string>
+    <string name="training_videos_description">Simple guided content to improve speech, writing, behavior, and self-care skills.</string>
+    <string name="speech">Speech</string>
+    <string name="writing">Writing</string>
+    <string name="self_care">Self Care</string>
+    <string name="behavior">Behavior</string>
+    <string name="open">Open</string>
+    <string name="skill_videos_subtitle">Activities to support your child’s development.</string>
+    <string name="video">Video</string>
+    <string name="video_placeholder">Video player will be added here later.</string>
+
+    <string name="faq_title">FAQ</string>
+    <string name="faq_subtitle">Frequently asked questions and useful information</string>
+    <string name="search">Search...</string>
+    <string name="what_is_down_syndrome">What is Down syndrome?</string>
+    <string name="down_syndrome_answer">Down syndrome is a genetic condition caused by an extra copy of chromosome 21. It can affect physical growth, learning, and communication, but each child develops in their own way.</string>
+    <string name="help_child_communication">How can I help my child improve communication?</string>
+    <string name="help_child_communication_answer">Use simple words, daily repetition, visual support, songs, and positive encouragement. Short practice every day gives better results than long irregular sessions.</string>
+    <string name="why_early_assessment">Why is early assessment important?</string>
+    <string name="why_early_assessment_answer">Early assessment helps identify the current level in motor, language, and speech skills so the app can show suitable activities and challenges.</string>
+
+    <string name="help_support">Help and Support</string>
+    <string name="help_support_subtitle">We are here to help you</string>
+    <string name="need_assistance">Need assistance?</string>
+    <string name="help_support_description">If you need help using the application, have a technical issue, or want more information, you can contact support through the options below.</string>
+    <string name="contact_information">Contact Information</string>
+    <string name="frequently_asked_questions">Frequently Asked Questions</string>
+    <string name="faq_save_child_data">• How can I save my child’s data?</string>
+    <string name="faq_daily_challenges">• How do I access daily challenges?</string>
+    <string name="faq_sos_feature">• How can I use the SOS feature?</string>
+    <string name="contact_support">Contact Support</string>
+
+    <string name="language">Language</string>
+    <string name="choose_preferred_language">Choose your preferred language</string>
+    <string name="app_language">App Language</string>
+    <string name="english">English</string>
+    <string name="arabic">Arabic</string>
+    <string name="save">Save</string>
+    <string name="language_assessment">Language Assessment</string>
+    <string name="language_assessment_subtitle">Answer the following questions to identify the language level.</string>
+    <string name="yes">Yes</string>
+    <string name="sometimes">Sometimes</string>
+    <string name="no">No</string>
+    <string name="next">Next</string>
+    <string name="speech_assessment">Speech Assessment</string>
+    <string name="speech_assessment_subtitle">Answer the following questions to identify the speech level.</string>
+
+    <string name="log_in">Log in</string>
+    <string name="login_subtitle">Step by step with you.</string>
+    <string name="password">Password</string>
+    <string name="forgot_password">Forgot password?</string>
+    <string name="or_separator">- OR -</string>
+    <string name="login_with_google">Log in with Google</string>
+    <string name="dont_have_account">Don’t have an account?</string>
+    <string name="register_here">Register here!</string>
+
+    <string name="new_password_title">New Password</string>
+    <string name="create_new_password">Create your new password</string>
+    <string name="set_new_password">Set New Password</string>
+    <string name="save_password">Save Password</string>
+    <string name="reset_password">Reset Password</string>
+    <string name="reset_password_subtitle">Enter your email to receive a reset link</string>
+    <string name="account_recovery">Account Recovery</string>
+    <string name="enter_your_email">Enter your email</string>
+    <string name="send_reset_link">Send Reset Link</string>
+    <string name="verification_code">Verification Code</string>
+    <string name="verification_code_subtitle">Enter the code sent to your email</string>
+    <string name="email_verification">Email Verification</string>
+    <string name="code">Code</string>
+    <string name="enter_verification_code">Enter verification code</string>
+    <string name="resend_code">Resend code</string>
+    <string name="verify">Verify</string>
+
+    <string name="profile">Profile</string>
+    <string name="name_label">Name:</string>
+    <string name="gender_label">Gender:</string>
+    <string name="birth_label">Birth:</string>
+    <string name="edit_child_information">Edit child information</string>
+    <string name="levels">Levels</string>
+    <string name="re_evaluate">Re-evaluate</string>
+
+    <string name="settings">Settings</string>
+    <string name="manage_preferences">Manage your preferences</string>
+    <string name="account">Account</string>
+    <string name="change_profile_information">Change profile information</string>
+    <string name="preferences">Preferences</string>
+    <string name="appearance">Appearance</string>
+    <string name="notifications">Notifications</string>
+    <string name="daily_challenge_reminders">Daily challenge reminders</string>
+    <string name="general_notifications">General notifications</string>
+    <string name="support">Support</string>
+    <string name="help_and_support">Help and support</string>
+    <string name="log_out">Log out</string>
+
+    <string name="create">Create</string>
+    <string name="new_account">New account</string>
+    <string name="email_or_phone">Email or phone number</string>
+    <string name="agree_terms_conditions">I agree to the Terms and Conditions</string>
+    <string name="create_account">Create account</string>
+    <string name="already_user">Already a User?</string>
+
+    <string name="sos">SOS</string>
+    <string name="emergency_contact_settings">Emergency contact settings</string>
+    <string name="emergency_contacts">Emergency Contacts</string>
+    <string name="primary_sos_number">Primary SOS Number</string>
+    <string name="enter_primary_number">Enter primary number</string>
+    <string name="additional_number_1">Additional Number 1</string>
+    <string name="additional_number_2">Additional Number 2</string>
+    <string name="optional">Optional</string>
+    <string name="contact_name">Contact Name</string>
+    <string name="contact_name_hint">Father / Mother / Relative / Ambulance</string>
+    <string name="tests_completed">Tests Completed</string>
+    <string name="sos_widget_intro">Enable the SOS Widget to show it on your phone screen and access emergency help instantly.</string>
+    <string name="sos_widget_feature">SOS Widget Feature</string>
+    <string name="widget_status_disabled">Status: Disabled</string>
+    <string name="sos_widget_descriptionn">After activation, add the DownSteps SOS Widget from your phone widgets. Pressing it will open the SOS page or call the saved emergency number.</string>
+    <string name="enable_sos_widget">Enable SOS Widget</string>
+    <string name="configure_sos_number">Configure SOS Number</string>
+    <string name="go_home">Go Home</string>
+
+    <string name="choose_category">Choose Category</string>
+    <string name="select_category_subtitle">Select the type you are looking for</string>
+    <string name="all_categories">All Categories</string>
+    <string name="all_categories_desc">Show all centers and associations</string>
+    <string name="association">Association</string>
+    <string name="association_desc">Show charities and community organizations</string>
+    <string name="center">Center</string>
+    <string name="center_desc">Show specialized centers and facilities</string>
+    <string name="apply">Apply</string>
+    <string name="filter_results">Filter Results</string>
+    <string name="state">State</string>
+    <string name="all_states">All States</string>
+    <string name="reset">Reset</string>
+    <string name="choose_state">Choose State</string>
+    <string name="select_state_subtitle">Select a state to view available centers</string>
+    <string name="show_more">Show More</string>
+
+    <string name="dark_mode">Dark mode</string>
+    <string name="light_mode">Light mode</string>
+    <string name="daily_reminders_enabled">Daily reminders enabled</string>
+    <string name="daily_reminders_disabled">Daily reminders disabled</string>
+    <string name="general_notifications_enabled">General notifications enabled</string>
+    <string name="general_notifications_disabled">General notifications disabled</string>
+    <string name="logged_out">Logged out</string>
+
+    <string name="email_required">Email is required</string>
+    <string name="password_required">Password is required</string>
+    <string name="login_failed">Login failed</string>
+    <string name="complete_profile">Please complete your profile</string>
+
+    <string name="terms_conditions">Terms and Conditions</string>
+    <string name="terms_conditions_message">• Your personal information must be accurate.&#10;&#10;• The SOS feature is only for emergency situations.&#10;&#10;• You are responsible for the emergency number you save.&#10;&#10;• DownSteps is not responsible for misuse of the SOS feature.&#10;&#10;• By creating an account, you agree to use the app safely and responsibly.</string>
+    <string name="i_agree">I Agree</string>
+    <string name="cancel">Cancel</string>
+    <string name="name_required">Name is required</string>
+    <string name="password_min_length">Password must be at least 6 characters</string>
+    <string name="accept_terms">Please accept terms</string>
+    <string name="account_created_successfully">Account created successfully</string>
+    <string name="signup_failed">Signup failed</string>
+
+    <string name="reset_link_sent">A reset link has been sent to your email</string>
+    <string name="reset_email_failed">Failed to send reset email</string>
+
+    <string name="google_password_settings">Google users manage passwords through Google Settings.</string>
+    <string name="fill_all_fields">Please fill all fields</string>
+    <string name="passwords_do_not_match">Passwords do not match</string>
+    <string name="password_updated_successfully">Password updated successfully!</string>
+    <string name="error_message">Error: %1$s</string>
+    <string name="incorrect_current_password">Incorrect current password</string>
+    <string name="current_password_wrong">Current password is wrong</string>
+
+
+    <string name="google_email_change_not_allowed">Google accounts cannot change email from here. Please manage it in your Google settings.</string>
+    <string name="fill_fields_confirm_password">Please fill all fields and enter password to confirm</string>
+    <string name="email_error_message">Email error: %1$s</string>
+    <string name="incorrect_password">Incorrect password!</string>
+    <string name="name_updated_successfully">Name updated successfully!</string>
+    <string name="profile_updated_successfully">Profile updated successfully!</string>
+
+
+    <string name="fill_all_information">Please fill in all the information</string>
+    <string name="data_saved_successfully">Data saved successfully!</string>
+    <string name="continuing_to_tests">Continuing to tests...</string>
+    <string name="starting_tests">Information completed. Starting tests...</string>
+    <string name="age_range_error">Age must be between 0 and 100</string>
+    <string name="select_image">Select Image</string>
+    <string name="child_saved_successfully">Child saved successfully!</string>
+    <string name="failed_to_save">Failed to save: %1$s</string>
+
+
+    <string name="unknown">Unknown</string>
+    <string name="not_set">Not set</string>
+    <string name="not_tested">Not tested</string>
+    <string name="beginner">Beginner</string>
+    <string name="intermediate">Intermediate</string>
+    <string name="advanced">Advanced</string>
+    <string name="motor_level_format">Motor: %1$s</string>
+    <string name="language_level_format">Language: %1$s</string>
+    <string name="speech_level_format">Speech: %1$s</string>
+
+    <string name="updated_successfully">Updated successfully!</string>
+    <string name="update_failed">Update failed: %1$s</string>
+
+
+    <string name="select_answer">Please select an answer</string>
+    <string name="finish">Finish</string>
+    <string name="language_assessment_saved">Language assessment saved!\nLevel: %1$s</string>
+    <string name="saved_locally_level">Saved locally. Level: %1$s</string>
+
+    <string name="motor_assessment_saved">Motor assessment saved!\nLevel: %1$s</string>
+    <string name="proceeding_next_step">Proceeding to next step...</string>
+
+    <string name="assessments_complete_level">All assessments complete! Level: %1$s</string>
+    <string name="opening_home">Opening home...</string>
+
+
+    <string name="primary_number_required">Primary number is required</string>
+    <string name="user_not_logged_in">User not logged in</string>
+    <string name="sos_contacts_saved">SOS contacts saved</string>
+    <string name="error_saving_sos_contacts">Error saving SOS contacts</string>
+    <string name="save_primary_sos_first">Please save a primary SOS number first</string>
+
+    <string name="sos_widget_activated">SOS Widget activated</string>
+    <string name="add_sos_widget_manually">Please add the SOS Widget manually from your home screen widgets</string>
+    <string name="widget_status_enabled">Status: Enabled ✅</string>
+    <string name="sos_widget_enabled">SOS Widget Enabled</string>
+
+    <string name="call_contact_quickly">Call %1$s quickly</string>
+    <string name="tap_to_call_emergency">Tap to call emergency</string>
+    <string name="set_emergency_number_first">Set emergency number first</string>
+
+    <string name="enter_code">Enter the code</string>
+    <string name="code_too_short">Code is too short</string>
+    <string name="verification_code_sent_again">Verification code sent again</string>
+
+    <string name="video_player_placeholder">Later, you can connect this screen to ExoPlayer, Firebase Storage, or an API.</string>
+    <string name="video_url_placeholder">Video URL: %1$s Later, you can connect this screen to ExoPlayer, Firebase Storage, or an API.</string>
+
+    <string name="audio_default_duration">0:00</string>
+
+    <string name="challenge_not_found">Challenge not found</string>
+    <string name="challenge_completed">Challenge completed</string>
+    <string name="error_saving_progress">Error saving progress</string>
+
+    <string name="error_loading_user_data">Error loading user data</string>
+    <string name="day_format">Day %1$d</string>
+    <string name="locked">Locked</string>
+    <string name="completed">Completed</string>
+    <string name="today">Today</string>
+
+    <string name="faq_keywords_down_syndrome">down syndrome genetic chromosome physical growth learning communication</string>
+    <string name="faq_keywords_communication">communication child simple words repetition visual support songs encouragement</string>
+    <string name="faq_keywords_assessment">early assessment motor language speech skills activities challenges</string>
+
+    <string name="level_1">Level 1</string>
+    <string name="level_2">Level 2</string>
+
+    <string name="game_connect">Connect</string>
+    <string name="game_connect_desc">Match similar items</string>
+    <string name="game_connect_benefit">Helps improve focus by connecting similar elements in a fun way.</string>
+
+    <string name="game_learn">Learn</string>
+    <string name="game_learn_desc">Learn letters and words</string>
+    <string name="game_learn_benefit">Helps children learn letters and words easily.</string>
+
+    <string name="game_matching">Matching</string>
+    <string name="game_matching_desc">Match similar images</string>
+    <string name="game_matching_benefit">Improves memory and concentration.</string>
+
+    <string name="game_puzzle">Puzzle</string>
+    <string name="game_puzzle_desc">Build the image from pieces</string>
+    <string name="game_puzzle_benefit">Enhances thinking and problem-solving.</string>
+
+    <string name="game_coloring">Coloring</string>
+    <string name="game_coloring_desc">Color beautiful drawings</string>
+    <string name="game_coloring_benefit">Improves color recognition and motor skills.</string>
+
+    <string name="game_not_implemented">%1$s is not implemented yet</string>
+
+    <string name="games_greeting_morning">
+    Good morning, let’s start playing ☀️
+</string>
+
+    <string name="games_greeting_evening">
+    Good evening, shall we play a quick game? 🌙
+</string>
+
+    <string name="password_changed_successfully">Password changed successfully</string>
+
+    <string name="skill_videos">Skill Videos</string>
+    <string name="skill_speech_subtitle">Activities to improve speaking and pronunciation skills.</string>
+    <string name="skill_writing_subtitle">Activities to improve early writing skills.</string>
+    <string name="skill_selfcare_subtitle">Activities to support daily self-care routines.</string>
+    <string name="skill_behavior_subtitle">Activities to support positive behavior.</string>
 </resources>

@@ -29,12 +29,12 @@ class VerifyCodeActivity : BaseActivity() {
             val code = etCode.text.toString().trim()
 
             if (code.isEmpty()) {
-                etCode.error = "Enter the code"
+                etCode.error = getString(R.string.enter_code)
                 return@setOnClickListener
             }
 
             if (code.length < 4) {
-                etCode.error = "Code is too short"
+                etCode.error = getString(R.string.code_too_short)
                 return@setOnClickListener
             }
 
@@ -42,7 +42,11 @@ class VerifyCodeActivity : BaseActivity() {
         }
 
         tvResendCode.setOnClickListener {
-            Toast.makeText(this, "Verification code sent again", Toast.LENGTH_SHORT).show()
+            Toast.makeText(
+                this,
+                getString(R.string.verification_code_sent_again),
+                Toast.LENGTH_SHORT
+            ).show()
         }
     }
 }

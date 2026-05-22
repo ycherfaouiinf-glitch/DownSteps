@@ -14,7 +14,7 @@
         android:layout_width="300dp"
         android:layout_height="300dp"
         android:src="@drawable/img_intro_games"
-        android:contentDescription="Intro"
+        android:contentDescription="@string/intro"
         android:layout_marginBottom="20dp" />
 
     <!-- Title -->
@@ -22,7 +22,7 @@
         android:id="@+id/tvGreeting"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Let’s start playing!"
+        android:text="@string/lets_start_playing_intro"
         style="@style/Text.Title"
         android:layout_marginBottom="10dp"/>
 
@@ -30,7 +30,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="We prepared games to help your child learn and focus"
+        android:text="@string/games_intro_subtitle"
         style="@style/Text.Subtitle"
         android:gravity="center"
         android:layout_marginBottom="30dp"/>
@@ -69,7 +69,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Preparing games..."
+        android:text="@string/preparing_games"
         android:textSize="14sp"
         android:textColor="#8D95A5"/>
 
