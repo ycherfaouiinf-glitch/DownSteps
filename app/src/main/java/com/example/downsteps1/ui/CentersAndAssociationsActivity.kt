@@ -27,7 +27,9 @@ import com.example.downsteps1.ui.model.CenterModel
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.firestore.FirebaseFirestore
-
+import com.example.downsteps1.common.AlgeriaStates
+import com.example.downsteps1.common.AlgeriaState
+import com.google.android.flexbox.FlexboxLayout
 
 class CentersAndAssociationsActivity : BaseActivity() {
 
@@ -112,6 +114,11 @@ class CentersAndAssociationsActivity : BaseActivity() {
         val dialog = BottomSheetDialog(this)
         dialog.setContentView(R.layout.bottom_sheet_filter)
 
+        dialog.behavior.isDraggable = false
+        dialog.behavior.peekHeight = 1600
+        dialog.behavior.state =
+            com.google.android.material.bottomsheet.BottomSheetBehavior.STATE_EXPANDED
+
         val btnClose = dialog.findViewById<ImageView>(R.id.btnCloseFilterSheet)
         val btnApply = dialog.findViewById<MaterialButton>(R.id.btnApplyFilter)
         val btnReset = dialog.findViewById<MaterialButton>(R.id.btnResetFilter)
@@ -127,25 +134,8 @@ class CentersAndAssociationsActivity : BaseActivity() {
         val ivCenter = dialog.findViewById<ImageView>(R.id.ivCenter)
         val tvCenter = dialog.findViewById<TextView>(R.id.tvCenter)
 
-        val itemAllStates = dialog.findViewById<LinearLayout>(R.id.itemAllStates)
-        val itemOran = dialog.findViewById<LinearLayout>(R.id.itemOran)
-        val itemConstantine = dialog.findViewById<LinearLayout>(R.id.itemConstantine)
-        val itemAlgiers = dialog.findViewById<LinearLayout>(R.id.itemAlgiers)
-        val itemBba = dialog.findViewById<LinearLayout>(R.id.itemBba)
-        val itemShowMore = dialog.findViewById<LinearLayout>(R.id.itemShowMore)
-
-        val ivAllStates = dialog.findViewById<ImageView>(R.id.ivAllStates)
-        val tvAllStates = dialog.findViewById<TextView>(R.id.tvAllStates)
-        val ivOran = dialog.findViewById<ImageView>(R.id.ivOran)
-        val tvOran = dialog.findViewById<TextView>(R.id.tvOran)
-        val ivConstantine = dialog.findViewById<ImageView>(R.id.ivConstantine)
-        val tvConstantine = dialog.findViewById<TextView>(R.id.tvConstantine)
-        val ivAlgiers = dialog.findViewById<ImageView>(R.id.ivAlgiers)
-        val tvAlgiers = dialog.findViewById<TextView>(R.id.tvAlgiers)
-        val ivBba = dialog.findViewById<ImageView>(R.id.ivBba)
-        val tvBba = dialog.findViewById<TextView>(R.id.tvBba)
-        val ivShowMore = dialog.findViewById<ImageView>(R.id.ivShowMore)
-        val tvShowMore = dialog.findViewById<TextView>(R.id.tvShowMore)
+        val filterStatesContainer =
+            dialog.findViewById<FlexboxLayout>(R.id.filterStatesContainer)
 
         var tempCategory = selectedCategory
         var tempState = selectedState
@@ -171,91 +161,109 @@ class CentersAndAssociationsActivity : BaseActivity() {
         }
 
         fun updateCategorySelection() {
-            styleCategoryCard(itemAllCategories, ivAllCategories, tvAllCategories, tempCategory == "All Categories")
-            styleCategoryCard(itemAssociation, ivAssociation, tvAssociation, tempCategory == "Association")
-            styleCategoryCard(itemCenter, ivCenter, tvCenter, tempCategory == "Center")
+            styleCategoryCard(
+                itemAllCategories,
+                ivAllCategories,
+                tvAllCategories,
+                tempCategory == "All Categories"
+            )
+            styleCategoryCard(
+                itemAssociation,
+                ivAssociation,
+                tvAssociation,
+                tempCategory == "Association"
+            )
+            styleCategoryCard(
+                itemCenter,
+                ivCenter,
+                tvCenter,
+                tempCategory == "Center"
+            )
         }
 
-        fun styleStateChip(
-            item: LinearLayout?,
-            icon: ImageView?,
-            text: TextView?,
-            selected: Boolean
-        ) {
-            if (selected) {
-                item?.setBackgroundResource(R.drawable.bg_state_chip_selected)
-                icon?.setColorFilter(color(R.color.btn_primary))
-                text?.setTextColor(color(R.color.btn_primary))
+        fun addStateChip(text: String, isSelected: Boolean, onClick: () -> Unit) {
+            val chip = TextView(this)
+            chip.text = text
+            chip.gravity = android.view.Gravity.CENTER
+            chip.setTextAppearance(R.style.Text_Label)
+
+            chip.setBackgroundResource(
+                if (isSelected) R.drawable.bg_state_chip_selected
+                else R.drawable.bg_state_chip
+            )
+
+            chip.setTextColor(
+                color(
+                    if (isSelected) R.color.btn_primary
+                    else if (text == "All States" || text.contains("Show")) R.color.input_icon
+                    else R.color.text_title
+                )
+            )
+
+            val params = FlexboxLayout.LayoutParams(
+                0,
+                resources.getDimensionPixelSize(R.dimen.state_chip_height)
+            )
+            params.flexBasisPercent = 0.31f
+            params.setMargins(0, 0, 8, 12)
+            chip.layoutParams = params
+
+            chip.setOnClickListener { onClick() }
+
+            filterStatesContainer?.addView(chip)
+        }
+
+        fun renderFilterStates() {
+            filterStatesContainer?.removeAllViews()
+
+            val statesToShow = if (isExpanded) {
+                AlgeriaStates.all
             } else {
-                item?.setBackgroundResource(R.drawable.bg_state_chip)
-                icon?.setColorFilter(color(R.color.input_icon))
-                text?.setTextColor(color(R.color.text_title))
+                AlgeriaStates.all.take(5)
             }
-        }
 
-        fun updateStateSelection() {
-            styleStateChip(itemAllStates, ivAllStates, tvAllStates, tempState == "All States")
-            styleStateChip(itemOran, ivOran, tvOran, tempState == "Oran")
-            styleStateChip(itemConstantine, ivConstantine, tvConstantine, tempState == "Constantine")
-            styleStateChip(itemAlgiers, ivAlgiers, tvAlgiers, tempState == "Algiers")
-            styleStateChip(itemBba, ivBba, tvBba, tempState == "Bordj Bou Arreridj")
-        }
-
-        fun updateShowMoreState() {
             if (isExpanded) {
-                itemShowMore?.setBackgroundResource(R.drawable.bg_state_chip_selected)
-                ivShowMore?.setImageResource(R.drawable.ic_arrow_up)
-                ivShowMore?.setColorFilter(color(R.color.btn_primary))
-                tvShowMore?.text = "Show Less"
-                tvShowMore?.setTextColor(color(R.color.btn_primary))
-            } else {
-                itemShowMore?.setBackgroundResource(R.drawable.bg_state_chip)
-                ivShowMore?.setImageResource(R.drawable.ic_arrow_down)
-                ivShowMore?.setColorFilter(color(R.color.input_icon))
-                tvShowMore?.text = "Show More"
-                tvShowMore?.setTextColor(color(R.color.input_icon))
+                addStateChip(if (resources.configuration.locales[0].language == "ar") "▲ عرض أقل" else "▲ Show Less", false) {
+                    isExpanded = false
+                    renderFilterStates()
+                }
+            }
+
+            statesToShow.forEach { state ->
+                addStateChip(
+                    text = if (resources.configuration.locales[0].language == "ar") state.nameAr else state.nameEn,
+                    isSelected = tempState == state.nameEn
+                ) {
+                    tempState = state.nameEn
+                    renderFilterStates()
+                }
+            }
+
+            if (!isExpanded) {
+                addStateChip(if (resources.configuration.locales[0].language == "ar") "▼ عرض المزيد" else "▼ Show More", false) {
+                    isExpanded = true
+                    renderFilterStates()
+                }
             }
         }
 
-        btnClose?.setOnClickListener { dialog.dismiss() }
+        btnClose?.setOnClickListener {
+            dialog.dismiss()
+        }
 
         itemAllCategories?.setOnClickListener {
             tempCategory = "All Categories"
             updateCategorySelection()
         }
+
         itemAssociation?.setOnClickListener {
             tempCategory = "Association"
             updateCategorySelection()
         }
+
         itemCenter?.setOnClickListener {
             tempCategory = "Center"
             updateCategorySelection()
-        }
-
-        itemAllStates?.setOnClickListener {
-            tempState = "All States"
-            updateStateSelection()
-        }
-        itemOran?.setOnClickListener {
-            tempState = "Oran"
-            updateStateSelection()
-        }
-        itemConstantine?.setOnClickListener {
-            tempState = "Constantine"
-            updateStateSelection()
-        }
-        itemAlgiers?.setOnClickListener {
-            tempState = "Algiers"
-            updateStateSelection()
-        }
-        itemBba?.setOnClickListener {
-            tempState = "Bordj Bou Arreridj"
-            updateStateSelection()
-        }
-
-        itemShowMore?.setOnClickListener {
-            isExpanded = !isExpanded
-            updateShowMoreState()
         }
 
         btnApply?.setOnClickListener {
@@ -275,8 +283,7 @@ class CentersAndAssociationsActivity : BaseActivity() {
         }
 
         updateCategorySelection()
-        updateStateSelection()
-        updateShowMoreState()
+        renderFilterStates()
         dialog.show()
     }
 
@@ -381,175 +388,135 @@ class CentersAndAssociationsActivity : BaseActivity() {
         val dialog = BottomSheetDialog(this)
         dialog.setContentView(R.layout.bottom_sheet_state)
 
+        dialog.behavior.isDraggable = false
+        dialog.behavior.peekHeight = 1600
+        dialog.behavior.state =
+            com.google.android.material.bottomsheet.BottomSheetBehavior.STATE_EXPANDED
+
         val btnClose = dialog.findViewById<ImageView>(R.id.btnCloseStateSheet)
         val btnApply = dialog.findViewById<MaterialButton>(R.id.btnApplyState)
-
-        val itemAllStates = dialog.findViewById<LinearLayout>(R.id.itemAllStates)
-        val itemOran = dialog.findViewById<LinearLayout>(R.id.itemOran)
-        val itemConstantine = dialog.findViewById<LinearLayout>(R.id.itemConstantine)
-        val itemAlgiers = dialog.findViewById<LinearLayout>(R.id.itemAlgiers)
-        val itemBba = dialog.findViewById<LinearLayout>(R.id.itemBba)
-        val itemAnnaba = dialog.findViewById<LinearLayout>(R.id.itemAnnaba)
-        val itemSetif = dialog.findViewById<LinearLayout>(R.id.itemSetif)
-        val itemTlemcen = dialog.findViewById<LinearLayout>(R.id.itemTlemcen)
-        val itemShowMore = dialog.findViewById<LinearLayout>(R.id.itemShowMore)
-
-        val ivAllStates = dialog.findViewById<ImageView>(R.id.ivAllStates)
-        val tvAllStates = dialog.findViewById<TextView>(R.id.tvAllStates)
-        val ivOran = dialog.findViewById<ImageView>(R.id.ivOran)
-        val tvOran = dialog.findViewById<TextView>(R.id.tvOran)
-        val ivConstantine = dialog.findViewById<ImageView>(R.id.ivConstantine)
-        val tvConstantine = dialog.findViewById<TextView>(R.id.tvConstantine)
-        val ivAlgiers = dialog.findViewById<ImageView>(R.id.ivAlgiers)
-        val tvAlgiers = dialog.findViewById<TextView>(R.id.tvAlgiers)
-        val ivBba = dialog.findViewById<ImageView>(R.id.ivBba)
-        val tvBba = dialog.findViewById<TextView>(R.id.tvBba)
-        val ivAnnaba = dialog.findViewById<ImageView>(R.id.ivAnnaba)
-        val tvAnnaba = dialog.findViewById<TextView>(R.id.tvAnnaba)
-        val ivSetif = dialog.findViewById<ImageView>(R.id.ivSetif)
-        val tvSetif = dialog.findViewById<TextView>(R.id.tvSetif)
-        val ivTlemcen = dialog.findViewById<ImageView>(R.id.ivTlemcen)
-        val tvTlemcen = dialog.findViewById<TextView>(R.id.tvTlemcen)
-        val ivShowMore = dialog.findViewById<ImageView>(R.id.ivShowMore)
-        val tvShowMore = dialog.findViewById<TextView>(R.id.tvShowMore)
+        val statesContainer = dialog.findViewById<FlexboxLayout>(R.id.statesContainer)
         val etSearchState = dialog.findViewById<TextInputEditText>(R.id.etSearchState)
 
-        var tempState = selectedState
         var isExpanded = false
 
-        fun color(id: Int) = ContextCompat.getColor(this, id)
+        fun addChip(text: String, isSelected: Boolean, onClick: () -> Unit) {
+            val chip = TextView(this)
+            chip.text = text
+            chip.gravity = android.view.Gravity.CENTER
+            chip.setTextAppearance(R.style.Text_Label)
 
-        fun styleStateChip(
-            item: LinearLayout?,
-            icon: ImageView?,
-            text: TextView?,
-            selected: Boolean
-        ) {
-            if (selected) {
-                item?.setBackgroundResource(R.drawable.bg_state_chip_selected)
-                icon?.setColorFilter(color(R.color.btn_primary))
-                text?.setTextColor(color(R.color.btn_primary))
-            } else {
-                item?.setBackgroundResource(R.drawable.bg_state_chip)
-                icon?.setColorFilter(color(R.color.input_icon))
-                text?.setTextColor(color(R.color.text_title))
-            }
-        }
-
-        fun updateStateSelection() {
-            styleStateChip(itemAllStates, ivAllStates, tvAllStates, tempState == "All States")
-            styleStateChip(itemOran, ivOran, tvOran, tempState == "Oran")
-            styleStateChip(itemConstantine, ivConstantine, tvConstantine, tempState == "Constantine")
-            styleStateChip(itemAlgiers, ivAlgiers, tvAlgiers, tempState == "Algiers")
-            styleStateChip(itemBba, ivBba, tvBba, tempState == "Bordj Bou Arreridj")
-            styleStateChip(itemAnnaba, ivAnnaba, tvAnnaba, tempState == "Annaba")
-            styleStateChip(itemSetif, ivSetif, tvSetif, tempState == "Setif")
-            styleStateChip(itemTlemcen, ivTlemcen, tvTlemcen, tempState == "Tlemcen")
-        }
-
-        fun updateShowMoreState() {
-            if (isExpanded) {
-                itemAnnaba?.visibility = View.VISIBLE
-                itemSetif?.visibility = View.VISIBLE
-                itemTlemcen?.visibility = View.VISIBLE
-
-                itemShowMore?.setBackgroundResource(R.drawable.bg_state_chip_selected)
-                ivShowMore?.setImageResource(R.drawable.ic_arrow_up)
-                ivShowMore?.setColorFilter(color(R.color.btn_primary))
-                tvShowMore?.text = "Show Less"
-                tvShowMore?.setTextColor(color(R.color.btn_primary))
-            } else {
-                itemAnnaba?.visibility = View.GONE
-                itemSetif?.visibility = View.GONE
-                itemTlemcen?.visibility = View.GONE
-
-                itemShowMore?.setBackgroundResource(R.drawable.bg_state_chip)
-                ivShowMore?.setImageResource(R.drawable.ic_arrow_down)
-                ivShowMore?.setColorFilter(color(R.color.input_icon))
-                tvShowMore?.text = "Show More"
-                tvShowMore?.setTextColor(color(R.color.input_icon))
-            }
-        }
-
-        btnClose?.setOnClickListener { dialog.dismiss() }
-
-        itemAllStates?.setOnClickListener { tempState = "All States"; updateStateSelection() }
-        itemOran?.setOnClickListener { tempState = "Oran"; updateStateSelection() }
-        itemConstantine?.setOnClickListener { tempState = "Constantine"; updateStateSelection() }
-        itemAlgiers?.setOnClickListener { tempState = "Algiers"; updateStateSelection() }
-        itemBba?.setOnClickListener { tempState = "Bordj Bou Arreridj"; updateStateSelection() }
-        itemAnnaba?.setOnClickListener { tempState = "Annaba"; updateStateSelection() }
-        itemSetif?.setOnClickListener { tempState = "Setif"; updateStateSelection() }
-        itemTlemcen?.setOnClickListener { tempState = "Tlemcen"; updateStateSelection() }
-
-        fun filterStateOptions(query: String) {
-            if (query.isBlank()) {
-                itemShowMore?.visibility = View.VISIBLE
-                updateShowMoreState()
-                listOf(itemAllStates, itemOran, itemConstantine, itemAlgiers, itemBba).forEach {
-                    it?.visibility = View.VISIBLE
-                }
-                return
-            }
-
-            itemShowMore?.visibility = View.GONE
-            val stateItems = listOf(
-                "All States" to itemAllStates,
-                "Oran" to itemOran,
-                "Constantine" to itemConstantine,
-                "Algiers" to itemAlgiers,
-                "Bordj Bou Arreridj" to itemBba,
-                "Annaba" to itemAnnaba,
-                "Setif" to itemSetif,
-                "Tlemcen" to itemTlemcen
+            chip.setBackgroundResource(
+                if (isSelected) R.drawable.bg_state_chip_selected
+                else R.drawable.bg_state_chip
             )
-            stateItems.forEach { (stateName, itemView) ->
-                itemView?.visibility = if (stateName
-                        .lowercase()
-                        .split(" ")
-                        .any { it.startsWith(query.lowercase()) }) {
-                    View.VISIBLE
-                } else {
-                    View.GONE
+
+            chip.setTextColor(
+                ContextCompat.getColor(
+                    this,
+                    if (isSelected) R.color.btn_primary
+                    else if (text == "All States" || text.contains("Show")) R.color.input_icon
+                    else R.color.text_title
+                )
+            )
+
+            val params = FlexboxLayout.LayoutParams(
+                0,
+                resources.getDimensionPixelSize(R.dimen.state_chip_height)
+            )
+            params.flexBasisPercent = 0.31f
+            params.setMargins(0, 0, 8, 12)
+            chip.layoutParams = params
+
+            chip.setOnClickListener { onClick() }
+
+            statesContainer?.addView(chip)
+        }
+
+        fun renderStates() {
+            statesContainer?.removeAllViews()
+
+            val searchText = etSearchState?.text?.toString()?.trim()?.lowercase().orEmpty()
+
+            val states = if (searchText.isNotEmpty()) {
+                AlgeriaStates.all.filter {
+                    it.nameEn.lowercase().contains(searchText) ||
+                            it.nameAr.contains(searchText)
+                }
+            } else {
+                if (isExpanded) AlgeriaStates.all else AlgeriaStates.all.take(6)
+            }
+
+            if (isExpanded && searchText.isEmpty()) {
+                addChip(if (resources.configuration.locales[0].language == "ar") "▲ عرض أقل" else "▲ Show Less", false) {
+                    isExpanded = false
+                    renderStates()
+                }
+            }
+
+            states.forEach { state ->
+                addChip(
+                    text = if (resources.configuration.locales[0].language == "ar") state.nameAr else state.nameEn,
+                    isSelected = selectedState == state.nameEn
+                ) {
+                    selectedState = state.nameEn
+                    updateTopFilterTexts()
+                    filterCenters()
+                    renderStates()
+                }
+            }
+
+            if (!isExpanded && searchText.isEmpty()) {
+                addChip(if (resources.configuration.locales[0].language == "ar") "▼ عرض المزيد" else "▼ Show More", false) {
+                    isExpanded = true
+                    renderStates()
                 }
             }
         }
 
-        itemShowMore?.setOnClickListener {
-            isExpanded = !isExpanded
-            updateShowMoreState()
+        btnClose?.setOnClickListener {
+            dialog.dismiss()
         }
 
         etSearchState?.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) = Unit
+
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                filterStateOptions(s?.toString().orEmpty())
+                renderStates()
             }
+
             override fun afterTextChanged(s: Editable?) = Unit
         })
 
         btnApply?.setOnClickListener {
-            selectedState = tempState
-            updateTopFilterTexts()
-            filterCenters()
             dialog.dismiss()
         }
 
-        updateStateSelection()
-        updateShowMoreState()
+        renderStates()
         dialog.show()
-
-
-
-
     }
 
     private fun updateTopFilterTexts() {
+        val isArabic = resources.configuration.locales[0].language == "ar"
+
         tvCategoryButton.text =
-            if (selectedCategory == "All Categories") "Category" else selectedCategory
+            if (selectedCategory == "All Categories") {
+                if (isArabic) "الفئة" else "Category"
+            } else {
+                when (selectedCategory) {
+                    "Association" -> if (isArabic) "جمعية" else "Association"
+                    "Center" -> if (isArabic) "مركز" else "Center"
+                    else -> selectedCategory
+                }
+            }
 
         tvStateButton.text =
-            if (selectedState == "All States") "All States" else selectedState
+            if (selectedState == "All States") {
+                if (isArabic) "كل الولايات" else "All States"
+            } else {
+                val state = AlgeriaStates.all.find { it.nameEn == selectedState }
+                if (isArabic) state?.nameAr ?: selectedState else selectedState
+            }
     }
 
     private fun loadCentersFromFirebase() {

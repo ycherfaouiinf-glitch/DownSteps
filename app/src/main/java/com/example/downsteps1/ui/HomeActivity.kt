@@ -3,6 +3,7 @@ package com.example.downsteps1.ui
 import com.example.downsteps1.common.ui.BaseActivity
 import android.content.Intent
 import android.os.Bundle
+import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
@@ -10,6 +11,8 @@ import com.example.downsteps1.R
 import com.example.downsteps1.common.navigation.BottomNavHelper
 import com.example.downsteps1.data.CenterSeeder
 import com.google.android.material.card.MaterialCardView
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 
 class HomeActivity : BaseActivity() {
 
@@ -68,5 +71,24 @@ class HomeActivity : BaseActivity() {
         cardAudioLibrary.setOnClickListener {
             startActivity(Intent(this, LibraryAudioActivity::class.java))
         }
+
+        val tvParentName = findViewById<TextView>(R.id.tvParentName)
+        loadParentName(tvParentName)
+    }
+
+    private fun loadParentName(tvParentName: TextView) {
+        val userId = FirebaseAuth.getInstance().currentUser?.uid ?: return
+
+        FirebaseFirestore.getInstance()
+            .collection("users")
+            .document(userId)
+            .get()
+            .addOnSuccessListener { document ->
+                val parentName = document.getString("name")
+
+                tvParentName.text =
+                    if (!parentName.isNullOrEmpty()) parentName
+                    else getString(R.string.parent_name)
+            }
     }
 }

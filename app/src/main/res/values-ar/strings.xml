@@ -436,4 +436,82 @@
     <string name="skill_writing_subtitle">أنشطة لتحسين مهارات الكتابة المبكرة.</string>
     <string name="skill_selfcare_subtitle">أنشطة لدعم روتين العناية الذاتية اليومية.</string>
     <string name="skill_behavior_subtitle">أنشطة لدعم السلوك الإيجابي.</string>
+
+
+
+    <string name="location">الموقع</string>
+    <string name="call_now">اتصل الآن</string>
+    <string name="center_name">اسم المركز</string>
+
+
+    <string name="show_less">
+    عرض أقل
+</string>
+
+    <string name="error_loading_centers">
+    حدث خطأ أثناء تحميل المراكز
+</string>
+
+
+
+    <!-- Add inside res/values-ar/strings.xml -->
+    <string name="state_adrar">أدرار</string>
+    <string name="state_chlef">الشلف</string>
+    <string name="state_laghouat">الأغواط</string>
+    <string name="state_oum_el_bouaghi">أم البواقي</string>
+    <string name="state_batna">باتنة</string>
+    <string name="state_bejaia">بجاية</string>
+    <string name="state_biskra">بسكرة</string>
+    <string name="state_bechar">بشار</string>
+    <string name="state_blida">البليدة</string>
+    <string name="state_bouira">البويرة</string>
+    <string name="state_tamanrasset">تمنراست</string>
+    <string name="state_tebessa">تبسة</string>
+    <string name="state_tlemcen">تلمسان</string>
+    <string name="state_tiaret">تيارت</string>
+    <string name="state_tizi_ouzou">تيزي وزو</string>
+    <string name="state_algiers">الجزائر العاصمة</string>
+    <string name="state_djelfa">الجلفة</string>
+    <string name="state_jijel">جيجل</string>
+    <string name="state_setif">سطيف</string>
+    <string name="state_saida">سعيدة</string>
+    <string name="state_skikda">سكيكدة</string>
+    <string name="state_sidi_bel_abbes">سيدي بلعباس</string>
+    <string name="state_annaba">عنابة</string>
+    <string name="state_guelma">قالمة</string>
+    <string name="state_constantine">قسنطينة</string>
+    <string name="state_medea">المدية</string>
+    <string name="state_mostaganem">مستغانم</string>
+    <string name="state_msila">المسيلة</string>
+    <string name="state_mascara">معسكر</string>
+    <string name="state_ouargla">ورقلة</string>
+    <string name="state_oran">وهران</string>
+    <string name="state_el_bayadh">البيض</string>
+    <string name="state_illizi">إليزي</string>
+    <string name="state_bordj_bou_arreridj">برج بوعريريج</string>
+    <string name="state_boumerdes">بومرداس</string>
+    <string name="state_el_tarf">الطارف</string>
+    <string name="state_tindouf">تندوف</string>
+    <string name="state_tissemsilt">تيسمسيلت</string>
+    <string name="state_el_oued">الوادي</string>
+    <string name="state_khenchela">خنشلة</string>
+    <string name="state_souk_ahras">سوق أهراس</string>
+    <string name="state_tipaza">تيبازة</string>
+    <string name="state_mila">ميلة</string>
+    <string name="state_ain_defla">عين الدفلى</string>
+    <string name="state_naama">النعامة</string>
+    <string name="state_ain_temouchent">عين تموشنت</string>
+    <string name="state_ghardaia">غرداية</string>
+    <string name="state_relizane">غليزان</string>
+    <string name="state_timimoun">تيميمون</string>
+    <string name="state_bordj_badji_mokhtar">برج باجي مختار</string>
+    <string name="state_ouled_djellal">أولاد جلال</string>
+    <string name="state_beni_abbes">بني عباس</string>
+    <string name="state_in_salah">عين صالح</string>
+    <string name="state_in_guezzam">عين قزام</string>
+    <string name="state_touggourt">تقرت</string>
+    <string name="state_djanet">جانت</string>
+    <string name="state_el_mghair">المغير</string>
+    <string name="state_el_meniaa">المنيعة</string>
+
 </resources>

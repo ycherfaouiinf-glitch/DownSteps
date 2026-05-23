@@ -57,4 +57,20 @@
     <color name="blue_select">#3F7BFA</color>
     <color name="default_stroke">#D7DFF0</color>
 
+    <color name="chip_bg">#FFFFFF</color>
+
+    <color name="chip_selected_bg">#FFF5F7</color>
+    <color name="chip_selected_stroke">#904F5D</color>
+
+    <color name="card_chip_bg">#FFFFFF</color>
+    <color name="card_bg_secondary">#FFFFFF</color>
+
+    <color name="filter_selected_bg">#FFF5F7</color>
+    <color name="filter_selected_stroke">#904F5D</color>
+
+    <color name="filter_card_selected_bg">#FFF5F7</color>
+    <color name="filter_card_selected_stroke">#904F5D</color>
+
+    <color name="filter_card_bg">#FFFFFF</color>
+
 </resources>

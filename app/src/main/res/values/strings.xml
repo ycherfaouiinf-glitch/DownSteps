@@ -432,4 +432,79 @@
     <string name="skill_writing_subtitle">Activities to improve early writing skills.</string>
     <string name="skill_selfcare_subtitle">Activities to support daily self-care routines.</string>
     <string name="skill_behavior_subtitle">Activities to support positive behavior.</string>
+
+
+    <string name="location">Location</string>
+    <string name="call_now">Call Now</string>
+    <string name="center_name">Center Name</string>
+
+    <string name="show_less">Show Less</string>
+
+    <string name="error_loading_centers">
+    Error loading centers
+</string>
+
+
+
+
+    <!-- Add inside res/values/strings.xml -->
+    <string name="state_adrar">Adrar</string>
+    <string name="state_chlef">Chlef</string>
+    <string name="state_laghouat">Laghouat</string>
+    <string name="state_oum_el_bouaghi">Oum El Bouaghi</string>
+    <string name="state_batna">Batna</string>
+    <string name="state_bejaia">Bejaia</string>
+    <string name="state_biskra">Biskra</string>
+    <string name="state_bechar">Bechar</string>
+    <string name="state_blida">Blida</string>
+    <string name="state_bouira">Bouira</string>
+    <string name="state_tamanrasset">Tamanrasset</string>
+    <string name="state_tebessa">Tebessa</string>
+    <string name="state_tlemcen">Tlemcen</string>
+    <string name="state_tiaret">Tiaret</string>
+    <string name="state_tizi_ouzou">Tizi Ouzou</string>
+    <string name="state_algiers">Algiers</string>
+    <string name="state_djelfa">Djelfa</string>
+    <string name="state_jijel">Jijel</string>
+    <string name="state_setif">Setif</string>
+    <string name="state_saida">Saida</string>
+    <string name="state_skikda">Skikda</string>
+    <string name="state_sidi_bel_abbes">Sidi Bel Abbes</string>
+    <string name="state_annaba">Annaba</string>
+    <string name="state_guelma">Guelma</string>
+    <string name="state_constantine">Constantine</string>
+    <string name="state_medea">Medea</string>
+    <string name="state_mostaganem">Mostaganem</string>
+    <string name="state_msila">Msila</string>
+    <string name="state_mascara">Mascara</string>
+    <string name="state_ouargla">Ouargla</string>
+    <string name="state_oran">Oran</string>
+    <string name="state_el_bayadh">El Bayadh</string>
+    <string name="state_illizi">Illizi</string>
+    <string name="state_bordj_bou_arreridj">Bordj Bou Arreridj</string>
+    <string name="state_boumerdes">Boumerdes</string>
+    <string name="state_el_tarf">El Tarf</string>
+    <string name="state_tindouf">Tindouf</string>
+    <string name="state_tissemsilt">Tissemsilt</string>
+    <string name="state_el_oued">El Oued</string>
+    <string name="state_khenchela">Khenchela</string>
+    <string name="state_souk_ahras">Souk Ahras</string>
+    <string name="state_tipaza">Tipaza</string>
+    <string name="state_mila">Mila</string>
+    <string name="state_ain_defla">Ain Defla</string>
+    <string name="state_naama">Naama</string>
+    <string name="state_ain_temouchent">Ain Temouchent</string>
+    <string name="state_ghardaia">Ghardaia</string>
+    <string name="state_relizane">Relizane</string>
+    <string name="state_timimoun">Timimoun</string>
+    <string name="state_bordj_badji_mokhtar">Bordj Badji Mokhtar</string>
+    <string name="state_ouled_djellal">Ouled Djellal</string>
+    <string name="state_beni_abbes">Beni Abbes</string>
+    <string name="state_in_salah">In Salah</string>
+    <string name="state_in_guezzam">In Guezzam</string>
+    <string name="state_touggourt">Touggourt</string>
+    <string name="state_djanet">Djanet</string>
+    <string name="state_el_mghair">El M\'Ghair</string>
+    <string name="state_el_meniaa">El Meniaa</string>
+
 </resources>

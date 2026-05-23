@@ -25,6 +25,8 @@ class ProfilActivity : BaseActivity() {
     private lateinit var tvLanguageLevel: TextView
     private lateinit var tvSpeechLevel: TextView
 
+    private lateinit var tvParentName: TextView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -59,48 +61,106 @@ class ProfilActivity : BaseActivity() {
         tvMotorLevel = findViewById(R.id.tvMotorLevel)
         tvLanguageLevel = findViewById(R.id.tvLanguageLevel)
         tvSpeechLevel = findViewById(R.id.tvSpeechLevel)
+        tvParentName = findViewById(R.id.tvParentName)
     }
 
     private fun fetchChildDataFromFirestore() {
         val userId = FirebaseAuth.getInstance().currentUser?.uid
+
         if (userId != null) {
             val db = FirebaseFirestore.getInstance()
 
-            // استخدام addSnapshotListener بدلاً من get لجعل التحديث لحظياً
-            db.collection("users").document(userId)
+            db.collection("users")
+                .document(userId)
                 .addSnapshotListener { document, error ->
+
                     if (error != null) {
                         Toast.makeText(
                             this,
-                            getString(R.string.error_message, error.message ?: ""),
+                            getString(
+                                R.string.error_message,
+                                error.message ?: ""
+                            ),
                             Toast.LENGTH_SHORT
                         ).show()
                         return@addSnapshotListener
                     }
 
                     if (document != null && document.exists()) {
-                        val name = document.getString("childName") ?: getString(R.string.unknown)
-                        val genderRaw = document.getString("gender") ?: ""
-                        val birth = document.getString("birthDate") ?: getString(R.string.not_set)
 
-                        val motorRaw = document.getString("motorAssessment.motorLevel") ?: ""
-                        val languageRaw = document.getString("languageAssessment.languageLevel") ?: ""
-                        val speechRaw = document.getString("speechAssessment.level") ?: ""
+                        // Parent name
+                        val parentName =
+                            document.getString("name")
 
-                        val gender = translateGender(genderRaw)
-                        val motor = translateLevel(motorRaw)
-                        val language = translateLevel(languageRaw)
-                        val speech = translateLevel(speechRaw)
+                        tvParentName.text =
+                            if (!parentName.isNullOrEmpty())
+                                parentName
+                            else
+                                getString(R.string.parent_name)
 
-                        // تحديث العناصر في الواجهة
+                        // Child data
+                        val name =
+                            document.getString("childName")
+                                ?: getString(R.string.unknown)
+
+                        val genderRaw =
+                            document.getString("gender")
+                                ?: ""
+
+                        val birth =
+                            document.getString("birthDate")
+                                ?: getString(R.string.not_set)
+
+                        val motorRaw =
+                            document.getString(
+                                "motorAssessment.motorLevel"
+                            ) ?: ""
+
+                        val languageRaw =
+                            document.getString(
+                                "languageAssessment.languageLevel"
+                            ) ?: ""
+
+                        val speechRaw =
+                            document.getString(
+                                "speechAssessment.level"
+                            ) ?: ""
+
+                        val gender =
+                            translateGender(genderRaw)
+
+                        val motor =
+                            translateLevel(motorRaw)
+
+                        val language =
+                            translateLevel(languageRaw)
+
+                        val speech =
+                            translateLevel(speechRaw)
+
+                        // Update UI
                         tvChildName.text = name
                         tvChildNameTop.text = name
                         tvChildGender.text = gender
                         tvChildBirthDate.text = birth
 
-                        tvMotorLevel.text = getString(R.string.motor_level_format, motor)
-                        tvLanguageLevel.text = getString(R.string.language_level_format, language)
-                        tvSpeechLevel.text = getString(R.string.speech_level_format, speech)
+                        tvMotorLevel.text =
+                            getString(
+                                R.string.motor_level_format,
+                                motor
+                            )
+
+                        tvLanguageLevel.text =
+                            getString(
+                                R.string.language_level_format,
+                                language
+                            )
+
+                        tvSpeechLevel.text =
+                            getString(
+                                R.string.speech_level_format,
+                                speech
+                            )
                     }
                 }
         }
