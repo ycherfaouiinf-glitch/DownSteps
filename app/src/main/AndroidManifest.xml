@@ -52,6 +52,8 @@
             android:exported="true" />
         <activity
             android:name=".ui.VideoPlayerActivity"
+            android:screenOrientation="sensor"
+            android:configChanges="orientation|screenSize"
             android:exported="true" />
         <activity
             android:name=".ui.LibraryAudioActivity"

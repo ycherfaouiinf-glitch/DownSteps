@@ -7,12 +7,9 @@ import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.downsteps1.R
-import com.example.downsteps1.common.navigation.BottomNavHelper
-import com.example.downsteps1.ui.VideoPlayerActivity
-import com.example.downsteps1.data.SkillsRepository
-import com.example.downsteps1.data.local.LocalSkillsRepository
 import com.example.downsteps1.model.SkillVideo
 import com.example.downsteps1.ui.adapter.SkillVideoAdapter
+import com.google.firebase.firestore.FirebaseFirestore
 
 class SkillVideosActivity : BaseActivity() {
 
@@ -24,7 +21,7 @@ class SkillVideosActivity : BaseActivity() {
     private lateinit var videoAdapter: SkillVideoAdapter
     private val videoList = mutableListOf<SkillVideo>()
 
-    private val skillsRepository: SkillsRepository = LocalSkillsRepository()
+    private val db = FirebaseFirestore.getInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -50,7 +47,7 @@ class SkillVideosActivity : BaseActivity() {
             VideoPlayerActivity.Companion.start(
                 context = this,
                 title = selectedVideo.title,
-                videoUrl = selectedVideo.videoUrl
+                videoResName = selectedVideo.videoResName
             )
         }
 
@@ -80,11 +77,29 @@ class SkillVideosActivity : BaseActivity() {
         val skillType =
             intent.getStringExtra("skill_type")
                 ?: TYPE_SPEECH
-        val videos = skillsRepository.getVideosBySkillType(skillType)
 
-        videoList.clear()
-        videoList.addAll(videos)
-        videoAdapter.notifyDataSetChanged()
+        db.collection("skillVideos")
+            .whereEqualTo("skillType", skillType)
+            .get()
+            .addOnSuccessListener { result ->
+
+                videoList.clear()
+
+                result.documents.forEachIndexed { index, doc ->
+
+                    val video = SkillVideo(
+                        id = index,
+                        title = doc.getString("title") ?: "",
+                        description = doc.getString("description") ?: "",
+                        skillType = doc.getString("skillType") ?: "",
+                        videoResName = doc.getString("videoResName") ?: ""
+                    )
+
+                    videoList.add(video)
+                }
+
+                videoAdapter.notifyDataSetChanged()
+            }
     }
 
     private fun getSubtitleBySkillType(skillType: String): String {
