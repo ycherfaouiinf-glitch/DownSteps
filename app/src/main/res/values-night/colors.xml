@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
 
     <!-- Background -->
@@ -7,62 +8,64 @@
 
     <!-- Cards -->
     <color name="card_bg">#2A2730</color>
-    <color name="card_border">#4A2432</color>
+    <color name="card_border">#44536B</color>
+    <color name="card_game">#173F7A</color>
 
     <!-- Text -->
     <color name="text_title">#FFFFFF</color>
-    <color name="text_subtitle">#B31245</color>
+    <color name="text_subtitle">#173F7A</color>
     <color name="text_label">#F2F2F2</color>
     <color name="text_input">#FFFFFF</color>
-    <color name="text_hint">#A50F3B</color>
+    <color name="text_hint">#7C8FA9</color>
     <color name="text_hint_layout">#A8A1AD</color>
     <color name="text_small">#CFC7CA</color>
+    <color name="badge_text">#173F7A</color>
 
     <!-- Links -->
     <color name="text_signup">#FFFFFF</color>
-    <color name="text_forgot">#BFA4AB</color>
+    <color name="text_forgot">#B5C0D1</color>
     <color name="text_google">#FFFFFF</color>
-    <color name="text_or">#9E8B91</color>
+    <color name="text_or">#AAB5C5</color>
 
     <!-- Inputs -->
     <color name="input_bg">#2A2730</color>
-    <color name="input_border">#4A2432</color>
+    <color name="input_border">#44536B</color>
     <color name="input_icon">#CFC7CA</color>
     <color name="textColorHint">#A8A1AD</color>
 
     <!-- Buttons -->
-    <color name="btn_primary">#8E1238</color>
+    <color name="btn_primary">#173F7A</color>
     <color name="btn_secondary_bg">#2A2730</color>
-    <color name="btn_secondary_border">#4A2432</color>
+    <color name="btn_secondary_border">#44536B</color>
 
     <!-- Gender -->
-    <color name="female_bg">#8E1238</color>
-    <color name="female_border">#C2184B</color>
+    <color name="female_bg">#8A6280</color>
+    <color name="female_border">#B98DAA</color>
 
-    <color name="male_bg">#2F5C99</color>
-    <color name="male_border">#5E8ED1</color>
+    <color name="male_bg">#355C94</color>
+    <color name="male_border">#6D96D6</color>
 
     <!-- Child -->
     <color name="child_icon">#D0D4E2</color>
     <color name="child_text">#E0E3ED</color>
 
     <!-- Selection -->
-    <color name="pink_select">#C2184B</color>
-    <color name="blue_select">#6FA8FF</color>
-    <color name="default_stroke">#4A2432</color>
+    <color name="pink_select">#C48FB0</color>
+    <color name="blue_select">#173F7A</color>
+    <color name="default_stroke">#44536B</color>
 
     <color name="chip_bg">#2A2630</color>
-    <color name="chip_selected_bg">#3A1F2A</color>
-    <color name="chip_selected_stroke">#C66A83</color>
+    <color name="chip_selected_bg">#2C354A</color>
+    <color name="chip_selected_stroke">#173F7A</color>
 
     <color name="card_chip_bg">#2A2630</color>
     <color name="card_bg_secondary">#2A2630</color>
 
-    <color name="filter_selected_bg">#2B1C24</color>
-    <color name="filter_selected_stroke">#B25A72</color>
+    <color name="filter_selected_bg">#2C354A</color>
+    <color name="filter_selected_stroke">#173F7A</color>
 
-    <color name="filter_card_selected_bg">#2B1C24</color>
-    <color name="filter_card_selected_stroke">#B25A72</color>
+    <color name="filter_card_selected_bg">#2C354A</color>
+    <color name="filter_card_selected_stroke">#173F7A</color>
 
     <color name="filter_card_bg">#24212B</color>
 
