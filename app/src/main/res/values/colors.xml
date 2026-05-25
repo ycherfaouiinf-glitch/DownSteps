@@ -1,72 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <!-- Background -->
-    <color name="bg_main">#222026</color>
+    <!-- ================= BACKGROUND ================= -->
+    <color name="bg_main">#FDFDFB</color>
     <color name="white">#FFFFFF</color>
     <color name="black">#000000</color>
+    <color name="badge_bg">#FAF8F8</color>
 
-    <!-- Cards -->
-    <color name="card_bg">#2A2730</color>
-    <color name="card_border">#44536B</color>
+    <!-- ================= CARD ================= -->
+    <color name="card_bg">#FAF8F8</color>
+    <color name="card_border">#AABBD3</color>
     <color name="card_game">#212E53</color>
 
-    <!-- Text -->
-    <color name="text_title">#FFFFFF</color>
+    <!-- ================= TEXT ================= -->
+    <color name="text_title">#131114</color>
     <color name="text_subtitle">#212E53</color>
-    <color name="text_label">#F2F2F2</color>
-    <color name="text_input">#FFFFFF</color>
-    <color name="text_hint">#7C8FA9</color>
-    <color name="text_hint_layout">#A8A1AD</color>
-    <color name="text_small">#CFC7CA</color>
+    <color name="text_label">#131114</color>
+    <color name="text_input">#131114</color>
+    <color name="text_hint">#212E53</color>
+    <color name="text_hint_layout">#AABBD3</color>
+    <color name="text_small">#282324</color>
     <color name="badge_text">#212E53</color>
 
-    <!-- Links -->
-    <color name="text_signup">#FFFFFF</color>
-    <color name="text_forgot">#B5C0D1</color>
-    <color name="text_google">#FFFFFF</color>
-    <color name="text_or">#AAB5C5</color>
+    <!-- ================= LINKS / ACTIONS ================= -->
+    <color name="text_signup">#131114</color>
+    <color name="text_forgot">#7C8FA9</color>
+    <color name="text_google">#262223</color>
+    <color name="text_or">#9BA7B8</color>
 
-    <!-- Inputs -->
-    <color name="input_bg">#2A2730</color>
-    <color name="input_border">#44536B</color>
-    <color name="input_icon">#CFC7CA</color>
-    <color name="textColorHint">#A8A1AD</color>
+    <!-- ================= INPUT ================= -->
+    <color name="input_bg">#FFFFFF</color>
+    <color name="input_border">#AABBD3</color>
+    <color name="input_icon">#7C8FA9</color>
+    <color name="textColorHint">#424040</color>
 
-    <!-- Buttons -->
+    <!-- ================= BUTTON ================= -->
     <color name="btn_primary">#212E53</color>
-    <color name="btn_secondary_bg">#2A2730</color>
-    <color name="btn_secondary_border">#44536B</color>
+    <color name="btn_secondary_bg">#F8F8F6</color>
+    <color name="btn_secondary_border">#AABBD3</color>
+    <color name="gray">#4E494A</color>
 
-    <!-- Gender -->
-    <color name="female_bg">#8A6280</color>
-    <color name="female_border">#B98DAA</color>
+    <!-- ================= CHILD ================= -->
+    <color name="female_bg">#E3A1C1</color>
+    <color name="female_border">#F0B6CF</color>
 
-    <color name="male_bg">#355C94</color>
-    <color name="male_border">#6D96D6</color>
+    <color name="male_bg">#6FA8E3</color>
+    <color name="male_border">#7FB2E8</color>
 
-    <!-- Child -->
-    <color name="child_icon">#D0D4E2</color>
-    <color name="child_text">#E0E3ED</color>
+    <color name="child_icon">#212E53</color>
+    <color name="child_text">#8E97A6</color>
 
-    <!-- Selection -->
-    <color name="pink_select">#C48FB0</color>
+    <!-- ================= اختيار الجنس ================= -->
+    <color name="pink_select">#E96FA3</color>
     <color name="blue_select">#212E53</color>
-    <color name="default_stroke">#44536B</color>
+    <color name="default_stroke">#D7DFF0</color>
 
-    <color name="chip_bg">#2A2630</color>
-    <color name="chip_selected_bg">#2C354A</color>
+    <color name="chip_bg">#FFFFFF</color>
+
+    <color name="chip_selected_bg">#F5F8FF</color>
     <color name="chip_selected_stroke">#212E53</color>
 
-    <color name="card_chip_bg">#2A2630</color>
-    <color name="card_bg_secondary">#2A2630</color>
+    <color name="card_chip_bg">#FFFFFF</color>
+    <color name="card_bg_secondary">#FFFFFF</color>
 
-    <color name="filter_selected_bg">#2C354A</color>
+    <color name="filter_selected_bg">#F5F8FF</color>
     <color name="filter_selected_stroke">#212E53</color>
 
-    <color name="filter_card_selected_bg">#2C354A</color>
+    <color name="filter_card_selected_bg">#F5F8FF</color>
     <color name="filter_card_selected_stroke">#212E53</color>
 
-    <color name="filter_card_bg">#24212B</color>
+    <color name="filter_card_bg">#FFFFFF</color>
 
 </resources>
