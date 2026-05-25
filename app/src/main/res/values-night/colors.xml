@@ -9,17 +9,17 @@
     <!-- Cards -->
     <color name="card_bg">#2A2730</color>
     <color name="card_border">#44536B</color>
-    <color name="card_game">#212E53</color>
+    <color name="card_game">#2E3A5C</color>
 
     <!-- Text -->
     <color name="text_title">#FFFFFF</color>
-    <color name="text_subtitle">#212E53</color>
     <color name="text_label">#F2F2F2</color>
     <color name="text_input">#FFFFFF</color>
     <color name="text_hint">#7C8FA9</color>
     <color name="text_hint_layout">#A8A1AD</color>
     <color name="text_small">#CFC7CA</color>
-    <color name="badge_text">#212E53</color>
+    <color name="text_subtitle">#8FA0C2</color>
+    <color name="badge_text">#8FA0C2</color>
 
     <!-- Links -->
     <color name="text_signup">#FFFFFF</color>
@@ -34,7 +34,7 @@
     <color name="textColorHint">#A8A1AD</color>
 
     <!-- Buttons -->
-    <color name="btn_primary">#212E53</color>
+    <color name="btn_primary">#2E3A5C</color>
     <color name="btn_secondary_bg">#2A2730</color>
     <color name="btn_secondary_border">#44536B</color>
 
@@ -51,22 +51,21 @@
 
     <!-- Selection -->
     <color name="pink_select">#C48FB0</color>
-    <color name="blue_select">#212E53</color>
+    <color name="blue_select">#8FA0C2</color>
     <color name="default_stroke">#44536B</color>
 
     <color name="chip_bg">#2A2630</color>
     <color name="chip_selected_bg">#2C354A</color>
-    <color name="chip_selected_stroke">#212E53</color>
+    <color name="chip_selected_stroke">#5F6F91</color>
 
     <color name="card_chip_bg">#2A2630</color>
     <color name="card_bg_secondary">#2A2630</color>
 
     <color name="filter_selected_bg">#2C354A</color>
-    <color name="filter_selected_stroke">#212E53</color>
+    <color name="filter_selected_stroke">#5F6F91</color>
 
     <color name="filter_card_selected_bg">#2C354A</color>
-    <color name="filter_card_selected_stroke">#212E53</color>
-
+    <color name="filter_card_selected_stroke">#5F6F91</color>
     <color name="filter_card_bg">#24212B</color>
 
 </resources>
