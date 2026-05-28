@@ -234,7 +234,7 @@
 
     <string name="create">إنشاء</string>
     <string name="new_account">حساب جديد</string>
-    <string name="email_or_phone">البريد الإلكتروني أو رقم الهاتف</string>
+    <string name="email_or_phone">البريد الإلكتروني </string>
     <string name="agree_terms_conditions">أوافق على الشروط والأحكام</string>
     <string name="create_account">إنشاء حساب</string>
     <string name="already_user">لديك حساب بالفعل؟</string>
@@ -584,5 +584,9 @@
 </string>
     <string name="faq_profile_keywords">
     ملف طفل تعديل معلومات
+</string>
+
+    <string name="daily_notification_message">
+    لا تنسَ تحدي اليوم لطفلك
 </string>
 </resources>

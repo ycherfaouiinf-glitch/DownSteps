@@ -234,7 +234,7 @@
 
     <string name="create">Create</string>
     <string name="new_account">New account</string>
-    <string name="email_or_phone">Email or phone number</string>
+    <string name="email_or_phone">Email</string>
     <string name="agree_terms_conditions">I agree to the Terms and Conditions</string>
     <string name="create_account">Create account</string>
     <string name="already_user">Already a User?</string>
@@ -577,5 +577,9 @@
 </string>
     <string name="faq_profile_keywords">
     profile child edit update
+</string>
+
+    <string name="daily_notification_message">
+    Remember today challenge
 </string>
 </resources>

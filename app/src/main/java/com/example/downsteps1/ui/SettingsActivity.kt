@@ -19,6 +19,12 @@ import com.example.downsteps1.common.navigation.BottomNavHelper
 import com.example.downsteps1.ui.SosActivity
 import com.google.firebase.auth.FirebaseAuth
 
+import android.Manifest
+import android.content.pm.PackageManager
+import android.os.Build
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
+
 class SettingsActivity : BaseActivity() {
 
     private lateinit var prefs: SharedPreferences
@@ -104,19 +110,65 @@ class SettingsActivity : BaseActivity() {
             )
         }
 
+
+
+        // Load saved state
+        val reminderEnabled =
+            prefs.getBoolean("daily_reminder_enabled", false)
+
+        val generalNotifEnabled =
+            prefs.getBoolean("general_notifications_enabled", false)
+
+        switchReminder.isChecked = reminderEnabled
+        switchGeneralNotif.isChecked = generalNotifEnabled
+
+
         switchReminder.setOnCheckedChangeListener { _, isChecked ->
+
+            prefs.edit()
+                .putBoolean("daily_reminder_enabled", isChecked)
+                .apply()
+
             if (isChecked) {
-                Toast.makeText(this, getString(R.string.daily_reminders_enabled), Toast.LENGTH_SHORT).show()
+                Toast.makeText(
+                    this,
+                    getString(R.string.daily_reminders_enabled),
+                    Toast.LENGTH_SHORT
+                ).show()
+
+                requestNotificationPermission()
+                NotificationScheduler.scheduleDailyReminder(this)
+                NotificationScheduler.showNotification(this)
             } else {
-                Toast.makeText(this, getString(R.string.daily_reminders_disabled), Toast.LENGTH_SHORT).show()
+
+                Toast.makeText(
+                    this,
+                    getString(R.string.daily_reminders_disabled),
+                    Toast.LENGTH_SHORT
+                ).show()
+
+                NotificationScheduler.cancelReminder(this)
             }
         }
 
         switchGeneralNotif.setOnCheckedChangeListener { _, isChecked ->
+
+            prefs.edit()
+                .putBoolean("general_notifications_enabled", isChecked)
+                .apply()
+
             if (isChecked) {
-                Toast.makeText(this, getString(R.string.general_notifications_enabled), Toast.LENGTH_SHORT).show()
+                Toast.makeText(
+                    this,
+                    getString(R.string.general_notifications_enabled),
+                    Toast.LENGTH_SHORT
+                ).show()
             } else {
-                Toast.makeText(this, getString(R.string.general_notifications_disabled), Toast.LENGTH_SHORT).show()
+                Toast.makeText(
+                    this,
+                    getString(R.string.general_notifications_disabled),
+                    Toast.LENGTH_SHORT
+                ).show()
             }
         }
 
@@ -136,6 +188,22 @@ class SettingsActivity : BaseActivity() {
             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
             startActivity(intent)
             finish()
+        }
+    }
+
+    private fun requestNotificationPermission() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            if (ContextCompat.checkSelfPermission(
+                    this,
+                    Manifest.permission.POST_NOTIFICATIONS
+                ) != PackageManager.PERMISSION_GRANTED
+            ) {
+                ActivityCompat.requestPermissions(
+                    this,
+                    arrayOf(Manifest.permission.POST_NOTIFICATIONS),
+                    101
+                )
+            }
         }
     }
 }
