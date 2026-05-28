@@ -507,4 +507,75 @@
     <string name="state_el_mghair">El M\'Ghair</string>
     <string name="state_el_meniaa">El Meniaa</string>
 
+
+
+    <string name="faq_daily_challenges_question">
+    How do daily challenges help my child?
+</string>
+    <string name="faq_daily_challenges_answer">
+    Daily challenges help your child improve skills step by step through simple activities adapted to their level.
+</string>
+    <string name="faq_daily_challenges_keywords">
+    challenge daily level activity training child
+</string>
+
+    <string name="faq_child_level_question">
+    Can I change my child level later?
+</string>
+    <string name="faq_child_level_answer">
+    Yes, you can update your child information and retake the assessment if needed.
+</string>
+    <string name="faq_child_level_keywords">
+    level child assessment update
+</string>
+
+    <string name="faq_speech_exercises_question">
+    What are speech exercises?
+</string>
+    <string name="faq_speech_exercises_answer">
+    Speech exercises help improve pronunciation, communication, and language understanding using simple activities.
+</string>
+    <string name="faq_speech_exercises_keywords">
+    speech pronunciation language communication
+</string>
+
+    <string name="faq_behavior_question">
+    How can I improve my child behavior?
+</string>
+    <string name="faq_behavior_answer">
+    Positive reinforcement, routine, and simple activities can help improve child behavior gradually.
+</string>
+    <string name="faq_behavior_keywords">
+    behavior improve child routine
+</string>
+
+    <string name="faq_centers_question">
+    How do I find centers and associations?
+</string>
+    <string name="faq_centers_answer">
+    You can browse the Centers and Associations page and filter by state and category.
+</string>
+    <string name="faq_centers_keywords">
+    center association state location
+</string>
+
+    <string name="faq_sos_question">
+    What is the SOS feature used for?
+</string>
+    <string name="faq_sos_answer">
+    SOS helps quickly contact emergency numbers saved by parents in urgent situations.
+</string>
+    <string name="faq_sos_keywords">
+    sos emergency help contact
+</string>
+
+    <string name="faq_profile_question">
+    Can I update my child profile?
+</string>
+    <string name="faq_profile_answer">
+    Yes, you can edit your child information from the profile section.
+</string>
+    <string name="faq_profile_keywords">
+    profile child edit update
+</string>
 </resources>

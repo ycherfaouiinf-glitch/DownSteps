@@ -3,24 +3,23 @@ package com.example.downsteps1.ui
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import android.view.View
-import android.widget.ImageView
 import android.widget.LinearLayout
 import androidx.activity.enableEdgeToEdge
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.downsteps1.R
 import com.example.downsteps1.common.navigation.BottomNavHelper
 import com.example.downsteps1.common.ui.BaseActivity
-import com.google.android.material.card.MaterialCardView
+import com.example.downsteps1.model.FaqItem
+import com.example.downsteps1.ui.adapter.FaqAdapter
 import com.google.android.material.textfield.TextInputEditText
 
 class FaqActivity : BaseActivity() {
 
-    private data class FaqSearchItem(
-        val card: MaterialCardView,
-        val keywords: String
-    )
+    private lateinit var adapter: FaqAdapter
+    private val allFaqs = mutableListOf<FaqItem>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,91 +39,90 @@ class FaqActivity : BaseActivity() {
         }
 
         val etSearch = findViewById<TextInputEditText>(R.id.etSearch)
+        val recyclerFaq = findViewById<RecyclerView>(R.id.recyclerFaq)
 
-        val cardFaq1 = findViewById<MaterialCardView>(R.id.cardFaq1)
-        val headerFaq1 = findViewById<LinearLayout>(R.id.headerFaq1)
-        val contentFaq1 = findViewById<LinearLayout>(R.id.contentFaq1)
-        val iconFaq1 = findViewById<ImageView>(R.id.iconFaq1)
+        allFaqs.addAll(getFaqList())
 
-        val cardFaq2 = findViewById<MaterialCardView>(R.id.cardFaq2)
-        val headerFaq2 = findViewById<LinearLayout>(R.id.headerFaq2)
-        val contentFaq2 = findViewById<LinearLayout>(R.id.contentFaq2)
-        val iconFaq2 = findViewById<ImageView>(R.id.iconFaq2)
-
-        val cardFaq3 = findViewById<MaterialCardView>(R.id.cardFaq3)
-        val headerFaq3 = findViewById<LinearLayout>(R.id.headerFaq3)
-        val contentFaq3 = findViewById<LinearLayout>(R.id.contentFaq3)
-        val iconFaq3 = findViewById<ImageView>(R.id.iconFaq3)
-
-        val faqItems = listOf(
-            FaqSearchItem(
-                cardFaq1,
-                getString(R.string.faq_keywords_down_syndrome)
-            ),
-            FaqSearchItem(
-                cardFaq2,
-                getString(R.string.faq_keywords_communication)
-            ),
-            FaqSearchItem(
-                cardFaq3,
-                getString(R.string.faq_keywords_assessment)
-            )
-        )
-
-        headerFaq1.setOnClickListener {
-            toggleFaq(contentFaq1, iconFaq1)
-        }
-
-        headerFaq2.setOnClickListener {
-            toggleFaq(contentFaq2, iconFaq2)
-        }
-
-        headerFaq3.setOnClickListener {
-            toggleFaq(contentFaq3, iconFaq3)
-        }
+        adapter = FaqAdapter(allFaqs)
+        recyclerFaq.layoutManager = LinearLayoutManager(this)
+        recyclerFaq.adapter = adapter
 
         etSearch.addTextChangedListener(object : TextWatcher {
-            override fun beforeTextChanged(
-                s: CharSequence?,
-                start: Int,
-                count: Int,
-                after: Int
-            ) = Unit
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) = Unit
 
-            override fun onTextChanged(
-                s: CharSequence?,
-                start: Int,
-                before: Int,
-                count: Int
-            ) {
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 val query = s?.toString()?.trim()?.lowercase().orEmpty()
 
-                faqItems.forEach { item ->
-                    val words = item.keywords.lowercase().split(" ")
-
-                    val isMatch = query.isEmpty() || words.any { word ->
-                        word.startsWith(query)
-                    }
-
-                    item.card.visibility = if (isMatch) {
-                        View.VISIBLE
-                    } else {
-                        View.GONE
+                val filtered = if (query.isEmpty()) {
+                    allFaqs
+                } else {
+                    allFaqs.filter { faq ->
+                        faq.question.lowercase().contains(query) ||
+                                faq.answer.lowercase().contains(query) ||
+                                faq.keywords.lowercase().contains(query)
                     }
                 }
+
+                adapter.updateList(filtered)
             }
 
             override fun afterTextChanged(s: Editable?) = Unit
         })
     }
 
-    private fun toggleFaq(content: LinearLayout, icon: ImageView) {
-        if (content.visibility == View.GONE) {
-            content.visibility = View.VISIBLE
-            icon.animate().rotation(180f).setDuration(200).start()
-        } else {
-            content.visibility = View.GONE
-            icon.animate().rotation(0f).setDuration(200).start()
-        }
+    private fun getFaqList(): List<FaqItem> {
+        return listOf(
+            FaqItem(
+                question = getString(R.string.what_is_down_syndrome),
+                answer = getString(R.string.down_syndrome_answer),
+                keywords = getString(R.string.faq_keywords_down_syndrome)
+            ),
+            FaqItem(
+                question = getString(R.string.help_child_communication),
+                answer = getString(R.string.help_child_communication_answer),
+                keywords = getString(R.string.faq_keywords_communication)
+            ),
+            FaqItem(
+                question = getString(R.string.why_early_assessment),
+                answer = getString(R.string.why_early_assessment_answer),
+                keywords = getString(R.string.faq_keywords_assessment)
+            ),
+
+            FaqItem(
+                question = getString(R.string.faq_daily_challenges_question),
+                answer = getString(R.string.faq_daily_challenges_answer),
+                keywords = getString(R.string.faq_daily_challenges_keywords)
+            ),
+            FaqItem(
+                question = getString(R.string.faq_child_level_question),
+                answer = getString(R.string.faq_child_level_answer),
+                keywords = getString(R.string.faq_child_level_keywords)
+            ),
+            FaqItem(
+                question = getString(R.string.faq_speech_exercises_question),
+                answer = getString(R.string.faq_speech_exercises_answer),
+                keywords = getString(R.string.faq_speech_exercises_keywords)
+            ),
+            FaqItem(
+                question = getString(R.string.faq_behavior_question),
+                answer = getString(R.string.faq_behavior_answer),
+                keywords = getString(R.string.faq_behavior_keywords)
+            ),
+            FaqItem(
+                question = getString(R.string.faq_centers_question),
+                answer = getString(R.string.faq_centers_answer),
+                keywords = getString(R.string.faq_centers_keywords)
+            ),
+            FaqItem(
+                question = getString(R.string.faq_sos_question),
+                answer = getString(R.string.faq_sos_answer),
+                keywords = getString(R.string.faq_sos_keywords)
+            ),
+            FaqItem(
+                question = getString(R.string.faq_profile_question),
+                answer = getString(R.string.faq_profile_answer),
+                keywords = getString(R.string.faq_profile_keywords)
+            )
+        )
     }
 }

@@ -514,4 +514,75 @@
     <string name="state_el_mghair">المغير</string>
     <string name="state_el_meniaa">المنيعة</string>
 
+
+
+    <string name="faq_daily_challenges_question">
+    كيف تساعد التحديات اليومية طفلي؟
+</string>
+    <string name="faq_daily_challenges_answer">
+    تساعد التحديات اليومية الطفل على تطوير مهاراته تدريجياً من خلال أنشطة بسيطة مناسبة لمستواه.
+</string>
+    <string name="faq_daily_challenges_keywords">
+    تحديات يومية تدريب مستوى طفل
+</string>
+
+    <string name="faq_child_level_question">
+    هل يمكن تعديل مستوى الطفل لاحقاً؟
+</string>
+    <string name="faq_child_level_answer">
+    نعم، يمكن تعديل معلومات الطفل وإعادة التقييم إذا لزم الأمر.
+</string>
+    <string name="faq_child_level_keywords">
+    مستوى طفل تقييم تعديل
+</string>
+
+    <string name="faq_speech_exercises_question">
+    ما هي تمارين النطق؟
+</string>
+    <string name="faq_speech_exercises_answer">
+    تساعد تمارين النطق على تحسين الكلام، والتواصل، وفهم اللغة باستخدام أنشطة بسيطة.
+</string>
+    <string name="faq_speech_exercises_keywords">
+    نطق كلام تواصل لغة
+</string>
+
+    <string name="faq_behavior_question">
+    كيف أساعد طفلي على تحسين السلوك؟
+</string>
+    <string name="faq_behavior_answer">
+    يمكن تحسين السلوك من خلال التعزيز الإيجابي، الروتين اليومي، والأنشطة البسيطة.
+</string>
+    <string name="faq_behavior_keywords">
+    سلوك طفل تحسين روتين
+</string>
+
+    <string name="faq_centers_question">
+    كيف أجد المراكز والجمعيات؟
+</string>
+    <string name="faq_centers_answer">
+    يمكنك تصفح صفحة المراكز والجمعيات واستخدام الفلترة حسب الولاية أو النوع.
+</string>
+    <string name="faq_centers_keywords">
+    مراكز جمعيات ولاية موقع
+</string>
+
+    <string name="faq_sos_question">
+    ما فائدة ميزة SOS؟
+</string>
+    <string name="faq_sos_answer">
+    تساعد ميزة SOS على الاتصال السريع بأرقام الطوارئ التي يحددها الوالدان.
+</string>
+    <string name="faq_sos_keywords">
+    طوارئ مساعدة اتصال SOS
+</string>
+
+    <string name="faq_profile_question">
+    هل يمكن تعديل ملف الطفل الشخصي؟
+</string>
+    <string name="faq_profile_answer">
+    نعم، يمكنك تعديل معلومات الطفل من صفحة الملف الشخصي.
+</string>
+    <string name="faq_profile_keywords">
+    ملف طفل تعديل معلومات
+</string>
 </resources>
