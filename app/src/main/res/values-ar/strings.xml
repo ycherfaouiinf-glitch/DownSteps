@@ -349,6 +349,10 @@
     <string name="motor_assessment_saved">تم حفظ تقييم الحركة!\nالمستوى: %1$s</string>
     <string name="proceeding_next_step">جارٍ الانتقال إلى الخطوة التالية...</string>
 
+    <string name="motor_assessment">
+    تقييم الحركة
+</string>
+
     <string name="assessments_complete_level">تم إكمال جميع التقييمات! المستوى: %1$s</string>
     <string name="opening_home">جارٍ فتح الصفحة الرئيسية...</string>
 

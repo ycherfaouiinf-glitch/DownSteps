@@ -55,7 +55,7 @@
                     style="@style/Text.Title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/speech_assessment"/>
+                    android:text="@string/motor_assessment"/>
 
                 <TextView
                     android:id="@+id/tvPageSubtitle"

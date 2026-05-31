@@ -354,6 +354,10 @@
     <string name="opening_home">Opening home...</string>
 
 
+    <string name="motor_assessment">
+    Motor Assessment
+</string>
+
     <string name="primary_number_required">Primary number is required</string>
     <string name="user_not_logged_in">User not logged in</string>
     <string name="sos_contacts_saved">SOS contacts saved</string>
