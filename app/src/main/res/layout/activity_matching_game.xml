@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_main">
+
+    <TextView
+        android:id="@+id/tvScore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Level 1  |  Score: 0"
+        android:textColor="@color/text_title"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_marginEnd="24dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/backContainer"
+        style="@style/BackBtn.Box"
+        android:layout_marginStart="22dp"
+        android:layout_marginTop="18dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/btnBack"
+            style="@style/BackBtn.Icon"
+            android:contentDescription="@string/back" />
+    </LinearLayout>
+
+    <GridLayout
+        android:id="@+id/gridCards"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:columnCount="3"
+        android:rowCount="4"
+        android:layout_marginTop="40dp"
+        app:layout_constraintTop_toBottomOf="@id/tvScore"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <TextView android:id="@+id/card1" style="@style/MemoryCard" />
+        <TextView android:id="@+id/card2" style="@style/MemoryCard" />
+        <TextView android:id="@+id/card3" style="@style/MemoryCard" />
+        <TextView android:id="@+id/card4" style="@style/MemoryCard" />
+        <TextView android:id="@+id/card5" style="@style/MemoryCard" />
+        <TextView android:id="@+id/card6" style="@style/MemoryCard" />
+        <TextView android:id="@+id/card7" style="@style/MemoryCard" />
+        <TextView android:id="@+id/card8" style="@style/MemoryCard" />
+        <TextView android:id="@+id/card9" style="@style/MemoryCard" />
+        <TextView android:id="@+id/card10" style="@style/MemoryCard" />
+        <TextView android:id="@+id/card11" style="@style/MemoryCard" />
+        <TextView android:id="@+id/card12" style="@style/MemoryCard" />
+
+    </GridLayout>
+    <LinearLayout
+        android:id="@+id/levelMessageBox"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="26dp"
+        android:visibility="gone"
+        android:background="@drawable/bg_level_success"
+        app:layout_constraintTop_toBottomOf="@id/tvScore"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginTop="90dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="🎉"
+            android:textSize="50sp" />
+
+        <TextView
+            android:id="@+id/tvLevelMessage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Level 1 Completed!"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="@color/text_title"
+            android:gravity="center" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Great job! Ready for the next level?"
+            android:textSize="15sp"
+            android:textColor="@color/text_subtitle"
+            android:gravity="center" />
+
+        <Button
+            android:id="@+id/btnNextLevel"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginTop="22dp"
+            android:text="Next Level 🚀"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:textColor="@android:color/white"
+            android:backgroundTint="@color/btn_primary" />
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

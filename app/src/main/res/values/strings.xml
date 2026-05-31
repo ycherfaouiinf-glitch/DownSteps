@@ -445,8 +445,6 @@
 </string>
 
 
-
-
     <!-- Add inside res/values/strings.xml -->
     <string name="state_adrar">Adrar</string>
     <string name="state_chlef">Chlef</string>
