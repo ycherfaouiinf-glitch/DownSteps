@@ -41,8 +41,19 @@ class MatchingGameActivity : AppCompatActivity() {
             gridCards.visibility = android.view.View.VISIBLE
             startLevel(level + 1)
         }
-        findViewById<ImageView>(R.id.btnBack).setOnClickListener {
-            finish()
+        val btnBack = findViewById<ImageView>(R.id.btnBack)
+
+        btnBack.setOnClickListener {
+
+            if (levelMessageBox.visibility == android.view.View.VISIBLE) {
+
+                levelMessageBox.visibility = android.view.View.GONE
+                gridCards.visibility = android.view.View.VISIBLE
+
+            } else {
+
+                onBackPressedDispatcher.onBackPressed()
+            }
         }
 
         cardsViews = listOf(
@@ -85,15 +96,12 @@ class MatchingGameActivity : AppCompatActivity() {
             "🐱","🐻","🐼","🦁","🍇","🎈",
             "🚀","🐙","🧸","⚽","🍒","🐰"
         )
-
-        val pairsCount = when {
-
-            level <= 5 -> 2       // 4 cards
-            level <= 10 -> 3      // 6 cards
-            level <= 15 -> 4      // 8 cards
-            level <= 20 -> 5      // 10 cards
-            level <= 25 -> 6      // 12 cards
-            else -> 6             // Level 26–30
+        val pairsCount = when (level) {
+            1 -> 2   // 4 cards
+            2 -> 3   // 6 cards
+            3 -> 4   // 8 cards
+            4 -> 5   // 10 cards
+            else -> 6 // 12 cards
         }
 
         val symbols = allSymbols
