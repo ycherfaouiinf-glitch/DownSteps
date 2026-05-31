@@ -58,65 +58,13 @@
                     <LinearLayout
                         android:id="@+id/backContainer"
                         style="@style/BackBtn.Box"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="10dp"
-                        android:orientation="horizontal">
+                        android:layout_alignParentStart="true"
+                        android:layout_centerVertical="true">
 
                         <ImageView
                             android:id="@+id/btnBackChallange1"
                             style="@style/BackBtn.Icon"
-                            android:layout_width="36dp"
-                            android:layout_height="36dp"
                             android:contentDescription="@string/back" />
-                    </LinearLayout>
-
-                    <!-- Sound + Music: RIGHT -->
-                    <LinearLayout
-                        android:id="@+id/mediaControls"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentEnd="true"
-                        android:layout_centerVertical="true"
-                        android:orientation="horizontal">
-
-                        <com.google.android.material.card.MaterialCardView
-                            android:id="@+id/cardSound"
-                            android:layout_width="48dp"
-                            android:layout_height="48dp"
-                            android:layout_marginEnd="8dp"
-                            style="@style/Icon.CircleCard">
-
-                            <ImageView
-                                android:id="@+id/imgSound"
-                                android:layout_width="22dp"
-                                android:layout_height="22dp"
-                                android:layout_gravity="center"
-                                android:src="@drawable/ic_sound_custom"
-                                app:tint="@color/btn_primary"
-                                android:contentDescription="@string/sound" />
-                        </com.google.android.material.card.MaterialCardView>
-
-                        <com.google.android.material.card.MaterialCardView
-                            android:id="@+id/cardMusic"
-                            android:layout_width="48dp"
-                            android:layout_height="48dp"
-                            app:cardCornerRadius="24dp"
-                            app:cardElevation="0dp"
-                            app:strokeWidth="1dp"
-                            app:strokeColor="@color/input_border"
-                            app:cardBackgroundColor="@color/white">
-
-                            <ImageView
-                                android:id="@+id/imgMusic"
-                                android:layout_width="22dp"
-                                android:layout_height="22dp"
-                                android:layout_gravity="center"
-                                android:src="@drawable/ic_music_note_custom"
-                                app:tint="@color/btn_primary"
-                                android:contentDescription="@string/music" />
-                        </com.google.android.material.card.MaterialCardView>
-
                     </LinearLayout>
 
                 </RelativeLayout>
@@ -164,33 +112,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="top|end"
-                        android:layout_margin="10dp"
-                        android:background="#EEF4FF"
-                        android:orientation="horizontal"
-                        android:paddingStart="10dp"
-                        android:paddingEnd="10dp"
-                        android:paddingTop="5dp"
-                        android:paddingBottom="5dp"
-                        android:gravity="center_vertical">
 
-                        <ImageView
-                            android:layout_width="14dp"
-                            android:layout_height="14dp"
-                            android:layout_marginEnd="4dp"
-                            android:src="@drawable/ic_star"
-                            app:tint="@color/text_label"
-                            android:contentDescription="@string/star" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/suggested_today"
-                            style="@style/Text.Badge" />
-                    </LinearLayout>
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -198,7 +120,7 @@
                         android:orientation="horizontal"
                         android:gravity="center_vertical"
                         android:padding="14dp"
-                        android:paddingTop="30dp">
+                        android:paddingTop="14dp">
 
                         <ImageView
                             android:id="@+id/imgSuggestedGame"
@@ -266,42 +188,7 @@
                     android:text="@string/all_games"
                     style="@style/Text.Title" />
 
-                <com.google.android.material.card.MaterialCardView
-                    android:id="@+id/btnFavorites"
-                    android:layout_width="wrap_content"
-                    android:layout_height="40dp"
-                    app:cardCornerRadius="20dp"
-                    app:cardElevation="0dp"
-                    app:strokeColor="#E6EAF2"
-                    app:strokeWidth="1dp"
-                    app:cardBackgroundColor="#FFFFFF">
 
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:orientation="horizontal"
-                        android:gravity="center"
-                        android:paddingStart="14dp"
-                        android:paddingEnd="14dp">
-
-                        <ImageView
-                            android:id="@+id/iconFav"
-                            android:layout_width="18dp"
-                            android:layout_height="18dp"
-                            android:layout_marginEnd="6dp"
-                            android:src="@drawable/ic_heart_outline"
-                            app:tint="@color/text_label"
-                            android:contentDescription="@string/favorites" />
-
-                        <TextView
-                            android:id="@+id/tvFavorites"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/favorites"
-                            style="@style/Text.Label"/>
-
-                    </LinearLayout>
-                </com.google.android.material.card.MaterialCardView>
 
             </LinearLayout>
 

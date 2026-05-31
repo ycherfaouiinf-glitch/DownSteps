@@ -30,6 +30,9 @@ android {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
+    buildFeatures {
+        viewBinding = true
+    }
 }
 
 dependencies {
@@ -51,6 +54,8 @@ dependencies {
     implementation("com.google.android.flexbox:flexbox:3.0.0")
     implementation("androidx.media3:media3-exoplayer:1.4.1")
     implementation("androidx.media3:media3-ui:1.4.1")
+    implementation(libs.androidx.navigation.fragment.ktx)
+    implementation(libs.androidx.navigation.ui.ktx)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

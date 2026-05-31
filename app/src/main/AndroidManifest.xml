@@ -18,6 +18,10 @@
         android:roundIcon="@drawable/downstepslogo"
         android:supportsRtl="true"
         android:theme="@style/Theme.DownSteps1">
+        <activity
+            android:name=".ConnectGameActivity"
+            android:exported="true"
+            android:theme="@style/Theme.DownSteps1" />
 
         <receiver
             android:name=".ui.SosWidgetProvider"
@@ -25,10 +29,12 @@
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
             </intent-filter>
+
             <meta-data
                 android:name="android.appwidget.provider"
                 android:resource="@xml/sos_widget_info" />
         </receiver>
+
         <activity
             android:name=".ui.SosWidgetActivationActivity"
             android:exported="true" />
@@ -52,9 +58,9 @@
             android:exported="true" />
         <activity
             android:name=".ui.VideoPlayerActivity"
-            android:screenOrientation="sensor"
             android:configChanges="orientation|screenSize"
-            android:exported="true" />
+            android:exported="true"
+            android:screenOrientation="sensor" />
         <activity
             android:name=".ui.LibraryAudioActivity"
             android:exported="true" />

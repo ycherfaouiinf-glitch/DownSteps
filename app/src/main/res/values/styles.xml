@@ -105,7 +105,7 @@
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">95dp</item>
         <item name="android:layout_columnWeight">1</item>
-        <item name="android:text">?</item>
+        <item name="android:text">.</item>
         <item name="android:textSize">30sp</item>
         <item name="android:textColor">#173F7A</item>
         <item name="android:backgroundTint">#EAF1FF</item>
@@ -118,6 +118,25 @@
         <item name="android:textSize">40sp</item>
         <item name="android:textStyle">bold</item>
         <item name="android:background">@drawable/bg_card_back</item>
+    </style>
+    <style name="ConnectCard">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">76dp</item>
+        <item name="android:layout_marginBottom">14dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">26sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/text_title</item>
+        <item name="android:background">@drawable/bg_card_front</item>
+    </style>
+    <style name="ConnectImageCard">
+        <item name="android:layout_width">86dp</item>
+        <item name="android:layout_height">86dp</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:layout_marginBottom">18dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">38sp</item>
+        <item name="android:background">@drawable/bg_connect_card</item>
     </style>
 
     <!-- ================= BUTTON ================= -->

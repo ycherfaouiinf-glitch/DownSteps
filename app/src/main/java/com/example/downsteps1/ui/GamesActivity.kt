@@ -18,6 +18,8 @@ import com.google.android.material.card.MaterialCardView
 import java.util.Calendar
 import android.content.Intent
 import com.example.downsteps1.MatchingGameActivity
+import com.example.downsteps1.ConnectGameActivity
+import com.example.downsteps1.ui.HomeActivity
 
 class GamesActivity : BaseActivity() {
 
@@ -30,10 +32,6 @@ class GamesActivity : BaseActivity() {
     private lateinit var tvSuggestedName: TextView
     private lateinit var tvSuggestedDesc: TextView
     private lateinit var btnSuggestedStart: MaterialButton
-
-    private lateinit var btnFavorites: MaterialCardView
-    private lateinit var iconFav: ImageView
-    private lateinit var tvFavorites: TextView
     private lateinit var layoutEmpty: LinearLayout
 
     private var showFavoritesOnly = false
@@ -53,12 +51,15 @@ class GamesActivity : BaseActivity() {
         tvSuggestedDesc = findViewById(R.id.tvSuggestedDesc)
         btnSuggestedStart = findViewById(R.id.btnSuggestedStart)
 
-        btnFavorites = findViewById(R.id.btnFavorites)
-        iconFav = findViewById(R.id.iconFav)
-        tvFavorites = findViewById(R.id.tvFavorites)
+
         layoutEmpty = findViewById(R.id.layoutEmpty)
 
         findViewById<ImageView>(R.id.btnBackChallange1).setOnClickListener {
+
+            startActivity(
+                Intent(this, HomeActivity::class.java)
+            )
+
             finish()
         }
 
@@ -138,7 +139,7 @@ class GamesActivity : BaseActivity() {
         recyclerGames.adapter = gamesAdapter
 
         updateSuggestedGame()
-        setupFavoritesButton()
+
 
         btnSuggestedStart.setOnClickListener {
             openGame(suggestedGame)
@@ -154,13 +155,6 @@ class GamesActivity : BaseActivity() {
         tvSuggestedDesc.text = suggestedGame.suggestedBenefit
     }
 
-    private fun setupFavoritesButton() {
-        btnFavorites.setOnClickListener {
-            showFavoritesOnly = !showFavoritesOnly
-            updateFavoritesList()
-            updateFavoriteButtonUI()
-        }
-    }
 
     private fun updateFavoritesList() {
         val filtered = if (showFavoritesOnly)
@@ -176,19 +170,7 @@ class GamesActivity : BaseActivity() {
             if (layoutEmpty.visibility == View.VISIBLE) View.GONE else View.VISIBLE
     }
 
-    private fun updateFavoriteButtonUI() {
-        if (showFavoritesOnly) {
-            btnFavorites.setCardBackgroundColor(Color.parseColor("#FFEFF4"))
-            iconFav.setImageResource(R.drawable.ic_heart_filled)
-            iconFav.setColorFilter(Color.parseColor("#FF6FA0"))
-            tvFavorites.setTextColor(Color.parseColor("#FF6FA0"))
-        } else {
-            btnFavorites.setCardBackgroundColor(Color.WHITE)
-            iconFav.setImageResource(R.drawable.ic_heart_outline)
-            iconFav.setColorFilter(Color.parseColor("#25336E"))
-            tvFavorites.setTextColor(Color.parseColor("#25336E"))
-        }
-    }
+
 
     private fun saveFavorites() {
         val prefs = getSharedPreferences(PREFS_NAME, MODE_PRIVATE)
@@ -208,6 +190,12 @@ class GamesActivity : BaseActivity() {
     private fun openGame(game: GameModel) {
 
         when (game.name) {
+
+            getString(R.string.game_connect) -> {
+                startActivity(
+                    Intent(this, ConnectGameActivity::class.java)
+                )
+            }
 
             getString(R.string.game_matching) -> {
                 startActivity(
