@@ -25,6 +25,7 @@ class MatchingGameActivity : AppCompatActivity() {
     private var firstIndex: Int? = null
     private var secondIndex: Int? = null
     private var isBusy = false
+    private val prefsName = "matching_game_data"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -59,16 +60,27 @@ class MatchingGameActivity : AppCompatActivity() {
             findViewById(R.id.card12)
         )
 
-        startLevel(1)
-    }
+        val savedLevel = getSharedPreferences(
+            prefsName,
+            MODE_PRIVATE
+        ).getInt("level", 1)
 
+        score = 0
+        startLevel(savedLevel)
+    }
+    private fun saveLevel() {
+        getSharedPreferences(prefsName, MODE_PRIVATE)
+            .edit()
+            .putInt("level", level)
+            .apply()
+    }
     private fun startLevel(newLevel: Int) {
         level = newLevel
-
+        saveLevel()
         val symbols = when (level) {
-            1 -> listOf("🐔", "🐮", "🐟")
-            2 -> listOf("🐔", "🐮", "🐟", "🌸")
-            else -> listOf("🐔", "🐮", "🐟", "🌸", "🐉", "🐶")
+            1 -> listOf("🐔", "🐮")
+            2 -> listOf("🐔", "🐮", "🐟")
+            else -> listOf("🐔", "🐮", "🐟", "🌸")
         }
 
         val numberOfCards = symbols.size * 2

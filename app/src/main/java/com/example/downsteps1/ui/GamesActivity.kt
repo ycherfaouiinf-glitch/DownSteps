@@ -16,6 +16,8 @@ import com.example.downsteps1.ui.adapter.GamesAdapter
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.card.MaterialCardView
 import java.util.Calendar
+import android.content.Intent
+import com.example.downsteps1.MatchingGameActivity
 
 class GamesActivity : BaseActivity() {
 
@@ -204,13 +206,25 @@ class GamesActivity : BaseActivity() {
     }
 
     private fun openGame(game: GameModel) {
-        Toast.makeText(
-            this,
-            getString(
-                R.string.game_not_implemented,
-                game.name
-            ),
-            Toast.LENGTH_SHORT
-        ).show()
+
+        when (game.name) {
+
+            getString(R.string.game_matching) -> {
+                startActivity(
+                    Intent(this, MatchingGameActivity::class.java)
+                )
+            }
+
+            else -> {
+                Toast.makeText(
+                    this,
+                    getString(
+                        R.string.game_not_implemented,
+                        game.name
+                    ),
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
+        }
     }
 }
