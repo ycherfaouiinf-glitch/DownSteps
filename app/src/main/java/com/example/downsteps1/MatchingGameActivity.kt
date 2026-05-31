@@ -75,36 +75,60 @@ class MatchingGameActivity : AppCompatActivity() {
             .apply()
     }
     private fun startLevel(newLevel: Int) {
+
         level = newLevel
         saveLevel()
-        val symbols = when (level) {
-            1 -> listOf("🐔", "🐮")
-            2 -> listOf("🐔", "🐮", "🐟")
-            else -> listOf("🐔", "🐮", "🐟", "🌸")
+
+        val allSymbols = listOf(
+            "🐔","🐮","🐟","🌸","🐶","⭐",
+            "🍎","🚗","🦋","🐸","🍌","🌈",
+            "🐱","🐻","🐼","🦁","🍇","🎈",
+            "🚀","🐙","🧸","⚽","🍒","🐰"
+        )
+
+        val pairsCount = when {
+
+            level <= 5 -> 2       // 4 cards
+            level <= 10 -> 3      // 6 cards
+            level <= 15 -> 4      // 8 cards
+            level <= 20 -> 5      // 10 cards
+            level <= 25 -> 6      // 12 cards
+            else -> 6             // Level 26–30
         }
 
-        val numberOfCards = symbols.size * 2
+        val symbols = allSymbols
+            .shuffled()
+            .take(pairsCount)
+
         cardsValues = (symbols + symbols).shuffled()
+
+        val numberOfCards = cardsValues.size
 
         matchedPairs = 0
         firstIndex = null
         secondIndex = null
         isBusy = false
 
-        tvScore.text = "Level $level  |  Score: $score"
+        tvScore.text = "Level $level | Score: $score"
 
         cardsViews.forEachIndexed { index, card ->
+
             if (index < numberOfCards) {
-                card.visibility = TextView.VISIBLE
+
+                card.visibility = android.view.View.VISIBLE
                 card.text = ""
                 card.isEnabled = true
-                card.setBackgroundResource(R.drawable.bg_card_back)
+                card.setBackgroundResource(
+                    R.drawable.bg_card_back
+                )
 
                 card.setOnClickListener {
                     onCardClicked(index)
                 }
+
             } else {
-                card.visibility = TextView.GONE
+
+                card.visibility = android.view.View.GONE
             }
         }
     }
@@ -169,17 +193,55 @@ class MatchingGameActivity : AppCompatActivity() {
     }
 
     private fun goToNextLevel() {
-        gridCards.visibility = android.view.View.GONE
-        levelMessageBox.visibility = android.view.View.VISIBLE
 
-        if (level < 3) {
-            tvLevelMessage.text = "Level $level completed successfully!"
-            btnNextLevel.text = "Go to Level ${level + 1}"
-        } else {
-            tvLevelMessage.text = "Excellent! You completed all levels!"
-            btnNextLevel.text = "Finish"
+        gridCards.visibility = android.view.View.GONE
+        levelMessageBox.visibility =
+            android.view.View.VISIBLE
+
+        if (level < 30) {
+
+            tvLevelMessage.text =
+                "Great! Level $level completed 🎉"
+
+            btnNextLevel.text =
+                "Go to Level ${level + 1}"
+
             btnNextLevel.setOnClickListener {
-                finish()
+
+                levelMessageBox.visibility =
+                    android.view.View.GONE
+
+                gridCards.visibility =
+                    android.view.View.VISIBLE
+
+                startLevel(level + 1)
+            }
+
+        } else {
+
+            tvLevelMessage.text =
+                "Excellent! You completed all 30 levels 🏆"
+
+            btnNextLevel.text = "Play Again"
+
+            btnNextLevel.setOnClickListener {
+
+                getSharedPreferences(
+                    prefsName,
+                    MODE_PRIVATE
+                ).edit()
+                    .putInt("level", 1)
+                    .apply()
+
+                score = 0
+
+                levelMessageBox.visibility =
+                    android.view.View.GONE
+
+                gridCards.visibility =
+                    android.view.View.VISIBLE
+
+                startLevel(1)
             }
         }
     }
