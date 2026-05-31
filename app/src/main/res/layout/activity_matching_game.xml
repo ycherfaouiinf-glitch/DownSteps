@@ -6,31 +6,50 @@
     android:layout_height="match_parent"
     android:background="@color/bg_main">
 
-    <TextView
-        android:id="@+id/tvScore"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Level 1  |  Score: 0"
-        android:textColor="@color/text_title"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:layout_marginEnd="24dp"
-        android:layout_marginTop="24dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
+    <!-- Header -->
     <LinearLayout
-        android:id="@+id/backContainer"
-        style="@style/BackBtn.Box"
-        android:layout_marginStart="22dp"
-        android:layout_marginTop="18dp"
-        app:layout_constraintStart_toStartOf="parent"
+        android:id="@+id/headerLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="38dp"
+        android:paddingStart="22dp"
+        android:paddingEnd="22dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
         app:layout_constraintTop_toTopOf="parent">
 
-        <ImageView
-            android:id="@+id/btnBack"
-            style="@style/BackBtn.Icon"
-            android:contentDescription="@string/back" />
+        <LinearLayout
+            android:id="@+id/backContainer"
+            style="@style/BackBtn.Box">
+
+            <ImageView
+                android:id="@+id/btnBack"
+                style="@style/BackBtn.Icon"
+                android:contentDescription="@string/back" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvScore"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Level 1 | Score: 0"
+            android:textColor="@color/text_title"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:id="@+id/btnRestartGame"
+            style="@style/RestartBtn.Box"
+            android:layout_marginStart="10dp">
+
+            <ImageView
+                android:id="@+id/imgRestart"
+                style="@style/RestartBtn.Icon"
+                android:contentDescription="restart" />
+        </LinearLayout>
+
     </LinearLayout>
 
     <GridLayout
@@ -40,7 +59,7 @@
         android:columnCount="3"
         android:rowCount="4"
         android:layout_marginTop="40dp"
-        app:layout_constraintTop_toBottomOf="@id/tvScore"
+        app:layout_constraintTop_toBottomOf="@id/headerLayout"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
@@ -59,6 +78,7 @@
         <TextView android:id="@+id/card12" style="@style/MemoryCard" />
 
     </GridLayout>
+
     <LinearLayout
         android:id="@+id/levelMessageBox"
         android:layout_width="0dp"
@@ -68,12 +88,12 @@
         android:padding="26dp"
         android:visibility="gone"
         android:background="@drawable/bg_level_success"
-        app:layout_constraintTop_toBottomOf="@id/tvScore"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginStart="24dp"
         android:layout_marginEnd="24dp"
-        android:layout_marginTop="90dp">
+        android:layout_marginTop="90dp"
+        app:layout_constraintTop_toBottomOf="@id/headerLayout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
         <TextView
             android:layout_width="wrap_content"
@@ -113,4 +133,5 @@
             android:backgroundTint="@color/btn_primary" />
 
     </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

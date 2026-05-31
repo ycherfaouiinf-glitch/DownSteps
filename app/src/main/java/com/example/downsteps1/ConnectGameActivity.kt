@@ -5,6 +5,8 @@ import android.os.Bundle
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import android.widget.ImageView
+import android.widget.LinearLayout
+
 class ConnectGameActivity : AppCompatActivity() {
 
     private lateinit var tvScore: TextView
@@ -12,9 +14,10 @@ class ConnectGameActivity : AppCompatActivity() {
 
     private lateinit var leftViews: List<TextView>
     private lateinit var rightViews: List<TextView>
-
-    private var selectedLeft: TextView? = null
-    private var selectedKey: String? = null
+    private val prefsName = "connect_game_data"
+    private var firstSelectedView: TextView? = null
+    private var firstSelectedKey: String? = null
+    private var firstSelectedSide: String? = null
     private var score = 0
     private var level = 1
     private var correctCount = 0
@@ -43,17 +46,34 @@ class ConnectGameActivity : AppCompatActivity() {
             findViewById(R.id.right5),
             findViewById(R.id.right6)
         )
+        level = getSharedPreferences(prefsName, MODE_PRIVATE)
+            .getInt("level", 1)
+
+        score = 0
         startLevel()
         findViewById<ImageView>(R.id.btnBack)
             .setOnClickListener {
                 finish()
             }
+        findViewById<LinearLayout>(R.id.btnRestartGame).setOnClickListener {
+            level = 1
+            score = 0
+
+            getSharedPreferences(prefsName, MODE_PRIVATE)
+                .edit()
+                .putInt("level", 1)
+                .apply()
+
+            startLevel()
+        }
     }
 
     private fun startLevel() {
+        saveLevel()
         correctCount = 0
-        selectedLeft = null
-        selectedKey = null
+        firstSelectedView = null
+        firstSelectedKey = null
+        firstSelectedSide = null
         linesView.clearLines()
 
         tvScore.text = "Level $level | Score: $score"
@@ -146,9 +166,7 @@ class ConnectGameActivity : AppCompatActivity() {
                 view.alpha = 1f
 
                 view.setOnClickListener {
-                    selectedLeft = view
-                    selectedKey = view.tag.toString()
-                    view.alpha = 0.6f
+                    selectCard(view, "left", pairsCount)
                 }
             } else {
                 view.visibility = android.view.View.GONE
@@ -164,7 +182,7 @@ class ConnectGameActivity : AppCompatActivity() {
                 view.alpha = 1f
 
                 view.setOnClickListener {
-                    checkAnswer(view, pairsCount)
+                    selectCard(view, "right", pairsCount)
                 }
             } else {
                 view.visibility = android.view.View.GONE
@@ -172,24 +190,49 @@ class ConnectGameActivity : AppCompatActivity() {
         }
     }
 
-    private fun checkAnswer(rightView: TextView, pairsCount: Int) {
-        val left = selectedLeft ?: return
-        val key = selectedKey ?: return
+    private fun selectCard(view: TextView, side: String, pairsCount: Int) {
 
-        if (key == rightView.tag.toString()) {
+        if (firstSelectedView == null) {
+            firstSelectedView = view
+            firstSelectedKey = view.tag.toString()
+            firstSelectedSide = side
+            view.alpha = 0.6f
+            return
+        }
+
+        if (firstSelectedSide == side) {
+            firstSelectedView?.alpha = 1f
+            firstSelectedView = view
+            firstSelectedKey = view.tag.toString()
+            firstSelectedSide = side
+            view.alpha = 0.6f
+            return
+        }
+
+        val firstView = firstSelectedView ?: return
+        val firstKey = firstSelectedKey ?: return
+
+        if (firstKey == view.tag.toString()) {
+
             score += 10
             correctCount++
             tvScore.text = "Level $level | Score: $score"
 
-            left.isEnabled = false
-            rightView.isEnabled = false
-            left.alpha = 1f
-            rightView.alpha = 1f
+            firstView.isEnabled = false
+            view.isEnabled = false
 
-            drawLineBetween(left, rightView)
+            firstView.alpha = 1f
+            view.alpha = 1f
 
-            selectedLeft = null
-            selectedKey = null
+            if (firstSelectedSide == "left") {
+                drawLineBetween(firstView, view)
+            } else {
+                drawLineBetween(view, firstView)
+            }
+
+            firstSelectedView = null
+            firstSelectedKey = null
+            firstSelectedSide = null
 
             if (correctCount == pairsCount) {
                 if (level < 30) {
@@ -198,14 +241,22 @@ class ConnectGameActivity : AppCompatActivity() {
                         startLevel()
                     }, 1000)
                 } else {
+                    getSharedPreferences(prefsName, MODE_PRIVATE)
+                        .edit()
+                        .putInt("level", 1)
+                        .apply()
+
                     tvScore.text = "Completed all 30 levels 🎉"
                 }
             }
 
         } else {
-            left.alpha = 1f
-            selectedLeft = null
-            selectedKey = null
+            firstView.alpha = 1f
+            view.alpha = 1f
+
+            firstSelectedView = null
+            firstSelectedKey = null
+            firstSelectedSide = null
         }
     }
 
@@ -255,5 +306,11 @@ class ConnectGameActivity : AppCompatActivity() {
             endY,
             colors.random()
         )
+    }
+    private fun saveLevel() {
+        getSharedPreferences(prefsName, MODE_PRIVATE)
+            .edit()
+            .putInt("level", level)
+            .apply()
     }
 }

@@ -15,7 +15,7 @@
         android:id="@+id/headerLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="18dp"
+        android:layout_marginTop="38dp"
         android:paddingStart="22dp"
         android:paddingEnd="22dp"
         android:gravity="center_vertical"
@@ -23,8 +23,7 @@
 
         <LinearLayout
             android:id="@+id/backContainer"
-            style="@style/BackBtn.Box"
-            android:elevation="10dp">
+            style="@style/BackBtn.Box" >
 
             <ImageView
                 android:id="@+id/btnBack"
@@ -32,19 +31,27 @@
                 android:contentDescription="@string/back" />
         </LinearLayout>
 
-        <Space
-            android:layout_width="0dp"
-            android:layout_height="1dp"
-            android:layout_weight="1" />
-
         <TextView
             android:id="@+id/tvScore"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
             android:text="Level 1 | Score: 0"
             android:textColor="@color/text_title"
-            android:textSize="20sp"
+            android:textSize="18sp"
             android:textStyle="bold" />
+        <LinearLayout
+            android:id="@+id/btnRestartGame"
+            style="@style/RestartBtn.Box"
+            android:layout_marginStart="10dp">
+
+            <ImageView
+                android:id="@+id/imgRestart"
+                style="@style/RestartBtn.Icon"
+                android:contentDescription="restart" />
+
+        </LinearLayout>
     </LinearLayout>
 
     <!-- Game -->
@@ -99,6 +106,7 @@
             </LinearLayout>
 
         </LinearLayout>
+
     </LinearLayout>
 
 </FrameLayout>

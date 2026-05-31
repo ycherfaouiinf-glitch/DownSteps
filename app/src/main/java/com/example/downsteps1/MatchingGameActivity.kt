@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.GridLayout
+
 class MatchingGameActivity : AppCompatActivity() {
 
     private lateinit var cardsViews: List<TextView>
@@ -42,7 +43,37 @@ class MatchingGameActivity : AppCompatActivity() {
             startLevel(level + 1)
         }
         val btnBack = findViewById<ImageView>(R.id.btnBack)
+        val btnRestartGame =
+            findViewById<LinearLayout>(
+                R.id.btnRestartGame
+            )
 
+        btnRestartGame.setOnClickListener {
+
+            level = 1
+            score = 0
+
+            getSharedPreferences(
+                prefsName,
+                MODE_PRIVATE
+            ).edit()
+                .putInt("level", 1)
+                .apply()
+
+            levelMessageBox.visibility =
+                android.view.View.GONE
+
+            gridCards.visibility =
+                android.view.View.VISIBLE
+
+            startLevel(1)
+
+            Toast.makeText(
+                this,
+                "Game restarted",
+                Toast.LENGTH_SHORT
+            ).show()
+        }
         btnBack.setOnClickListener {
 
             if (levelMessageBox.visibility == android.view.View.VISIBLE) {

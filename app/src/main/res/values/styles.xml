@@ -181,6 +181,17 @@
         <item name="android:gravity">center</item>
         <item name="android:orientation">horizontal</item>
     </style>
+    <style name="RestartBtn.Box" parent="BackBtn.Box">
+        <item name="android:layout_width">40dp</item>
+        <item name="android:layout_height">40dp</item>
+    </style>
+
+    <style name="RestartBtn.Icon" parent="BackBtn.Icon">
+        <item name="android:src">@android:drawable/ic_popup_sync</item>
+        <item name="android:layout_width">18dp</item>
+        <item name="android:layout_height">18dp</item>
+        <item name="android:tint">@color/text_title</item>
+    </style>
 
 
     <!-- ================= INPUT ================= -->
@@ -212,6 +223,7 @@
         <item name="android:paddingTop">14dp</item>
         <item name="android:paddingBottom">14dp</item>
     </style>
+
 
 
     <!-- ================= HEADER ================= -->
