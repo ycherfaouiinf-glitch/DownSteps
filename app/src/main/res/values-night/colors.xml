@@ -68,4 +68,7 @@
     <color name="filter_card_selected_stroke">#5F6F91</color>
     <color name="filter_card_bg">#24212B</color>
 
+    <color name="game_connect_bg">#293B56</color>
+    <color name="game_matching_bg">#4A3624</color>
+    <color name="game_coloring_bg">#4A2635</color>
 </resources>

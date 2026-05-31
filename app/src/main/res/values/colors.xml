@@ -71,4 +71,8 @@
 
     <color name="filter_card_bg">#FFFFFF</color>
 
+    <color name="game_connect_bg">#EEF4FF</color>
+    <color name="game_matching_bg">#FFF4E8</color>
+    <color name="game_coloring_bg">#FFEFF4</color>
+
 </resources>

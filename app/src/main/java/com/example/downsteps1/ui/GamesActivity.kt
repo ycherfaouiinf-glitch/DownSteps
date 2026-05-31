@@ -70,22 +70,14 @@ class GamesActivity : BaseActivity() {
                 suggestedBenefit = getString(R.string.game_connect_benefit),
                 level = getString(R.string.level_1),
                 imageResId = R.drawable.ic_connect,
-                backgroundColor = "#EEF4FF",
+                backgroundColor =
+                    String.format(
+                        "#%06X",
+                        0xFFFFFF and getColor(R.color.game_connect_bg)
+                    ),
                 buttonColor = "#4C6FFF",
                 levelBgColor = "#E3EDFF",
                 levelTextColor = "#4C6FFF"
-            ),
-            GameModel(
-                name = getString(R.string.game_learn),
-                description = getString(R.string.game_learn_desc),
-                suggestedBenefit = getString(R.string.game_learn_benefit),
-                level = getString(R.string.level_1),
-                imageResId = R.drawable.ic_learn,
-                backgroundColor = "#F5EEFF",
-                buttonColor = "#A66BFF",
-                levelBgColor = "#EEE6FF",
-                levelTextColor = "#A66BFF",
-                isPopular = true
             ),
             GameModel(
                 name = getString(R.string.game_matching),
@@ -93,21 +85,14 @@ class GamesActivity : BaseActivity() {
                 suggestedBenefit = getString(R.string.game_matching_benefit),
                 level = getString(R.string.level_2),
                 imageResId = R.drawable.ic_matching,
-                backgroundColor = "#FFF4E8",
+                backgroundColor =
+                    String.format(
+                        "#%06X",
+                        0xFFFFFF and getColor(R.color.game_matching_bg)
+                    ),
                 buttonColor = "#FF9F2E",
                 levelBgColor = "#FFE9D2",
                 levelTextColor = "#FF9F2E"
-            ),
-            GameModel(
-                name = getString(R.string.game_puzzle),
-                description = getString(R.string.game_puzzle_desc),
-                suggestedBenefit = getString(R.string.game_puzzle_benefit),
-                level = getString(R.string.level_2),
-                imageResId = R.drawable.ic_puzzle,
-                backgroundColor = "#EEF9EE",
-                buttonColor = "#59C36A",
-                levelBgColor = "#E4F6E8",
-                levelTextColor = "#59C36A"
             ),
             GameModel(
                 name = getString(R.string.game_coloring),
@@ -115,7 +100,11 @@ class GamesActivity : BaseActivity() {
                 suggestedBenefit = getString(R.string.game_coloring_benefit),
                 level = getString(R.string.level_1),
                 imageResId = R.drawable.ic_color_palette,
-                backgroundColor = "#FFEFF4",
+                backgroundColor =
+                    String.format(
+                        "#%06X",
+                        0xFFFFFF and getColor(R.color.game_coloring_bg)
+                    ),
                 buttonColor = "#FF6FA0",
                 levelBgColor = "#FFE3EC",
                 levelTextColor = "#FF6FA0"
